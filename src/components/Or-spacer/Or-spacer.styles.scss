@@ -1,0 +1,20 @@
+.orContainer {
+  margin: 0;
+  padding-top: 1rem;
+  display: flex;
+  flex: 1 100%;
+}
+
+.line {
+  width: 100%;
+  border-bottom: 1px solid #63738180;
+  line-height: 0.1em;
+  text-align: center;
+  justify-content: center;
+
+  span {
+    background: white;
+    padding: 0 10px;
+    width: 20px;
+  }
+}

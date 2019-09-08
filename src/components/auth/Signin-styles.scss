@@ -1,0 +1,80 @@
+$purple: #6433ff;
+$underline: rgb(236, 239, 241);
+
+.container {
+  position: relative;
+  flex-flow: row wrap;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  background: #6433ff;
+}
+.wave {
+  width: 100%;
+  top: -10px;
+  position: absolute;
+}
+.white {
+  box-shadow: 0 1px 46px -4px rgba(0, 0, 0, 0.28);
+  padding: 60px 40px;
+  width: 23%;
+  background: white;
+  border-radius: 5px;
+}
+.form-container {
+  z-index: 10;
+  margin-top: -140px;
+  min-width: 1900px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  h1 {
+    color: #6433ff;
+    word-spacing: 4px;
+    font-size: 38px;
+  }
+}
+
+.input-field {
+  width: 100%;
+}
+.input-field > input {
+  height: 42px;
+  padding-left: 10px;
+  border-radius: 2px;
+  border: 1px solid #1c162130;
+  width: 100%;
+}
+.input-field:nth-child(1) {
+  margin-bottom: 15px;
+}
+//end of form styling
+
+// button styles
+.btn {
+  padding: 14px 24px;
+  text-transform: uppercase;
+  border: none;
+  background: #6433ff;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-field {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.btn-field > p {
+  font-size: 14px;
+}
+.btn-field > p > span {
+  font-size: 18px;
+}
+// end of button styles
+//wave shapes

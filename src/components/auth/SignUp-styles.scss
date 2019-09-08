@@ -1,0 +1,99 @@
+$purple: #6433ff;
+$underline: rgb(236, 239, 241);
+
+.container-signUp {
+  text-align: center;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  background: #6433ff;
+}
+.white-signUp {
+  box-shadow: 0 1px 46px -4px rgba(0, 0, 0, 0.28);
+  padding: 60px 40px 30px 40px;
+  display: flex;
+  flex-flow: row wrap;
+  width: 23%;
+  background: white;
+  border-radius: 5px;
+
+  * {
+    flex: 1 40%;
+  }
+}
+.form-container-signUp {
+  margin-top: -140px;
+  min-width: 1900px;
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+h1 {
+  color: white;
+  word-spacing: 4px;
+}
+.input-field-signUp {
+  width: 100%;
+  ::-webkit-input-placeholder {
+    font-size: 14px;
+    color: #1c162160;
+  }
+
+  :focus {
+    border: 1px solid #6433ff;
+  }
+}
+.input-field-signUp > input {
+  padding: 30px 0 30px 10px;
+  border-radius: 5px !important;
+
+  height: 42px;
+  flex: 40%;
+
+  border-radius: 2px;
+  border: 1px solid #1c162130;
+  width: 100%;
+}
+
+.input-field-signUp:nth-child(3) {
+  margin-right: 15px;
+  margin-top: 15px;
+  flex: 40%;
+}
+.input-field-signUp:nth-child(4) {
+  margin-top: 15px;
+  flex: 40%;
+}
+.input-field-signUp:nth-child(5) {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  flex: 100%;
+}
+.btn-signUp {
+  padding: 14px 24px;
+
+  height: 80px;
+  text-transform: uppercase;
+  border: none;
+  background: #6433ff;
+  border-radius: 4px;
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.btn-field {
+  margin-top: 40px;
+  flex: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.btn-field > p {
+  font-size: 14px;
+}
+.btn-field > p > span {
+  font-size: 18px;
+}

@@ -1,11 +1,4 @@
-* {
-  box-sizing: border-box;
-  text-decoration: none;
-}
-a:visited {
-  text-decoration: none;
-}
-
-.App {
-  text-align: center;
+.imgsize {
+  height: 90vh;
+  width: 100%;
 }

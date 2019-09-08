@@ -1,16 +1,23 @@
 import React from "react";
 import Header from "./components/header/header.component";
 import { GlobalStyle } from "../src/global.styles";
-import "./App.css";
+import mainLogo from "../src/assets/images/startup.svg";
+import Routes from "./routes";
 
-function App() {
+import { connect } from "react-redux";
+
+function App({ loggedIn }) {
   return (
     <div>
+      <Header loggedIn={loggedIn} />
       <GlobalStyle />
-      <Header />
-      <h1>Crypto Dashboard</h1>
+      <Routes />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = ({ firebase }) => ({
+  loggedIn: firebase.auth
+});
+
+export default connect(mapStateToProps)(App);
