@@ -39,7 +39,7 @@ const RecoverPassword = ({ error, loading, sendEmail }) => {
       {({ isSubmitting, isValid }) => (
         <MainWrapper>
           <FormWrapper>
-            <Heading noMargin size="h1" color="purple">
+            <Heading noMargin size="h1" color="#6433ff">
               Recover Password
             </Heading>
             <Heading size="h2" bold color="black">

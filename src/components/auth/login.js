@@ -62,7 +62,9 @@ const Login = ({ login, loading, error, cleanUp }) => {
         <MainWrapper>
           <img className="wave" src={MainLogo} alt="wave shape" />
           <FormWrapper>
-            <Heading size="h1">Sign In to Flxw</Heading>
+            <Heading size="h1" color="#6433ff">
+              Sign In to Flxw
+            </Heading>
             <StyledForm>
               <Field
                 type="email"

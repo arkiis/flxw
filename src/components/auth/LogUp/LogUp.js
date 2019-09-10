@@ -19,9 +19,7 @@ import Message from "../../../UI/Message/Message";
 const FlexContainer = styled.div`
   width: 100%;
   display: flex;
-
   flex-wrap: wrap;
-
   * {
     flex: 1 40%;
   }
@@ -89,7 +87,9 @@ const LogUp = ({ signUp, loading, error, cleanUp }) => {
       {({ isSubmitting, isValid, cleanUp }) => (
         <SignUpWrapper>
           <FormWrapper>
-            <Heading size="h1">Create your account</Heading>
+            <Heading size="h1" color="#6433ff">
+              Create your account
+            </Heading>
             <StyledForm>
               <FlexContainer>
                 <StyledField

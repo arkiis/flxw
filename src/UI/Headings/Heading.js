@@ -4,32 +4,37 @@ import styled, { css } from "styled-components";
 const baseStyle = css`
   font-weight: 600;
   margin-top: 0;
+  color: ${({ color }) => {
+    return color;
+  }};
   margin-bottom: ${({ noMargin }) => (noMargin ? "0rem" : "3rem")};
 `;
 
 const Heading1 = styled.h1`
-  color: #6433ff;
   word-spacing: 4px;
+
+  z-index: ${({ scale }) => (scale ? "30" : "")};
   font-size: 38px;
   ${baseStyle}
 `;
 const Heading2 = styled.h2`
   font-size: 1rem;
-  color: black !important;
+  z-index: ${({ scale }) => (scale ? "30" : "")};
+  font-weight: 500 !important;
   text-align: center;
   ${baseStyle}
 `;
 
-const Heading = ({ children, color, noMargin, size }) => {
+const Heading = ({ children, color, noMargin, size, scale }) => {
   if (size === "h1")
     return (
-      <Heading1 noMargin={noMargin} color={color}>
+      <Heading1 noMargin={noMargin} color={color} scale={scale}>
         {children}
       </Heading1>
     );
   else if (size === "h2")
     return (
-      <Heading2 noMargin={noMargin} color={color}>
+      <Heading2 noMargin={noMargin} color={color} scale={scale}>
         {children}
       </Heading2>
     );
