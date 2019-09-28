@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Homepage from "./pages/homepage/homepage";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
+
 import Login from "./components/auth/login";
 import VerifyEmail from "./components/auth/VerifyEmail/VerifyEmail";
 import { connect } from "react-redux";
@@ -11,6 +12,8 @@ import LogUp from "./components/auth/LogUp/LogUp";
 import Prices from "./pages/Prices/prices";
 import Logout from "././components/auth/Logout/Logout";
 import RecoverPassword from "./components/auth/RecoverPassword/RecoverPassword";
+import Profile from "./components/auth/Profile/Profile";
+import PriceDetail from "./pages/PriceDetail/PriceDetail";
 
 const Routes = ({ loggedIn, emailVerified }) => {
   console.log(loggedIn);
@@ -20,23 +23,25 @@ const Routes = ({ loggedIn, emailVerified }) => {
     routes = (
       <Switch>
         <Route exact path="/verify-email" component={VerifyEmail}></Route>
-        <Routes exact path="/logout" component={Logout} />
+        <Route exact path="/logout" component={Logout} />
         <Redirect to="/verify-email" />
       </Switch>
     );
   } else if (loggedIn && emailVerified) {
     routes = (
       <Switch>
-        <Route exact path="/dashboard" exact component={Dashboard} />
-        <Routes exact path="/prices" component={Prices} />
-        <Routes exact path="/logout" component={Logout} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/prices" exact component={Prices} />
+        <Route exact path="/prices/:id" exact component={PriceDetail} />
+        <Route exact path="/logout" component={Logout} />
         <Redirect to="/dashboard" />
       </Switch>
     );
   } else {
     routes = (
       <Switch>
-        <Route exact path="/" exact component={Homepage} />
+        <Route exact path="/" component={Homepage} />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/signUp" component={SignUp} />
         <Route exact path="/login" component={Login} />

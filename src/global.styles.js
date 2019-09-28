@@ -1,8 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-body {
+body, a, p, td, th, span {
   font-family: 'Roboto', sans-serif;
+ 
  
 
   @media screen and (max-width: 800px) {

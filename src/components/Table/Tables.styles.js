@@ -1,10 +1,22 @@
 import styled from "styled-components";
 
+export const MarketCap = styled.div`
+  display: flex;
+  align-items: center;
+  transition: all ease 0.2s;
+  &:hover {
+    color: #6433ff;
+    cursor: pointer;
+    transition: all ease 0.2s;
+  }
+`;
+
 export const Tablestyles = styled.table`
   border-radius: 4px;
   text-align: left;
   border-collapse: collapse;
-  border: 1px solid #1c162130;
+  border: 1px solid;
+  border-color: rgb(236, 239, 241);
   width: 100%;
   box-shadow: rgba(17, 51, 83, 0.02) 0px 4px 12px 0px;
   background: white;
@@ -19,18 +31,25 @@ export const TableRowStyles = styled.tr`
 `;
 
 export const TabelDataStyles = styled.td`
-  color: ${({ negative, positive }) => {
+  color: ${({ negative, positive, grey }) => {
     if (negative) return "red";
     if (positive) return "green";
     else return "black";
   }};
+
   font-size: 20px;
   padding: 22px;
   padding-left: 32px;
+
+  > td {
+    color: gray;
+  }
 `;
 export const TabelHeadingStyles = styled.th`
   padding: 21px 12px 21px 32px;
-  color: #b3b3b3;
+  color: #33333370;
+  font-size: 15px;
+  border-collapse: collapse;
 `;
 
 // export const TD = ({ children, negative, positive }) => {

@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  padding: ${({ padding }) => (padding ? "9px 9px" : "14px 24px")};
+  padding: ${({ padding }) => (padding ? "12px 16px" : "14px 24px")};
+
   text-transform: uppercase;
   border: none;
   flex: 2 !important;
@@ -10,8 +11,7 @@ const StyledButton = styled.button`
   background: #6433ff;
   border-radius: 4px;
   color: white;
-  margin: ${({ noMargin }) =>
-    noMargin ? "10px 0 10px 31px" : "1.5rem 0 2rem 0"};
+  margin: ${({ noMargin }) => (noMargin ? "10px 0 10px 31px" : "")};
   font-weight: bold;
 
   cursor: pointer;

@@ -3,6 +3,7 @@ import * as actions from "../actions/actionTypes";
 const initialState = {
   error: null,
   loading: false,
+
   verifyEmail: {
     error: null,
     loading: false

@@ -1,0 +1,4 @@
+.rotate {
+  transform: rotate(0deg);
+  transition: all ease 0.3s;
+}

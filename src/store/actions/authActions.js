@@ -1,5 +1,5 @@
 import * as actions from "../actions/actionTypes";
-
+import axios from "axios";
 export const signUp = data => async (
   dispatch,
   getState,
@@ -95,3 +95,46 @@ export const recoverPassword = data => async (
     dispatch({ type: actions.RECOVERY_FAIL, payload: err.message });
   }
 };
+
+//recieve crpyto data
+export const fetchingCryptoStart = () => ({
+  type: actions.FETCHING_CRYPTO_START
+});
+
+export const fetchingCrpyotSuccess = json => ({
+  type: actions.FETCHING_CRYPTO_SUCCESS,
+  payload: json
+});
+
+export const fetchingCryptoFail = error => ({
+  type: actions.FETCHING_CRYPTO_FAIL,
+  payload: error
+});
+
+export function fetchCrypto() {
+  let request = axios
+    .get(
+      "https://api.nomics.com/v1/currencies/ticker?key=ba5753b91002279e7338b58479c03ea5&ids=BTC,ETH,XRP,BCH,LTC,EOS&interval=1d,30d"
+    )
+    .then(response => response.data);
+
+  return {
+    type: "FETCHING_CRYPTO_SUCCESS",
+    payload: request
+  };
+}
+
+// export const fetchCrypto = () => {
+//   return async dispatch => {
+//     dispatch(fetchingCryptoStart());
+//     try {
+//       let response = await fetch(
+//         "https://api.nomics.com/v1/currencies/ticker?key=ba5753b91002279e7338b58479c03ea5&ids=BTC,ETH,XRP,BCH,LTC,EOS&interval=1d,30d"
+//       );
+//       let json = await response.json();
+//       dispatch(fetchingCrpyotSuccess(json));
+//     } catch (error) {
+//       dispatch(fetchingCryptoFail(error));
+//     }
+//   };
+// };

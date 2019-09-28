@@ -3,6 +3,18 @@ import mainLogo from "../../assets/images/placeholder.com-logo4.jpg";
 import { Link } from "react-router-dom";
 import "./header.styles.scss";
 import { connect } from "react-redux";
+import ToggleContent from "../../UI/Modal/ToggleContent.js";
+import HomeModal from "../../UI/Modal/HomeModal";
+import styled from "styled-components";
+import LogUp from "../auth/LogUp/LogUp";
+import HeaderDropDown from "../../components/dropdown/dropdown";
+
+const SpanArrow = styled.span`
+  transform: rotate(180deg);
+  color: #1c1621;
+  opacity: 0.7;
+  margin-left: 2px;
+`;
 
 const Header = ({ loggedIn }) => {
   let links;
@@ -24,12 +36,10 @@ const Header = ({ loggedIn }) => {
           </Link>
         </div>
         <div className="loginContainer">
-          <Link className="optionLink" to="/logout">
-            Logout
-          </Link>
           <Link to="/prices">
             <button className="btn-header">Trade</button>
           </Link>
+          <HeaderDropDown />
         </div>
       </div>
     );
@@ -44,7 +54,22 @@ const Header = ({ loggedIn }) => {
             Home
           </Link>
           <Link className="optionLink" to="/prices">
-            Prices
+            <ToggleContent
+              toggle={show => <a onClick={show}>Prices</a>}
+              content={hide => (
+                <HomeModal>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100vh",
+                      position: "absolute"
+                    }}
+                    onClick={hide}
+                  ></div>
+                  <LogUp signUp loading error cleanUp></LogUp>
+                </HomeModal>
+              )}
+            />
           </Link>
           <Link className="optionLink" to="/chatroom">
             Chatroom

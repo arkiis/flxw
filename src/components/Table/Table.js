@@ -61,6 +61,14 @@ class Table extends Component {
     };
   }
 
+  fetchCrpto() {
+    fetch(
+      "https://api.nomics.com/v1/currencies/ticker?key=ba5753b91002279e7338b58479c03ea5&ids=BTC,ETH,XRP,BCH,LTC,EOS&interval=1d,30d"
+    )
+      .then(response => response.json())
+      .then(data => console.log(data));
+  }
+
   renderTableData() {
     return this.state.coins.map((coin, index) => {
       const { id, symbol, name, price, change, icon } = coin;
@@ -84,7 +92,7 @@ class Table extends Component {
           >
             {change}
           </Styles.TabelDataStyles>
-          <Button padding width noMargin>
+          <Button padding width noMargin onClick={this.fetchCrpto}>
             Buy
           </Button>
         </Styles.TableRowStyles>

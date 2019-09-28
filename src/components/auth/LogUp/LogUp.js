@@ -32,7 +32,7 @@ const SignUpWrapper = styled.div`
   align-items: center;
   justify-content: center;
   height: 90vh;
-  background: #6433ff;
+  background: transparent;
 `;
 
 const MessageWrapper = styled.div`

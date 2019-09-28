@@ -8,6 +8,7 @@ const baseStyle = css`
     return color;
   }};
   margin-bottom: ${({ noMargin }) => (noMargin ? "0rem" : "3rem")};
+  margin-top: ${({ noMarginTop }) => (noMarginTop ? "0px" : "34px")};
 `;
 
 const Heading1 = styled.h1`
