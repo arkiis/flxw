@@ -1,0 +1,36 @@
+.apexcharts-gridline {
+  display: none !important;
+}
+
+.not-active {
+  margin: 0 5px;
+  font-size: 14px;
+  color: gray;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.active {
+  padding: 5px;
+  margin: 0 5px;
+  font-size: 14px;
+  color: purple;
+  cursor: pointer;
+  background: #ffffff;
+  cursor: pointer;
+}
+.bus {
+  color: #6433ff;
+  border-top: 2px solid #6433ff;
+  background: white;
+  border-bottom: none;
+}
+.fade {
+  color: #4a4a4a70;
+}
+.default {
+  color: #6433ff;
+  border-top: 2px solid #6433ff;
+  background: white;
+  border-bottom: none;
+}

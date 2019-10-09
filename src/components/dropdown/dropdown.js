@@ -22,7 +22,7 @@ const DDContainer = styled.div`
 
 const DropDown = styled.div`
   position: absolute;
-
+  transition: all 1s ease;
   top: 100%;
   left: -10px;
   width: 130px;

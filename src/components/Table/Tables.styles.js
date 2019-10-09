@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+export const TableContainer = styled.div`
+  z-index: 10;
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  max-width: 1142px;
+`;
+
+export const CoinIcon = styled.img`
+  width: ${({ width }) => (width ? "12px" : "36px")};
+  height: ${({ height }) => (height ? "12px" : "36px")};
+`;
+
 export const MarketCap = styled.div`
   display: flex;
   align-items: center;
@@ -36,7 +49,7 @@ export const TabelDataStyles = styled.td`
     if (positive) return "green";
     else return "black";
   }};
-
+  display: ${({ flex }) => (flex ? "flex" : "")};
   font-size: 20px;
   padding: 22px;
   padding-left: 32px;
@@ -44,6 +57,10 @@ export const TabelDataStyles = styled.td`
   > td {
     color: gray;
   }
+`;
+export const TableDataP = styled.p`
+  margin-left: 10px;
+  font-weight: 500;
 `;
 export const TabelHeadingStyles = styled.th`
   padding: 21px 12px 21px 32px;
