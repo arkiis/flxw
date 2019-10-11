@@ -1,5 +1,5 @@
 import React from "react";
-import mainLogo from "../../assets/images/placeholder.com-logo4.jpg";
+import mainLogo from "../../assets/images/flxw-logo.jpg";
 import { Link } from "react-router-dom";
 import "./header.styles.scss";
 import { connect } from "react-redux";

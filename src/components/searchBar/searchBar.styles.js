@@ -7,9 +7,13 @@ export const SearchBarMainContainer = styled.div`
 `;
 export const SearchBarInput = styled.input`
   border: none;
-  width: 100%;
+  width: ${({ L }) => (L ? "40%" : "100%")};
+
   font-size: 17px;
   opacity: 0.6;
+  &::placeholder {
+    font-size: ${({ XL }) => (XL ? "46px" : "")};
+  }
   &:focus {
     border: none;
     outline: none;

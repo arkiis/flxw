@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import * as Styles from "../../../../pages/PriceDetail/PriceDetailStyles";
-import Paypal from "../../../../assets/images/paypal-seeklogo.com.svg";
-import Arrow from "../../../../assets/images/chevron-right-solid.svg";
 import * as Style from "../../../searchBar/searchBar.styles";
 import AsideBuyFooter from "./AsideBuyFooter/AsideBuyFooter";
 
@@ -48,7 +46,7 @@ const AsideBuySection = props => {
               style={{ display: "flex", justifyContent: "center" }}
             >
               <p>$</p>
-              <Style.SearchBarInput type={Text} placeholder="0" />
+              <Style.SearchBarInput XL L type="number" placeholder="0" />
             </Styles.Heading1>
           </Styles.AsideBuyBody>
           <AsideBuyFooter price={props.price} />
