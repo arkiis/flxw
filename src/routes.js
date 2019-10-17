@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Homepage from "./pages/homepage/homepage";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
-
+import Chatroom from "./pages/chatroom/Chatroom";
 import Login from "./components/auth/login";
 import VerifyEmail from "./components/auth/VerifyEmail/VerifyEmail";
 import { connect } from "react-redux";
@@ -32,6 +32,7 @@ const Routes = ({ loggedIn, emailVerified }) => {
       <Switch>
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/chatroom" component={Chatroom} />
         <Route exact path="/prices" exact component={Prices} />
         <Route exact path="/prices/:id" exact component={PriceDetail} />
         <Route exact path="/logout" component={Logout} />

@@ -5,11 +5,29 @@ import * as Home from "../dashboard/dashboard.styles";
 import DashboardChart from "./components/DashboardChart";
 import AsideBodyItems from "../../components/Chart/ChartAside/AsideBodySection/AsideBodyItems";
 import DashboardRowOne from "../dashboard/components/DashboardRowOne";
+import date from "date-and-time";
+import TradeSummaryHeader from "./components/TradeSummaryHeader";
+import TradeSummary from "./components/TradeSummary";
 
 const Dashboard = () => {
   const [chartData, setChartData] = useState({});
   const btc = [1400, 300, 2000, 1200];
   const total = [...btc].reduce((a, b) => a + b, 0);
+  const [trigger, setTrigger] = useState(["MACD", "RSI", "Stop Rise", "DAC"]);
+  const [text, setText] = useState("");
+  const now = new Date();
+
+  const newTrigger = trigger[Math.floor(Math.random() * trigger.length)];
+
+  const currencySold = {
+    price: "+ 1,900 USD",
+    price_two: "$1,200 USD",
+    price_three: "$1,400 USD",
+    Acquired: {
+      price: "+ 0.42038794 BTC",
+      price_two: "+ 6023.17 USD"
+    }
+  };
 
   useEffect(() => {
     getChartData();
@@ -19,6 +37,8 @@ const Dashboard = () => {
     const sus = Math.floor(total * 100) / 100;
     return sus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
+
+  console.log(trigger[0]);
 
   const getChartData = () => {
     setChartData({
@@ -42,6 +62,25 @@ const Dashboard = () => {
             simplifyPrice={simplifyPrice}
             chartData={chartData}
           />
+          {/*full row of trade summary component */}
+          <Home.PortfolioHeader>Trade Summary</Home.PortfolioHeader>
+          <Style.Tablestyles>
+            <TradeSummaryHeader />
+            <TradeSummary
+              tradeNumber={1}
+              currencySold={currencySold}
+              now={now}
+              newTrigger={newTrigger}
+              children={"Buy"}
+            />
+            <TradeSummary
+              tradeNumber={2}
+              currencySold={currencySold}
+              now={now}
+              newTrigger={newTrigger}
+              children={"Sell"}
+            />
+          </Style.Tablestyles>
         </Style.TableContainer>
       </Styles.HomepageWrapper>
     </Styles.HomeMainWrapper>

@@ -44,14 +44,18 @@ export const TableRowStyles = styled.tr`
 `;
 
 export const TabelDataStyles = styled.td`
-  color: ${({ negative, positive, grey }) => {
+  color: ${({ negative, positive, gray, matte }) => {
     if (negative) return "red";
-    if (positive) return "green";
+    if (positive) return "#06D6A0";
+    if (gray) return "#1c162198";
+    if (matte) return "#4A4A4A";
     else return "black";
   }};
   display: ${({ flex }) => (flex ? "flex" : "")};
   font-size: 20px;
+  font-size: ${({ size }) => (size ? "15px" : "")};
   padding: 22px;
+  font-weight: ${({ bold }) => (bold ? "600" : "")};
   padding-left: 32px;
 
   > td {

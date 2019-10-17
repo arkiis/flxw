@@ -6,7 +6,7 @@ import Button from "../../../UI/Forms/Button/Button";
 const GetPriceListBody = props => {
   const lowercasedCoins = props.search.toLowerCase();
   const [coins, setCoins] = useState(props.coins);
-
+  const priceChanges = props.priceChange;
   const filteredCoins = props.coins.filter(coin => {
     return Object.keys(coin).some(
       key =>
@@ -17,7 +17,7 @@ const GetPriceListBody = props => {
   });
 
   const reversedFilteredCoins = filteredCoins.slice().reverse();
-  console.log(filteredCoins);
+  console.log(priceChanges);
   if (props.MarketCapLow) {
     return (
       <>
@@ -31,7 +31,9 @@ const GetPriceListBody = props => {
             price,
             market_cap
           } = coin;
+
           const newMarketPct = (price_change_pct * 100).toFixed(2);
+          const marketprct = [...props].priceChange;
           const newPrice = Math.floor(price * 100) / 100;
           const newMarketCap =
             Math.abs(market_cap) > 999999999
@@ -62,7 +64,7 @@ const GetPriceListBody = props => {
                     : { color: "#23cc9a" }
                 }
               >
-                {newMarketPct}%
+                {marketprct}%
               </Styles.TabelDataStyles>
               <Styles.TabelDataStyles>${newMarketCap}</Styles.TabelDataStyles>
 

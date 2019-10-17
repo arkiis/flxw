@@ -32,6 +32,8 @@ const GetSearchBar = props => {
           color={color}
           handleClick={handleClick}
           timeIntervels={props.timeIntervels}
+          updateData={props.updateData}
+          selection={props.selection}
         />
       </Styles.SearchBarContainer>
     </Styles.SearchBarMainContainer>
