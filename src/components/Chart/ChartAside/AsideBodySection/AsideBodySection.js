@@ -8,6 +8,7 @@ const AsideBodySection = props => {
     <Styles.AsideAssetsSection>
       <Styles.AsideAssetsWrapper>
         <Styles.AsideAssetsHeader>Discover More</Styles.AsideAssetsHeader>
+        {/* shows all the other coin assets you can discover */}
         <AsideBodyItems
           allCoins={props.allCoins}
           simplifyPrice={props.simplifyPrice}

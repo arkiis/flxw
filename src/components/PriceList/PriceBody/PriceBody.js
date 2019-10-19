@@ -7,6 +7,9 @@ const GetPriceListBody = props => {
   const lowercasedCoins = props.search.toLowerCase();
   const [coins, setCoins] = useState(props.coins);
   const priceChanges = props.priceChange;
+
+  //filters the coins when the user types in the search bar
+
   const filteredCoins = props.coins.filter(coin => {
     return Object.keys(coin).some(
       key =>

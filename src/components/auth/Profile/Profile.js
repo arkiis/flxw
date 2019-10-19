@@ -58,6 +58,8 @@ const ProfileSchema = Yup.object().shape({
     .required("Confirm your password")
 });
 
+//This is where users sign up for an account
+
 const Profile = () => {
   return (
     <Formik
@@ -82,6 +84,8 @@ const Profile = () => {
               Create your account
             </Heading>
             <StyledForm>
+              {/* holds input feilds */}
+
               <FlexContainer>
                 <StyledField
                   type="text"

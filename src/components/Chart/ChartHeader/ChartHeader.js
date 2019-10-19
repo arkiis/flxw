@@ -3,6 +3,8 @@ import * as Styles from "../../../pages/PriceDetail/PriceDetailStyles";
 import FollowIcon from "../../../components/FollowIcon/FollowIcon";
 
 const GetHeadingChartSection = props => {
+  //This header is found above the area chart
+
   return (
     <Styles.HeadingChartWrapper>
       <Styles.HeadingChartSectionWrapper>

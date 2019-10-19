@@ -39,6 +39,7 @@ const Header = ({ loggedIn }) => {
           <Link to="/prices">
             <button className="btn-header">Trade</button>
           </Link>
+          {/* this holds prfile picture and dropdown menu */}
           <HeaderDropDown />
         </div>
       </div>

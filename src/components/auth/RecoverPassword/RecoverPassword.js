@@ -73,6 +73,7 @@ const RecoverPassword = ({ error, loading, sendEmail }) => {
                 </Message>
               </MessageWrapper>
             </StyledForm>
+            {/* Link takes them to the sign up page*/}
             <Link to="/logup">
               <PasswordLink>Don't have an account?</PasswordLink>
             </Link>

@@ -56,6 +56,9 @@ const DDUnordered = styled.ul`
   padding: 0;
   margin: 0;
 `;
+//this class component shows profile picture and
+// shows the dropdown onclicked
+// dropdown can link to settings page or logout page
 
 export default class HeaderDropDown extends Component {
   DContainer = React.createRef();

@@ -91,6 +91,7 @@ const Login = ({ login, loading, error, cleanUp }) => {
                   Sign In
                 </Button>
               </ButtonWrapper>
+              {/* if login creditials are not correct, this message will appear */}
               <MessageWrapper>
                 <Message error show={error}>
                   {error}

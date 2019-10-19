@@ -6,7 +6,9 @@ import "animate.css";
 // import MyNotification from "../Notification/Notification";
 
 const FollowIcon = ({ price }) => {
-  console.log(price.name);
+  console.log(price);
+  let coinsFollowing = [];
+
   function useLocalState(localItem) {
     const [loc, setState] = useState(localStorage.getItem(localItem));
 
@@ -28,6 +30,8 @@ const FollowIcon = ({ price }) => {
   const handleClick = () => {
     setFollowing(!following);
     setTitle("Following");
+    coinsFollowing = [...coinsFollowing, price.currency];
+    localStorage.setItem("coinsFollowing", JSON.stringify(coinsFollowing));
   };
 
   function MyNotification() {
@@ -51,6 +55,8 @@ const FollowIcon = ({ price }) => {
   }
 
   return (
+    //this whole container is the follow button
+
     <Stlyes.Container onClick={handleClick}>
       <Stlyes.FollowIconContent
         onClick={() => {

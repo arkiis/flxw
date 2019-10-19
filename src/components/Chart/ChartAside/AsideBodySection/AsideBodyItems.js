@@ -7,7 +7,11 @@ const AsideBodyItems = (props, match) => {
   console.log(props.allCoins);
   console.log(props.price.currency);
   return (
+    //coins showing in the discover more component
+    //under the buy/sell component
+
     <Styles.AsideAssetBody>
+      {/* filter used to remove the coin thats displaying on that page */}
       {props.allCoins
         .filter(coin => coin.name !== props.price.name)
         .map(coin => {

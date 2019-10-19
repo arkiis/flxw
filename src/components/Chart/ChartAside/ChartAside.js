@@ -18,6 +18,8 @@ const GetAsideSection = props => {
   };
   return (
     <Styles.ChartAsideSection>
+      {/* Aside section */}
+
       <AsideBuySection price={props.price} />
       <AsideBodySection
         allCoins={props.allCoins}

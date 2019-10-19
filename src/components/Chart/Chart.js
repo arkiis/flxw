@@ -202,7 +202,8 @@ class AreaChart extends React.Component {
       ]
     };
   }
-
+  //This fetch is to grab the timestamps and the price at the given date.
+  //this is to replace the data above but I'm still trying to figure that out
   fetchdata() {
     fetch(
       "https://api.nomics.com/v1/currencies/sparkline?key=ba5753b91002279e7338b58479c03ea5&start=2018-04-14T00%3A00%3A00Z&end=2018-05-14T00%3A00%3A00Z"
@@ -283,6 +284,9 @@ class AreaChart extends React.Component {
   render() {
     const timeStamp = this.state.coins;
     console.log(timeStamp);
+
+    //These are the differnet time intervals for the area chart
+
     return (
       <div id="chart">
         <div className="toolbar">
@@ -336,6 +340,8 @@ class AreaChart extends React.Component {
             return null;
           })}
         </div> */}
+
+        {/* the area chart */}
         <ReactApexChart
           options={this.state.options}
           series={this.state.series}

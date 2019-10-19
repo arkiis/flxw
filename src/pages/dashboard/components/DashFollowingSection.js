@@ -5,6 +5,9 @@ import ProgressBar from "../../../components/ProgressBar/ProgressBar";
 const DashFollowingSection = () => {
   const [percentage, setPercentage] = useState(0);
   const [background, setBackground] = useState("");
+  const [coinsFollowing, setCoinsFollowing] = useState(
+    JSON.parse(localStorage.getItem("coinsFollowing"))
+  );
   const [name, setName] = useState("");
 
   const loadProgress = perc => {
@@ -18,7 +21,11 @@ const DashFollowingSection = () => {
         <Home.DashboardPortfolioSection>
           <Home.PortfolioHeader>Following</Home.PortfolioHeader>
           <Home.DashboardFollowingItems>
-            <p>dummy text</p>
+            {coinsFollowing ? (
+              coinsFollowing.map(coin => <p>{coin}</p>)
+            ) : (
+              <p>No coins</p>
+            )}
             <p>dummy text</p>
           </Home.DashboardFollowingItems>
         </Home.DashboardPortfolioSection>

@@ -2,6 +2,9 @@ import "./Or-spacer.styles.scss";
 
 import React, { Component } from "react";
 
+//this component is made for the login page
+//where users can login or login with Google
+
 class OrSpacer extends Component {
   render() {
     return (

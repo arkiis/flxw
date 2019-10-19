@@ -61,6 +61,9 @@ class Table extends Component {
     };
   }
 
+  //fetches the data to show on the table
+  //on the price page
+
   fetchCrpto() {
     fetch(
       "https://api.nomics.com/v1/currencies/ticker?key=ba5753b91002279e7338b58479c03ea5&ids=BTC,ETH,XRP,BCH,LTC,EOS&interval=1d,30d"

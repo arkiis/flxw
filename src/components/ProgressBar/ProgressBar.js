@@ -42,6 +42,9 @@ const PHeading = styled.p`
 
 const ProgressBar = props => {
   return (
+    //These are the progress bars for the dashboard page
+    //under Today's market activity
+
     <ProgressWrapper>
       <ProgressItems>
         <PHeading>{props.percentage}%</PHeading>
@@ -51,7 +54,7 @@ const ProgressBar = props => {
         <Thumb
           background={props.background}
           percentage={props.percentage}
-          loadProgress={props.loadProgress(80)}
+          loadProgress={props.loadProgress(80)} //this is the animation
         />
       </Track>
     </ProgressWrapper>

@@ -7,7 +7,7 @@ const Footer = () => {
     <Styles.FooterWrapper>
       <Styles.FooterContainer>
         <Styles.FooterContent>
-          <img src={image}></img>
+          <img src={image} alt="placeholder-logo"></img>
           <p>202-555-0135</p>
           <p>@ 2019 Flxw</p>
         </Styles.FooterContent>

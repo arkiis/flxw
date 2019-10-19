@@ -42,6 +42,10 @@ const PriceList = props => {
     setSearch(e.target.value);
   };
 
+  //I'm trying to get the
+  //time intervals to update the price change
+  //prct data on the table
+
   const updateData = timeline => {
     setSelection(timeline);
 

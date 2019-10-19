@@ -22,7 +22,9 @@ const ChartDetails = props => {
       ? Math.sign(data) * (Math.abs(data) / 1000000000).toFixed(1) + "B"
       : Math.sign(data) * (Math.abs(data) / 1000000).toFixed(2) + "M";
   };
-
+  {
+    /* This data can be found under the area chart */
+  }
   return (
     <Styles.ChartDetailsWrapper>
       <Styles.ChartDetailItem>
