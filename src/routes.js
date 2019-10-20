@@ -16,7 +16,7 @@ import Profile from "./components/auth/Profile/Profile";
 import PriceDetail from "./pages/PriceDetail/PriceDetail";
 
 const Routes = ({ loggedIn, emailVerified }) => {
-  console.log(loggedIn);
+  console.log(`LOGJS- Loggedin ${loggedIn}`);
   let routes;
 
   if (loggedIn && !emailVerified) {

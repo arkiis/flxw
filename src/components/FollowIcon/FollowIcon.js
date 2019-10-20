@@ -3,35 +3,45 @@ import * as Stlyes from "./FollowIcon.styles";
 import { store } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import "animate.css";
+import firebase from "../../Firebase/Firebase";
 // import MyNotification from "../Notification/Notification";
 
 const FollowIcon = ({ price }) => {
   console.log(price);
   let coinsFollowing = [];
 
-  function useLocalState(localItem) {
-    const [loc, setState] = useState(localStorage.getItem(localItem));
+  // console.log(`LOGJS- FirebaseObject`);
+  // console.log(firebase.auth().currentUser.uid);
+  // firebase.auth = user id
 
-    function setLoc(newItem) {
-      localStorage.setItem(localItem, newItem);
-      setState(newItem);
-    }
+  const db = firebase.firestore();
 
-    return [loc, setLoc];
-  }
   //   const [following, setFollowing] = useState("");
   const [following, setFollowing] = useState(false);
-  const [title, setTitle] = useLocalState("Follow");
+  const [title, setTitle] = useState("Follow");
 
   //   React.useEffect(() => {
   //     localStorage.setItem("follow", following);
   //   }, [following]);
 
   const handleClick = () => {
+    let data = {
+      logo_url: price.logo_url,
+      id: price.id,
+      name: price.name,
+      price: price.price,
+      userId: firebase.auth().currentUser.uid
+    };
+    console.log(`LOGJS- FirebaseObject`);
+    console.log(data);
+    db.collection("coins")
+      .doc()
+      .set(data);
+
     setFollowing(!following);
     setTitle("Following");
     coinsFollowing = [...coinsFollowing, price.currency];
-    localStorage.setItem("coinsFollowing", JSON.stringify(coinsFollowing));
+    //localStorage.setItem("coinsFollowing", JSON.stringify(coinsFollowing));
   };
 
   function MyNotification() {

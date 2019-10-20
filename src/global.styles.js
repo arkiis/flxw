@@ -1,6 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
+export default createGlobalStyle`
+
+html{
+
+}
+
 body, a, p, td, th, span {
   font-family: 'Roboto', sans-serif;
  
