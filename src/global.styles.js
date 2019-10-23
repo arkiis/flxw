@@ -12,7 +12,7 @@ body, a, p, td, th, span {
  
 
   @media screen and (max-width: 800px) {
-    padding: 10px;
+    ${"" /* padding: 10px; */}
   }
 }
 h1,h2,h3,h4,h5,button{
@@ -22,6 +22,7 @@ h1,h2,h3,h4,h5,button{
 a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 * {

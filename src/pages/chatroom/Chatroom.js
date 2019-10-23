@@ -1,68 +1,69 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as Styles from "../Prices/prices.styles";
 import * as Style from "./Chatroom.styles";
 import BtcIcon from "../../assets/chatroomIcons/Bitcoin.png";
 import firebase from "../../Firebase/Firebase";
+import ChatroomForm from "./ChatroomForm";
+import { formatDistanceToNow } from "date-fns";
+
 const db = firebase.firestore();
 
 // adding new chat documents
 // setting up a real-time listener to get new chats
 // updating the room
-
-class Chat {
-  constructor(room, username) {
-    this.room = room;
-    this.username = username;
-    this.chats = db.collection("chats");
-    this.unsub = "";
-  }
-  async addChat(message) {
-    //format a chat object
-    const now = new Date();
-    const chat = {
-      message,
-      username: this.username,
-      room: this.room,
-      created_at: firebase.firestore.Timestamp.fromDate(now)
-    };
-    // save the chat document
-    const response = await this.chats.add(chat);
-    return response;
-  }
-  getChats(callback) {
-    this.unsub = this.chats
-      .where("room", "==", this.room)
-      .orderBy("created_at")
-      .onSnapshot(snapchat => {
-        snapchat.docChanges().forEach(change => {
-          if (change.type === "added") {
-            // update the UI
-            callback(change.doc.data());
-          }
-        });
-      });
-  }
-  updateRoom(room) {
-    this.room = room;
-    console.log("room updated");
-    if (this.unsub) {
-      this.unsub();
-    }
-  }
-}
+const ROOMS = {
+  general: { chatroom: "general" },
+  bitcoin: { chatroom: "bitcoin" },
+  etheruem: { chatroom: "etheruem" },
+  litecoin: { chatroom: "litecoin" },
+  ripple: { chatroom: "ripple" }
+};
 
 const Chatroom = () => {
-  const [room, setRoom] = useState();
+  const [selection, setSelection] = useState("general");
+  const [loading, setLoading] = useState(false);
+  const allChats = useChats();
+  const [sortBy, setSortBy] = useState("GENERAL");
+  const [room, setRoom] = useState("");
   const [username, setUsername] = useState();
   const [chats, setChats] = useState(db.collection("chats"));
 
-  // get chats and render
-  const newChat = new Chat("gaming", "shaun");
+  const updateSelection = select => {
+    setSelection(select);
+  };
 
-  const okay = newChat.getChats(data => {
-    console.log(data);
-    return <li>{data.username}</li>;
-  });
+  function useChats(room = selection) {
+    const now = new Date();
+    const [chats, setChats] = useState([]);
+    console.log(ROOMS.ROOM);
+    const [createdAt, setCreatedAt] = useState("");
+    useEffect(() => {
+      const unsubscribe = firebase
+        .firestore()
+        .collection("chats")
+        .where("active_room", "==", ROOMS[room].chatroom)
+        .orderBy("created_at")
+        .onSnapshot(snapshot => {
+          const newChats = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+          }));
+          setRoom(ROOMS[room].chatroom);
+          setChats(newChats);
+          console.log(room);
+        });
+      return () => unsubscribe();
+    }, [room]);
+    return chats;
+  }
+
+  const fixDate = dat => {
+    var myDate = new Date(dat * 1000);
+    // const sus = myDate.toLocaleString();
+    const fns = formatDistanceToNow(myDate, { addSuffix: true });
+    return fns;
+  };
+
   return (
     //container & title
     <Styles.HomeMainWrapper>
@@ -75,32 +76,52 @@ const Chatroom = () => {
             <div>Choose a chatroom:</div>
             <Style.ChatRoomButtonWrapper>
               <Style.ChatRoomButtonContainer>
-                <Style.ChatroomButton>#general</Style.ChatroomButton>
-                <Style.ChatroomButton>#bitcoin</Style.ChatroomButton>
-                <Style.ChatroomButton>#etheruem</Style.ChatroomButton>
-                <Style.ChatroomButton>#litecoin</Style.ChatroomButton>
-                <Style.ChatroomButton>#xrp</Style.ChatroomButton>
+                <Style.ChatroomButton
+                  onClick={() => updateSelection("general")}
+                >
+                  #general
+                </Style.ChatroomButton>
+                <Style.ChatroomButton
+                  onClick={() => updateSelection("bitcoin")}
+                >
+                  #bitcoin
+                </Style.ChatroomButton>
+                <Style.ChatroomButton
+                  onClick={() => updateSelection("etheruem")}
+                >
+                  #etheruem
+                </Style.ChatroomButton>
+                <Style.ChatroomButton
+                  onClick={() => updateSelection("litecoin")}
+                >
+                  #litecoin
+                </Style.ChatroomButton>
+                <Style.ChatroomButton onClick={() => updateSelection("ripple")}>
+                  #ripple
+                </Style.ChatroomButton>
               </Style.ChatRoomButtonContainer>
             </Style.ChatRoomButtonWrapper>
           </Style.ChatRooms>
 
           {/* chat list / window */}
           <div>
-            <Style.ChatList className="chat-list">{okay}</Style.ChatList>
+            <Style.ChatList className="chat-list">
+              {allChats.map(chat => (
+                <Style.ChatListItems key={chat.id}>
+                  <Style.ChatListDivWrapper>
+                    <Style.ChatListDiv>{chat.user}</Style.ChatListDiv>
+                    <div>{chat.message}</div>
+                  </Style.ChatListDivWrapper>
+                  <Style.ChatListDate>
+                    {fixDate(chat.created_at.seconds)}
+                  </Style.ChatListDate>
+                </Style.ChatListItems>
+              ))}
+            </Style.ChatList>
           </div>
 
           {/* new chat form */}
-          <form>
-            <Style.FormWrapper>
-              {/* input group */}
-              <Style.LabelMessage>
-                <div>Your message:</div>
-              </Style.LabelMessage>
-              <Style.ChatInput type="text" required />
-
-              <Style.ChatSubmit type="submit" value="send" />
-            </Style.FormWrapper>
-          </form>
+          <ChatroomForm allChats={allChats} room={room} />
         </Style.ChatroomWrapper>
       </Styles.HomepageWrapper>
     </Styles.HomeMainWrapper>

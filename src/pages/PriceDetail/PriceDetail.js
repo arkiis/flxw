@@ -5,6 +5,7 @@ import GetAsideSection from "../../components/Chart/ChartAside/ChartAside";
 import GetHeadingChartSection from "../../components/Chart/ChartHeader/ChartHeader";
 import ChartDetails from "../../components/Chart/ChartDetails/ChartDetails";
 import paper from "../../assets/images/paper-plane-regular.svg";
+import ExpandedInfo from "./ExpandInfo";
 
 const PriceDetail = ({ location, match, props }) => {
   useEffect(() => {
@@ -34,9 +35,9 @@ const PriceDetail = ({ location, match, props }) => {
     );
     const meta = await fetchMeta.json();
     const simplify = meta[0].description.substring(0, 278);
-    setSimplifyMeta(`${simplify} read more...`);
+    setSimplifyMeta(`${simplify}`);
     setMetaData(meta[0]);
-    console.log(meta[0].description.substring(0, 197));
+    console.log(meta[0]);
   };
 
   const simplifyPrice = data => {
@@ -63,7 +64,12 @@ const PriceDetail = ({ location, match, props }) => {
                       What is {price.name}?
                     </Styles.AsideAssetsHeader>
 
-                    <Styles.InfoBody>{simplifyMeta}</Styles.InfoBody>
+                    <Styles.InfoBody>
+                      <ExpandedInfo
+                        simplifyMeta={simplifyMeta}
+                        metaData={metaData}
+                      />
+                    </Styles.InfoBody>
                     <Styles.ResourceHeader>Resources</Styles.ResourceHeader>
                     <Styles.ResourceLink href={metaData.whitepaper_url}>
                       <Styles.ResourceIcon src={paper} />

@@ -102,10 +102,47 @@ export const DashboardPortfolioItems = styled.div`
   flex-direction: row;
 `;
 
-export const DashboardFollowingItems = styled.div`
-  padding: 20px;
+export const DashboardLineWrapper = styled.div`
+  flex-grow: 1;
+  height: 20px;
+  padding: 0 20px 0 0;
+  width: 100px !important;
+  display: flex;
+`;
 
+export const DashboardFollowingItems = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
+`;
+
+export const DashboardFavoriteItems = styled.div`
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+`;
+
+export const FavoriteCoin = styled.div`
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+  align-items: center;
+  font-size: 18px;
+
+  border-collapse: collapse;
+  border-bottom: 1px solid rgb(236, 239, 241);
+`;
+
+export const FavoriteCoinPrice = styled.p`
+  flex-grow: 2;
+  margin-left: 12px;
+`;
+
+export const LogoAndNameWrapper = styled.div`
+  display: flex;
+  padding: 20px;
+  justify-content: flex-start;
+  margin-left: 12px;
+  align-items: center;
   flex: 1 1 auto;
 `;

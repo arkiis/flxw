@@ -45,9 +45,15 @@ export const ChatroomButton = styled.button`
   padding: 14px;
   border-radius: 7px;
   border: none;
+  transition: 0.4s all ease;
 
   &:focus {
     outline: none;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    transition: 0.4s all ease;
   }
 `;
 
@@ -93,4 +99,40 @@ export const ChatSubmit = styled.input`
 export const ChatList = styled.ul`
   list-style: none;
   text-decoration: none;
+`;
+
+export const ChatListItems = styled.li`
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #fff;
+  font-size: 20px;
+  color: #555;
+  border-collapse: collapse;
+  position: relative;
+
+  /* border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgba(0, 0, 0, 0.12); */
+  min-height: 66px;
+`;
+export const ChatListDiv = styled.div`
+  font-weight: bold;
+`;
+
+export const ChatListDivWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  & :last-child {
+    margin-left: 12px;
+  }
+`;
+export const ChatListDate = styled.div`
+  display: flex;
+  margin-top: 10px;
+  font-size: 0.7em;
+  color: #999;
+  justify-content: flex-start;
 `;

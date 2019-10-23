@@ -13,7 +13,9 @@ const DashPortfolioSection = props => {
             <Home.PortfolioSeperator />
             <Home.PortfolioBalance>
               <Home.Portfolioh1>Total Balance</Home.Portfolioh1>
-              <Home.PortfolioP>${props.simplifyPrice()}</Home.PortfolioP>
+              <Home.PortfolioP>
+                ${props.simplifyPrice(props.totalData)}
+              </Home.PortfolioP>
             </Home.PortfolioBalance>
           </Home.DashboardPortfolioItems>
         </Home.DashboardPortfolioTop>

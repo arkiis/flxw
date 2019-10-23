@@ -1,6 +1,11 @@
 $purple: #6433ff;
 $underline: rgb(236, 239, 241);
 
+.selectedLink {
+  color: #6433ff;
+  border-bottom: 1px solid #6433ff;
+}
+
 .headerContainer {
   padding: 30px 0;
   display: flex;
@@ -11,63 +16,76 @@ $underline: rgb(236, 239, 241);
   background-color: #fff;
   align-items: center;
   border-bottom: 1px solid $underline;
+}
 
-  .headerNav {
-    height: 80px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 1000px;
-  }
+.headerNav {
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 1000px;
+}
+.mobileNav {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .logoContainer {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 70px;
-    padding: 25px;
-  }
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
 
-  .logo {
-    width: 130px;
+.logo {
+  position: relative;
+  width: 122px;
+  margin-right: 20px;
+}
+.optionsContainer {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.optionLink {
+  padding: 10px 19px;
+  font-weight: bold;
+  cursor: pointer;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  &:hover {
+    color: $purple;
+    transition: 0.1s ease-in;
+    border-bottom: 2px solid $purple;
   }
-  .optionsContainer {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .optionLink {
-    padding: 10px 19px;
+}
+
+.loginContainer {
+  font-weight: bold;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  width: 30%;
+  justify-content: space-evenly;
+
+  .btn-header {
+    padding: 10px;
+    border: none;
+    background: #6433ff;
+    border-radius: 4px;
+    color: white;
     font-weight: bold;
     cursor: pointer;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    &:hover {
-      color: $purple;
-      transition: 0.1s ease-in;
-      border-bottom: 2px solid $purple;
-    }
   }
-
-  .loginContainer {
-    font-weight: bold;
-    display: flex;
-    height: 100%;
-    align-items: center;
-    width: 30%;
-    justify-content: space-evenly;
-
-    .btn-header {
-      padding: 10px;
-      border: none;
-      background: #6433ff;
-      border-radius: 4px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
+}
+.hover {
+  &:hover {
+    color: #6433ff;
   }
 }

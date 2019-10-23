@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import * as Home from "../../dashboard/dashboard.styles";
+import * as Styles from "../../../components/Table/Tables.styles";
 import ProgressBar from "../../../components/ProgressBar/ProgressBar";
 import firebase from "../../../Firebase/Firebase";
+import DashLineChart from "./DashLineChart";
+import { Scrollbars } from "react-custom-scrollbars";
 
-const DashFollowingSection = () => {
+const DashFollowingSection = props => {
   ///* firebase.auth().currentUser.uid */
   // UZcHE52EdzNdRSs2Tbmc3TbQ2Jq2
 
+  //waiting to grab the data from the firebase database
+  // and putting that data into favoriteCoin state
   useEffect(() => {
     db.collection("coins")
       .where("userId", "==", firebase.auth().currentUser.uid)
@@ -28,8 +33,9 @@ const DashFollowingSection = () => {
   const [coinsFollowing, setCoinsFollowing] = useState(
     JSON.parse(localStorage.getItem("coinsFollowing"))
   );
+
   const [name, setName] = useState("");
-  var data = ["Hello", "World"];
+
   const loadProgress = perc => {
     setPercentage(perc);
   };
@@ -39,18 +45,29 @@ const DashFollowingSection = () => {
       <Home.FollowingSection>
         <Home.DashboardPortfolioSection>
           <Home.PortfolioHeader>Following</Home.PortfolioHeader>
-          <Home.DashboardFollowingItems>
-            {favoriteCoin.map(x => {
-              return <p>{x.name}</p>;
-            })}
-            {console.log(favoriteCoins)}
-            {/* {coinsFollowing ? (
-              coinsFollowing.map(coin => <p>{coin}</p>)
-            ) : (
-              <p>No coins</p>
-            )}
-            <p>dummy text</p> */}
-          </Home.DashboardFollowingItems>
+          <Scrollbars style={{ width: 550, height: 220 }}>
+            <Home.DashboardFavoriteItems>
+              {favoriteCoin.map(x => {
+                return (
+                  <Home.FavoriteCoin>
+                    <Home.LogoAndNameWrapper>
+                      <Styles.CoinIcon src={x.logo_url} marginR />
+                      <Styles.TableDataP>{x.name}</Styles.TableDataP>
+                    </Home.LogoAndNameWrapper>
+                    {/* <p>{x["1d"].price_change_pct}</p> */}
+                    <div style={{ display: "flex", width: "200px" }}>
+                      <Home.FavoriteCoinPrice>
+                        ${props.simplifyPrice(x.price)}
+                      </Home.FavoriteCoinPrice>
+                    </div>
+                    {/* Line chart  */}
+                    <DashLineChart />
+                  </Home.FavoriteCoin>
+                );
+              })}
+              {console.log(favoriteCoins)}
+            </Home.DashboardFavoriteItems>
+          </Scrollbars>
         </Home.DashboardPortfolioSection>
       </Home.FollowingSection>
       <Home.DashboardPortfolioSection>

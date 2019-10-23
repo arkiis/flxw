@@ -1,6 +1,6 @@
 import React from "react";
 import mainLogo from "../../assets/images/flxw-logo.jpg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./header.styles.scss";
 import { connect } from "react-redux";
 import ToggleContent from "../../UI/Modal/ToggleContent.js";
@@ -15,46 +15,78 @@ const SpanArrow = styled.span`
   opacity: 0.7;
   margin-left: 2px;
 `;
+const FixedWrapper = styled.header`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background: white;
+  padding: 0rem 2rem;
+  top: 0;
+
+  left: 0;
+  width: 100%;
+  height: 6rem;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: none;
+  }
+`;
 
 const Header = ({ loggedIn }) => {
   let links;
   if (loggedIn.uid) {
     links = (
-      <div className="headerNav">
+      <nav className="headerNav">
         <div className="logoContainer">
           <img className="logo" src={mainLogo} alt="flxw logo" />
         </div>
         <div className="optionsContainer">
-          <Link className="optionLink" to="/dashboard">
+          <NavLink
+            activeClassName="selectedLink"
+            className="optionLink"
+            to="/dashboard"
+          >
             Home
-          </Link>
-          <Link className="optionLink" to="/prices">
+          </NavLink>
+          <NavLink
+            activeClassName="selectedLink"
+            className="optionLink"
+            to="/prices"
+          >
             Prices
-          </Link>
-          <Link className="optionLink" to="/chatroom">
+          </NavLink>
+          <NavLink
+            activeClassName="selectedLink"
+            className="optionLink"
+            to="/chatroom"
+          >
             Chatroom
-          </Link>
+          </NavLink>
         </div>
         <div className="loginContainer">
-          <Link to="/prices">
+          <NavLink to="/prices">
             <button className="btn-header">Trade</button>
-          </Link>
+          </NavLink>
           {/* this holds prfile picture and dropdown menu */}
           <HeaderDropDown />
         </div>
-      </div>
+      </nav>
     );
   } else {
     links = (
-      <div className="headerNav">
+      <nav className="headerNav">
         <div className="logoContainer">
           <img className="logo" src={mainLogo} alt="flxw logo" />
         </div>
         <div className="optionsContainer">
-          <Link className="optionLink" to="/dashboard">
+          <NavLink
+            activeClassName="selectedLink"
+            className="optionLink"
+            to="/dashboard"
+          >
             Home
-          </Link>
-          <Link className="optionLink" to="/prices">
+          </NavLink>
+          <NavLink className="optionLink" to="/prices">
             <ToggleContent
               toggle={show => <a onClick={show}>Prices</a>}
               content={hide => (
@@ -71,23 +103,23 @@ const Header = ({ loggedIn }) => {
                 </HomeModal>
               )}
             />
-          </Link>
-          <Link className="optionLink" to="/chatroom">
+          </NavLink>
+          <NavLink className="optionLink" to="/chatroom">
             Chatroom
-          </Link>
+          </NavLink>
         </div>
         <div className="loginContainer">
-          <Link className="optionLink" to="/login">
+          <NavLink className="optionLink" to="/login">
             Login
-          </Link>
-          <Link to="/logUp">
+          </NavLink>
+          <NavLink to="/logUp">
             <button className="btn-header">Get Started</button>
-          </Link>
+          </NavLink>
         </div>
-      </div>
+      </nav>
     );
   }
-  return <div className="headerContainer">{links}</div>;
+  return <FixedWrapper>{links}</FixedWrapper>;
 };
 
 export default Header;

@@ -7,7 +7,10 @@ import App from "./App";
 import styled from "styled-components";
 import { Provider } from "react-redux";
 import ApiTest from "./apiTest";
+import GlobalStyle from "../src/global.styles";
 import store from "./store/index";
+import { ThemeProvider } from "styled-components";
+import theme from "./utils/mediaQueries";
 import * as serviceWorker from "./serviceWorker";
 import Loader from "./UI/loader/loader";
 
@@ -34,7 +37,12 @@ store.firebaseAuthIsReady.then(() => {
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <ThemeProvider theme={theme}>
+          <>
+            <App />
+            <GlobalStyle />
+          </>
+        </ThemeProvider>
         {/* <ApiTest /> */}
       </BrowserRouter>
     </Provider>,

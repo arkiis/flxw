@@ -79,7 +79,8 @@ const GetStartedBanner = () => {
       </GetStartedContentWrapper>
       <GetStartedContentWrapper>
         <GetStartedContenttwo>
-          <img src={Image} />
+          {/* replace image. Use JPEG lower size image */}
+          {/* <img src={Image} /> */}
         </GetStartedContenttwo>
       </GetStartedContentWrapper>
     </GetStartedBannerWrapper>

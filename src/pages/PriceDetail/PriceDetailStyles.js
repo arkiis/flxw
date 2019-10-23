@@ -353,3 +353,7 @@ export const HeadingChartSectionTwo = styled.div`
   flex-direction: row;
   width: 380px;
 `;
+
+export const ExpandInfo = styled.div`
+  line-height: 1.9;
+`;

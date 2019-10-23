@@ -11,6 +11,7 @@ import TradeSummary from "./components/TradeSummary";
 
 const Dashboard = () => {
   const [chartData, setChartData] = useState({});
+
   const btc = [1400, 300, 2000, 1200];
   const total = [...btc].reduce((a, b) => a + b, 0);
   const [trigger, setTrigger] = useState(["MACD", "RSI", "Stop Rise", "DAC"]);
@@ -18,6 +19,9 @@ const Dashboard = () => {
   const now = new Date();
 
   const newTrigger = trigger[Math.floor(Math.random() * trigger.length)];
+
+  //this hook holds total balance for portfolio component
+  const [totalData, getTotalData] = useState(total);
 
   const currencySold = {
     price: "+ 1,900 USD",
@@ -33,8 +37,8 @@ const Dashboard = () => {
     getChartData();
   }, []);
 
-  const simplifyPrice = () => {
-    const sus = Math.floor(total * 100) / 100;
+  const simplifyPrice = simplify => {
+    const sus = Math.floor(simplify * 100) / 100;
     return sus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
@@ -59,6 +63,7 @@ const Dashboard = () => {
         <Style.TableContainer>
           {/*Row one of the users dashboard */}
           <DashboardRowOne
+            totalData={totalData}
             simplifyPrice={simplifyPrice}
             chartData={chartData}
           />

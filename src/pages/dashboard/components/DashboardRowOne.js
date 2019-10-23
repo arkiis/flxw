@@ -7,9 +7,10 @@ const DashboardRowOne = props => {
   return (
     <Home.DashboardHeaderWrapper>
       {/* Following component */}
-      <DashFollowingSection />
+      <DashFollowingSection simplifyPrice={props.simplifyPrice} />
       {/* Portfolio component */}
       <DashPortfolioSection
+        totalData={props.totalData}
         chartData={props.chartData}
         simplifyPrice={props.simplifyPrice}
       />
