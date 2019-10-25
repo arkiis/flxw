@@ -15,6 +15,10 @@ export const FooterContainer = styled.div`
   flex-direction: row;
   display: flex;
   flex: 1 1 auto;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    flex-direction: column;
+  }
 `;
 
 export const FooterContent = styled.div`

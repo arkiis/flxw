@@ -7,6 +7,7 @@ import "./PriceList.scss";
 import GetSearchBar from "../../components/searchBar/searchBar";
 import GetPriceHeader from "../../components/PriceList/PriceHeader/PriceHeader";
 import GetPriceListBody from "../PriceList/PriceBody/PriceBody";
+import GetPriceListBodyMobile from "../PriceList/PriceBody/PriceBodyMobile";
 
 function searchingFor(search) {
   return function(x) {
@@ -56,6 +57,7 @@ const PriceList = props => {
   };
 
   const getPriceList = () => {
+    console.log(`LOOK AT ME ${selection}`);
     return (
       <Styles.TableContainer>
         {/*Search bar component*/}
@@ -76,6 +78,15 @@ const PriceList = props => {
             />
             {/*Table body component*/}
             <GetPriceListBody
+              search={search}
+              setSearch={setSearch}
+              CoinIcon={Styles.CoinIcon}
+              searchingFor={searchingFor}
+              MarketCapLow={MarketCapLow}
+              coins={props.coins}
+              priceChange={priceChange}
+            />
+            <GetPriceListBodyMobile
               search={search}
               setSearch={setSearch}
               CoinIcon={Styles.CoinIcon}

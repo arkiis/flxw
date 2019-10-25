@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SvgIcon from "../../assets/images/connectdevelop-brands.svg";
-
+import CarrotArrow from "../../assets/images/caret-down-solid.svg";
 const StepWrapper = styled.div`
   display: flex;
   max-width: 1100px;
@@ -10,6 +10,10 @@ const StepWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1 1 0%;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    flex-direction: column;
+  }
 `;
 
 const Steps = styled.div`
@@ -19,6 +23,9 @@ const Steps = styled.div`
   align-items: center;
   margin-bottom: 40px;
   flex: 1 1 0%;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+  }
 `;
 
 const StepImage = styled.img`
@@ -58,6 +65,11 @@ const StepsContent = styled.div`
     opacity: 0.6;
 
     margin-top: 0px;
+  }
+  @media ${props => props.theme.mediaQueries.medium} {
+    & span {
+      display: none;
+    }
   }
 `;
 

@@ -10,6 +10,7 @@ export const HomeMainWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 export const HomepageWrapper = styled.div`
   text-align: center;
   display: flex;

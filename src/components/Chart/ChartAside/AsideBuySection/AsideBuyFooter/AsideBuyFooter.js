@@ -15,7 +15,9 @@ const AsideBuyFooter = props => {
       </Styles.AsideBuySelection>
 
       {/* Buy button */}
-      <Styles.CustomButton>Buy {props.price.name}</Styles.CustomButton>
+      <Styles.CustomButton buyColor={props.buyColor} nocursor={props.nocursor}>
+        Buy {props.price.name}
+      </Styles.CustomButton>
     </Styles.AsideBuyFooter>
   );
 };

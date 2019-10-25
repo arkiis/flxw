@@ -8,4 +8,9 @@ export const MainWrapper = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    height: 100vh;
+    position: static;
+  }
 `;

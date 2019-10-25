@@ -13,6 +13,10 @@ const GetStartedBannerWrapper = styled.div`
   flex-direction: row;
   height: 460px;
   overflow: hidden;
+  @media ${props => props.theme.mediaQueries.medium} {
+    flex-direction: column;
+    flex-flow: column-reverse;
+  }
 `;
 const GetStartedContentWrapper = styled.div`
   display: flex;
@@ -21,6 +25,11 @@ const GetStartedContentWrapper = styled.div`
   justify-content: center;
   align-items: center;
   left: 0;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    left: unset;
+    flex: 1 1 100%;
+  }
 `;
 
 const GetStartedContent = styled.div`
@@ -32,6 +41,17 @@ const GetStartedContent = styled.div`
   color: white;
   text-align: left;
   min-width: 250px;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    text-align: center;
+    min-width: unset;
+    width: 100%;
+    font-size: 27px;
+    max-width: 300px;
+  }
+  @media ${props => props.theme.mediaQueries.small} {
+    font-size: 16px;
+  }
 `;
 const GetStartedButton = styled.button`
   margin-top: 14px;

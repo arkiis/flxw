@@ -302,14 +302,15 @@ export const ResourceIcon = styled.img`
 `;
 
 export const CustomButton = styled.a`
-  cursor: pointer;
+  cursor: ${props => props.nocursor};
   color: #fff;
   padding: 20px;
   border-radius: 4px;
   box-shadow: 0px 10px 40px -10px rgba(100, 51, 255, 0.5);
   text-align: center;
   border: 0;
-  background-color: #6433ff;
+  transition: all 0.7s ease;
+  background-color: ${props => props.buyColor};
 `;
 
 //Heading styles/////////////////////

@@ -21,6 +21,11 @@ export const FormWrapper = styled.div`
   align-items: center;
   background-color: #fff;
   box-shadow: 0 1px 46px -4px rgba(0, 0, 0, 0.28);
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    margin-top: 40px;
+    z-index: 0;
+  }
 `;
 
 export const StyledForm = styled(Form)`

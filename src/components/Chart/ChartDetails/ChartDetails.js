@@ -9,8 +9,9 @@ const ChartDetails = props => {
     id
     // ["1d"]: { volume } ///NEED HELP
   } = props.price;
+  const priceOneDay = props.price["1d"];
 
-  const chartVolume = props.price["1d"];
+  const chartVolume = priceOneDay && priceOneDay.volume;
   console.log(chartVolume);
   const simplifyPrice = data => {
     const sus = Math.floor(data * 100) / 100;
@@ -35,7 +36,9 @@ const ChartDetails = props => {
       </Styles.ChartDetailItem>
       <Styles.ChartDetailItem>
         <Styles.DetailItemHeader>Volume(24 hours)</Styles.DetailItemHeader>
-        <Styles.DetailItemBody>Insert Data</Styles.DetailItemBody>
+        <Styles.DetailItemBody>
+          ${simplifyPrice(chartVolume)}
+        </Styles.DetailItemBody>
       </Styles.ChartDetailItem>
       <Styles.ChartDetailItem>
         <Styles.DetailItemHeader>Circulating supply</Styles.DetailItemHeader>

@@ -27,7 +27,7 @@ const PriceDetail = ({ location, match, props }) => {
     );
     const prices = await fetchItem.json();
     setPrice(prices[0]);
-    console.log(prices[0]);
+    console.log(`VOLUME DATA HERE ${prices[0]}`);
   };
   const fetchMetaData = async () => {
     const fetchMeta = await fetch(

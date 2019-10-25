@@ -7,14 +7,15 @@ import BTC from "../../../node_modules/cryptocurrency-icons/svg/color/btc.svg";
 const TableContainer = styled.div`
   z-index: 10;
   width: 100%;
-  display: flex;
+  display: none;
   max-width: 1180px;
+
   @media ${props => props.theme.mediaQueries.medium} {
-    display: none;
+    display: flex;
   }
 `;
 
-class Table extends Component {
+class MobileTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -82,7 +83,7 @@ class Table extends Component {
       console.log(change.charAt(0));
 
       return (
-        <Styles.TableRowStyles key={id}>
+        <Styles.MobileTableRowStyles key={id} bg>
           <Styles.TabelDataStyles>{id}</Styles.TabelDataStyles>
           <Styles.TabelDataStyles>
             {name.icon}
@@ -98,40 +99,20 @@ class Table extends Component {
           >
             {change}
           </Styles.TabelDataStyles>
-          <Button padding width noMargin onClick={this.fetchCrpto}>
-            Buy
-          </Button>
-        </Styles.TableRowStyles>
-      );
-    });
-  }
-  renderTableHeader() {
-    let header = Object.keys(this.state.coins[0]);
-
-    console.log(header);
-    return header.map((key, index) => {
-      return (
-        <Styles.TabelHeadingStyles key={index} bg>
-          {key.toUpperCase()}
-        </Styles.TabelHeadingStyles>
+        </Styles.MobileTableRowStyles>
       );
     });
   }
 
   render() {
     return (
-      <TableContainer>
+      <Styles.MobileTableContainer>
         <Styles.Tablestyles>
-          <tbody>
-            <Styles.TableRowStyles bg>
-              {this.renderTableHeader()}
-            </Styles.TableRowStyles>
-            {this.renderTableData()}
-          </tbody>
+          <tbody>{this.renderTableData()}</tbody>
         </Styles.Tablestyles>
-      </TableContainer>
+      </Styles.MobileTableContainer>
     );
   }
 }
 
-export default Table;
+export default MobileTable;

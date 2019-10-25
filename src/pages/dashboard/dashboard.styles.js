@@ -1,9 +1,28 @@
 import styled from "styled-components";
 
+export const DashboardWrapperOne = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+  }
+`;
+
 export const DashboardHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+
+  @media only screen and (max-width: 1080px) {
+    flex-direction: column;
+    align-items: center;
+    flex-flow: column-reverse;
+    padding: 0 20px;
+  }
 `;
 
 export const DashboardPortfolio = styled.div`
@@ -16,6 +35,10 @@ export const DashboardPortfolio = styled.div`
   box-shadow: rgba(17, 51, 83, 0.02) 0px 4px 12px 0px;
   border: 1px solid rgb(236, 239, 241);
   margin-bottom: 20px;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    width: 100%;
+  }
 `;
 export const DashboardFollowing = styled.div`
   display: flex;
@@ -24,6 +47,9 @@ export const DashboardFollowing = styled.div`
 
   background: white;
   border-radius: 5px;
+  @media ${props => props.theme.mediaQueries.medium} {
+    width: 100%;
+  }
 `;
 export const FollowingSection = styled.div`
   display: flex;
@@ -92,6 +118,8 @@ export const DashboardPortfolioTop = styled.div`
   height: 300px;
   display: flex;
   flex-direction: column;
+  @media ${props => props.theme.mediaQueries.medium} {
+  }
 `;
 
 export const DashboardPortfolioItems = styled.div`
@@ -108,6 +136,9 @@ export const DashboardLineWrapper = styled.div`
   padding: 0 20px 0 0;
   width: 100px !important;
   display: flex;
+  @media ${props => props.theme.mediaQueries.small} {
+    display: none;
+  }
 `;
 
 export const DashboardFollowingItems = styled.div`

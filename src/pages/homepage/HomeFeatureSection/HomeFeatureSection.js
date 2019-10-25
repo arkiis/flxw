@@ -1,5 +1,6 @@
 import React from "react";
 import * as Styles from "../homepage.styles";
+import styled from "styled-components";
 import Iphone from "../../../assets/images/iPhoneX-Mockup-flxw.png";
 import Icons from "../../../UI/Icons/Icons";
 
@@ -16,7 +17,7 @@ const HomeFeatureSection = props => {
         </props.Heading>
         <Styles.FeatureWrapper>
           <Icons />
-          <div style={{ maxWidth: "600px" }}>
+          <div>
             <Styles.FeatureImg src={Iphone} />
           </div>
         </Styles.FeatureWrapper>

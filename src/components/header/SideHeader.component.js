@@ -142,6 +142,13 @@ const BurgerWrapper = styled.div`
   }
 `;
 
+// const FixedSideBar = styled.div`
+//   position: fixed;
+//   background: white;
+//   z-index: 1000;
+//   width: 100%;
+// `;
+
 const SideHeader = ({ loggedIn }) => {
   const [isOpened, setIsOpened] = useState(false);
   let links;
@@ -212,7 +219,11 @@ const SideHeader = ({ loggedIn }) => {
               Logout
             </OptionLinkStyle>
             <LoginContainerStyle mobile>
-              <OptionLinkStyle to="/prices" mobile>
+              <OptionLinkStyle
+                to="/prices"
+                mobile
+                onClick={() => setIsOpened(!isOpened)}
+              >
                 <BtnHeader mobile>Trade</BtnHeader>
               </OptionLinkStyle>
             </LoginContainerStyle>
@@ -300,8 +311,12 @@ const SideHeader = ({ loggedIn }) => {
               >
                 Login
               </OptionLinkStyle>
-              <OptionLinkStyle to="/logUp" mobile>
-                <BtnHeader mobile>Trade</BtnHeader>
+              <OptionLinkStyle
+                to="/logUp"
+                mobile
+                onClick={() => setIsOpened(!isOpened)}
+              >
+                <BtnHeader mobile>Sign up</BtnHeader>
               </OptionLinkStyle>
             </LoginContainerStyle>
           </OptionsContainerStyle>

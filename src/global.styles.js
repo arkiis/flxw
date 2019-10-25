@@ -11,10 +11,11 @@ body, a, p, td, th, span {
  
  
 
-  @media screen and (max-width: 800px) {
-    ${"" /* padding: 10px; */}
+  @media ${props => props.theme.mediaQueries.medium} {
+
   }
 }
+
 h1,h2,h3,h4,h5,button{
   font-family: 'Poppins', sans-serif;
 }

@@ -45,7 +45,7 @@ const DashFollowingSection = props => {
       <Home.FollowingSection>
         <Home.DashboardPortfolioSection>
           <Home.PortfolioHeader>Following</Home.PortfolioHeader>
-          <Scrollbars style={{ width: 550, height: 220 }}>
+          <Scrollbars style={{ height: 220 }}>
             <Home.DashboardFavoriteItems>
               {favoriteCoin.map(x => {
                 return (

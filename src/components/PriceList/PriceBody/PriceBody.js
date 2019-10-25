@@ -36,7 +36,7 @@ const GetPriceListBody = props => {
           } = coin;
 
           const newMarketPct = (price_change_pct * 100).toFixed(2);
-          const marketprct = [...props].priceChange;
+
           const newPrice = Math.floor(price * 100) / 100;
           const newMarketCap =
             Math.abs(market_cap) > 999999999
@@ -67,7 +67,7 @@ const GetPriceListBody = props => {
                     : { color: "#23cc9a" }
                 }
               >
-                {marketprct}%
+                {newMarketPct}%
               </Styles.TabelDataStyles>
               <Styles.TabelDataStyles>${newMarketCap}</Styles.TabelDataStyles>
 

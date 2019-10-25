@@ -1,6 +1,6 @@
 import React from "react";
 import * as Styles from "./Footer.styles";
-import image from "../../assets/images/placeholder.com-logo4.jpg";
+import image from "../../assets/images/flxw-logo.jpg";
 
 const Footer = () => {
   return (

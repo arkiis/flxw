@@ -25,11 +25,30 @@ const ButtonWrapper = styled.div`
   * {
     flex: 40%;
   }
+  @media ${props => props.theme.mediaQueries.small} {
+    flex-direction: column;
+    flex-flow: column-reverse;
+    text-align: center;
+
+    & :last-child {
+      margin-bottom: 20px;
+    }
+  }
 `;
 
 const MessageWrapper = styled.div`
   position: absolute;
   bottom: 0;
+`;
+
+const Wave = styled.img`
+  width: 100%;
+  top: -10px;
+  position: absolute;
+  display: flex;
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: none;
+  }
 `;
 
 const LoginSchema = Yup.object().shape({
@@ -61,7 +80,7 @@ const Login = ({ login, loading, error, cleanUp }) => {
     >
       {({ isSubmitting, isValid }) => (
         <MainWrapper>
-          <img className="wave" src={MainLogo} alt="wave shape" />
+          <Wave src={MainLogo} alt="wave shape" />
           <FormWrapper>
             <Heading size="h1" color="#6433ff">
               Sign In to Flxw

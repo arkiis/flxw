@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Table from "../../components/Table/Table";
-
+import MobileTable from "../../components/Table/MobileTable";
 import Heading from "../../UI/Headings/Heading";
 
 import Banner from "../../UI/Banner/Homepage-banner";
@@ -20,6 +20,7 @@ class Homepage extends Component {
           {/*Hero section of homepage */}
           <HomeHeroSection Heading={Heading} />
           <Table />
+          <MobileTable />
 
           {/*Feature section of homepage*/}
           <HomeFeatureSection Heading={Heading} />

@@ -7,12 +7,11 @@ export const SearchBarMainContainer = styled.div`
 `;
 export const SearchBarInput = styled.input`
   border: none;
-  width: ${({ L }) => (L ? "40%" : "100%")};
-
-  font-size: 17px;
+  /* width: ${({ L }) => (L ? "40px" : "100%")}; */
+  width: ${props => props.width};
+  font-size: ${({ XL }) => (XL ? "46px" : "")};
   opacity: 0.6;
   &::placeholder {
-    font-size: ${({ XL }) => (XL ? "46px" : "")};
   }
   &:focus {
     border: none;
@@ -39,8 +38,34 @@ export const SearchPriceChange = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: none;
+  }
 `;
+
+export const MobileSearchPriceChange = styled.select`
+  display: none;
+  padding-right: 4px;
+  border-style: none;
+  background: white;
+  align-items: center;
+  flex-direction: row;
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: flex;
+  }
+`;
+
 export const SearchPriceChangeItems = styled.span`
+  margin: 0 5px;
+  font-size: 14px;
+  color: gray;
+
+  cursor: pointer;
+  &:focus {
+    color: blue;
+  }
+`;
+export const MobileSearchPriceChangeItems = styled.option`
   margin: 0 5px;
   font-size: 14px;
   color: gray;

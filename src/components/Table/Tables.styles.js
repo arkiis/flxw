@@ -6,6 +6,22 @@ export const TableContainer = styled.div`
   flex-direction: column;
   display: flex;
   max-width: 1142px;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: flex;
+  }
+`;
+
+export const MobileTableContainer = styled.div`
+  z-index: 10;
+  width: 100%;
+  flex-direction: column;
+  display: none;
+  max-width: 1142px;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: flex;
+  }
 `;
 
 export const CoinIcon = styled.img`
@@ -34,6 +50,13 @@ export const Tablestyles = styled.table`
   width: 100%;
   box-shadow: rgba(17, 51, 83, 0.02) 0px 4px 12px 0px;
   background: white;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 1 auto;
+  }
 `;
 
 export const TableRowStyles = styled.tr`
@@ -41,6 +64,40 @@ export const TableRowStyles = styled.tr`
 
   &:hover {
     background: ${({ bg }) => (bg ? "" : "#b3b3b320")};
+  }
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: none;
+  }
+`;
+
+export const MobileTableRowStyles = styled.tr`
+  border-bottom: 1px solid #1c162110;
+  justify-content: space-evenly;
+
+  &:hover {
+    background: ${({ bg }) => (bg ? "" : "#b3b3b320")};
+  }
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: flex;
+  }
+`;
+
+export const TradeTableRowStyles = styled.tr`
+  border-bottom: 1px solid #1c162110;
+
+  &:hover {
+    background: ${({ bg }) => (bg ? "" : "#b3b3b320")};
+  }
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: flex;
+  }
+`;
+
+export const MobileRowStyles = styled.tr`
+  border-bottom: 1px solid #1c162110;
+  display: none;
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: flex;
   }
 `;
 

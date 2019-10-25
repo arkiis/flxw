@@ -17,6 +17,11 @@ const Heading1 = styled.h1`
   z-index: ${({ scale }) => (scale ? "30" : "")};
   font-size: 38px;
   ${baseStyle}
+
+  @media ${props => props.theme.mediaQueries.medium} {
+line-height: 1.2;
+}
+
 `;
 const Heading2 = styled.h2`
   font-size: 1rem;

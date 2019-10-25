@@ -9,7 +9,17 @@ const BannerContainer = styled.div`
   flex-direction: row;
   margin: 30px auto;
   padding: 24px;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    flex-direction: column;
+  }
 `;
+
+const BannerH1 = styled.h1`
+  color: white;
+  margin-bottom: 5px;
+`;
+
 const BannerContent = styled.div`
   text-align: center;
   flex: 1 1 0;
@@ -21,21 +31,24 @@ const BannerContent = styled.div`
   > p {
     color: white;
   }
+  @media ${props => props.theme.mediaQueries.medium} {
+    padding: 20px 0;
+  }
 `;
 
 const Banner = () => {
   return (
     <BannerContainer>
       <BannerContent>
-        <h1>$150B+</h1>
+        <BannerH1>$150B+</BannerH1>
         <p>Cryptocurrency exchanged</p>
       </BannerContent>
       <BannerContent>
-        <h1>24</h1>
+        <BannerH1>24</BannerH1>
         <p>Countries Supported</p>
       </BannerContent>
       <BannerContent>
-        <h1>100</h1>
+        <BannerH1>100</BannerH1>
         <p>Customers served</p>
       </BannerContent>
     </BannerContainer>
