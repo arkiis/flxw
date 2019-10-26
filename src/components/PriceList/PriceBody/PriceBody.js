@@ -9,8 +9,7 @@ const GetPriceListBody = props => {
   const priceChanges = props.priceChange;
 
   //filters the coins when the user types in the search bar
-
-  const filteredCoins = props.coins.filter(coin => {
+  let filteredCoins = props.coins.filter(coin => {
     return Object.keys(coin).some(
       key =>
         (typeof coin[key] === "string" &&
@@ -19,21 +18,28 @@ const GetPriceListBody = props => {
     );
   });
 
-  const reversedFilteredCoins = filteredCoins.slice().reverse();
-  console.log(priceChanges);
-  if (props.MarketCapLow) {
+  filteredCoins = props.MarketCapLow ? filteredCoins.reverse() : filteredCoins; 
+
     return (
       <>
-        {reversedFilteredCoins.map(coin => {
+        {filteredCoins.map(coin => {
           const {
             rank,
             logo_url,
             name,
-            ["1d"]: { price_change_pct },
             currency,
+            ["1d"]: { price_change_pct },
             price,
             market_cap
           } = coin;
+
+            console.log('====selection====: ', props.selection);
+  console.log('====pcoin===: ', coin);
+
+    console.log(coin[props.selection]);
+
+
+          //given the selected interval frame get the correct timeframe object from the coin
 
           const newMarketPct = (price_change_pct * 100).toFixed(2);
 
@@ -88,72 +94,6 @@ const GetPriceListBody = props => {
         })}
       </>
     );
-  } else {
-    return (
-      <>
-        {filteredCoins.map(coin => {
-          const {
-            rank,
-            logo_url,
-            name,
-            ["1d"]: { price_change_pct },
-            currency,
-            price,
-            market_cap
-          } = coin;
-          const newMarketPct = (price_change_pct * 100).toFixed(2);
-          const newPrice = Math.floor(price * 100) / 100;
-          const newMarketCap =
-            Math.abs(market_cap) > 999999999
-              ? Math.sign(market_cap) *
-                  (Math.abs(market_cap) / 1000000000).toFixed(1) +
-                "B"
-              : Math.sign(market_cap) * Math.abs(market_cap);
-          return (
-            <Styles.TableRowStyles key={rank}>
-              <Styles.TabelDataStyles>{rank}</Styles.TabelDataStyles>
-              <Styles.TabelDataStyles grey flex>
-                <props.CoinIcon
-                  style={{ marginRight: "12px" }}
-                  src={logo_url}
-                />
-                {name}{" "}
-                <Styles.TableDataP style={{ color: "#33333380" }}>
-                  {currency}
-                </Styles.TableDataP>
-              </Styles.TabelDataStyles>
-
-              <Styles.TabelDataStyles>${newPrice}</Styles.TabelDataStyles>
-
-              <Styles.TabelDataStyles
-                style={
-                  price_change_pct.charAt(0) === "-"
-                    ? { color: "#ff2734" }
-                    : { color: "#23cc9a" }
-                }
-              >
-                {newMarketPct}%
-              </Styles.TabelDataStyles>
-              <Styles.TabelDataStyles>${newMarketCap}</Styles.TabelDataStyles>
-
-              <Styles.TabelDataStyles>
-                <Link
-                  to={{
-                    pathname: `/prices/${coin.currency}`,
-                    state: { coins: props.coins }
-                  }}
-                >
-                  <Button padding style={{ width: "60%" }}>
-                    Trade
-                  </Button>
-                </Link>
-              </Styles.TabelDataStyles>
-            </Styles.TableRowStyles>
-          );
-        })}
-      </>
-    );
-  }
 };
 
 export default GetPriceListBody;

@@ -18,7 +18,7 @@ function searchingFor(search) {
 const PriceList = props => {
   console.log(props.coins);
 
-  const [selection, setSelection] = useState("1H");
+  const [selection, setSelection] = useState();
   const [priceChange, setPriceChange] = useState([]);
   const [coin, setCoin] = useState([]);
   const [MarketCapLow, setMarketCapLow] = useState(false);
@@ -27,8 +27,7 @@ const PriceList = props => {
     [...coin].filter(searchingFor(search)).reverse()
   );
 
-  const timeIntervels = ["1H", "24H", "1W", "1M", "1Y"];
-  console.log(priceChange);
+  const timeIntervels = ["1h", "1d", "7d", "30d", "365d"];
 
   useEffect(() => {
     setPriceChange(props.coins.price);
@@ -49,15 +48,9 @@ const PriceList = props => {
 
   const updateData = timeline => {
     setSelection(timeline);
-
-    switch (timeline) {
-      case "24":
-        setPriceChange();
-    }
   };
 
   const getPriceList = () => {
-    console.log(`LOOK AT ME ${selection}`);
     return (
       <Styles.TableContainer>
         {/*Search bar component*/}
@@ -85,6 +78,7 @@ const PriceList = props => {
               MarketCapLow={MarketCapLow}
               coins={props.coins}
               priceChange={priceChange}
+              selection={selection}
             />
             <GetPriceListBodyMobile
               search={search}
@@ -96,7 +90,7 @@ const PriceList = props => {
               priceChange={priceChange}
             />
           </tbody>
-        </Styles.Tablestyles>
+        </Styles.Tablestyles>GetPriceListBody
       </Styles.TableContainer>
     );
   };

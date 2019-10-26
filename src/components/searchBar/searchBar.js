@@ -37,13 +37,6 @@ const GetSearchBar = props => {
           updateData={props.updateData}
           selection={props.selection}
         />
-        <MobileChangeIntervals
-          color={color}
-          handleClick={handleClick}
-          timeIntervels={props.timeIntervels}
-          updateData={props.updateData}
-          selection={props.selection}
-        />
       </Styles.SearchBarContainer>
     </Styles.SearchBarMainContainer>
   );
