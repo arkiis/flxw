@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import * as Stlyes from "./FollowIcon.styles";
 import { store } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import "animate.css";
 import firebase from "../../Firebase/Firebase";
+import FollowSvgIcon from "./FollowSvgIcon";
 // import MyNotification from "../Notification/Notification";
 
 const FollowIcon = ({ price }) => {
@@ -17,30 +18,44 @@ const FollowIcon = ({ price }) => {
   const db = firebase.firestore();
 
   //   const [following, setFollowing] = useState("");
-  const [following, setFollowing] = useState(false);
+
+  //NEED HELP KEEPING THE FOLLOWING BUTTON ACTIVE
+  //AFTER THE PAGE REFRESHES
+
   const [title, setTitle] = useState("Follow");
 
-  //   React.useEffect(() => {
-  //     localStorage.setItem("follow", following);
-  //   }, [following]);
+  const [following, setFollowing] = useState(false);
 
+  useEffect(() => {
+    const data = localStorage.getItem("following");
+    if (data) {
+      setFollowing(JSON.parse(data));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("following", JSON.stringify(following));
+  });
+
+  console.log(following);
   const handleClick = () => {
     let data = {
+      following: following,
       logo_url: price.logo_url,
       id: price.id,
       name: price.name,
       price: price.price,
       userId: firebase.auth().currentUser.uid
     };
-    console.log(`LOGJS- FirebaseObject`);
-    console.log(data);
+    //adding the data above to firebase's real time database
     db.collection("coins")
       .doc()
       .set(data);
 
-    setFollowing(!following);
+    // setFollowing("apple");
     setTitle("Following");
-    coinsFollowing = [...coinsFollowing, price.currency];
+    setFollowing(!following);
+    // coinsFollowing = [...coinsFollowing, price.currency];
     //localStorage.setItem("coinsFollowing", JSON.stringify(coinsFollowing));
   };
 
@@ -58,16 +73,20 @@ const FollowIcon = ({ price }) => {
         <Stlyes.IconImg src={price.logo_url} />
         <div>
           <h4>{price.name}</h4>
-          <p>added to your dashboard!</p>
+          <p>
+            {following === false
+              ? "added to your dashboard!"
+              : "removed from your dashboard"}
+          </p>
         </div>
       </div>
     );
   }
-
+  console.log(following);
   return (
     //this whole container is the follow button
 
-    <Stlyes.Container onClick={handleClick}>
+    <Stlyes.Container onClick={() => handleClick()}>
       <Stlyes.FollowIconContent
         onClick={() => {
           store.addNotification({
@@ -81,27 +100,10 @@ const FollowIcon = ({ price }) => {
           });
         }}
       >
-        <svg
-          viewBox="0 0 576 512"
-          style={{
-            fill: following === true ? "#F4A2C6" : "transparent",
-            stroke: following === true ? "" : "#B6B3BD",
-            strokeWidth: "11",
-            strokeMiterlimit: "10",
-            width: "30px",
-            marginRight: "10px"
-          }}
-        >
-          <path
-            className="st0"
-            d="M517.8,175.1L378,154.8L315.5,28c-11.2-22.6-43.6-22.9-54.9,0L198,154.8L58.2,175.1
-	c-25.1,3.6-35.1,34.5-16.9,52.3L142.4,326l-23.9,139.2c-4.3,25.2,22.2,44,44.4,32.3L288,431.7l125.1,65.7
-	c22.2,11.7,48.7-7.1,44.4-32.3L433.6,326l101.2-98.6C552.9,209.7,542.8,178.8,517.8,175.1L517.8,175.1z"
-          />
-        </svg>
+        <FollowSvgIcon following={following} />
 
         <Stlyes.FollowHeading>
-          {following === true ? title : "Follow"}
+          {following === true ? "Following" : "Follow"}
         </Stlyes.FollowHeading>
       </Stlyes.FollowIconContent>
     </Stlyes.Container>

@@ -17,6 +17,7 @@ const ChatroomForm = props => {
   useEffect(() => {
     setActiveRoom(props.room);
   }, [props.room]);
+
   function onSubmit(e) {
     e.preventDefault();
     firebase

@@ -18,7 +18,7 @@ function searchingFor(search) {
 const PriceList = props => {
   console.log(props.coins);
 
-  const [selection, setSelection] = useState("1H");
+  const [selection, setSelection] = useState("1d");
   const [priceChange, setPriceChange] = useState([]);
   const [coin, setCoin] = useState([]);
   const [MarketCapLow, setMarketCapLow] = useState(false);
@@ -27,7 +27,13 @@ const PriceList = props => {
     [...coin].filter(searchingFor(search)).reverse()
   );
 
-  const timeIntervels = ["1H", "24H", "1W", "1M", "1Y"];
+  const timeIntervals = {
+    oneHour: "1h",
+    oneDay: "1d",
+    oneWeek: "7d",
+    oneMonth: "30d",
+    oneYear: "365d"
+  };
   console.log(priceChange);
 
   useEffect(() => {
@@ -49,11 +55,6 @@ const PriceList = props => {
 
   const updateData = timeline => {
     setSelection(timeline);
-
-    switch (timeline) {
-      case "24":
-        setPriceChange();
-    }
   };
 
   const getPriceList = () => {
@@ -64,7 +65,7 @@ const PriceList = props => {
         <GetSearchBar
           search={search}
           updateSearch={updateSearch}
-          timeIntervels={timeIntervels}
+          timeIntervals={timeIntervals}
           updateData={updateData}
           selection={selection}
         />
@@ -82,11 +83,12 @@ const PriceList = props => {
               setSearch={setSearch}
               CoinIcon={Styles.CoinIcon}
               searchingFor={searchingFor}
+              selection={selection}
               MarketCapLow={MarketCapLow}
               coins={props.coins}
               priceChange={priceChange}
             />
-            <GetPriceListBodyMobile
+            {/* <GetPriceListBodyMobile
               search={search}
               setSearch={setSearch}
               CoinIcon={Styles.CoinIcon}
@@ -94,7 +96,7 @@ const PriceList = props => {
               MarketCapLow={MarketCapLow}
               coins={props.coins}
               priceChange={priceChange}
-            />
+            /> */}
           </tbody>
         </Styles.Tablestyles>
       </Styles.TableContainer>

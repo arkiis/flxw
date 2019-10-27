@@ -33,17 +33,17 @@ const GetSearchBar = props => {
         <GetPriceChangeIntervals
           color={color}
           handleClick={handleClick}
-          timeIntervels={props.timeIntervels}
+          timeIntervals={props.timeIntervals}
           updateData={props.updateData}
           selection={props.selection}
         />
-        <MobileChangeIntervals
+        {/* <MobileChangeIntervals
           color={color}
           handleClick={handleClick}
           timeIntervels={props.timeIntervels}
           updateData={props.updateData}
           selection={props.selection}
-        />
+        /> */}
       </Styles.SearchBarContainer>
     </Styles.SearchBarMainContainer>
   );

@@ -16,6 +16,7 @@ export const SearchBarInput = styled.input`
   &:focus {
     border: none;
     outline: none;
+    
   }
 `;
 export const SearchInputContainer = styled.div`

@@ -46,27 +46,31 @@ const DashFollowingSection = props => {
         <Home.DashboardPortfolioSection>
           <Home.PortfolioHeader>Following</Home.PortfolioHeader>
           <Scrollbars style={{ height: 220 }}>
-            <Home.DashboardFavoriteItems>
-              {favoriteCoin.map(x => {
-                return (
-                  <Home.FavoriteCoin>
-                    <Home.LogoAndNameWrapper>
-                      <Styles.CoinIcon src={x.logo_url} marginR />
-                      <Styles.TableDataP>{x.name}</Styles.TableDataP>
-                    </Home.LogoAndNameWrapper>
-                    {/* <p>{x["1d"].price_change_pct}</p> */}
-                    <div style={{ display: "flex", width: "200px" }}>
-                      <Home.FavoriteCoinPrice>
-                        ${props.simplifyPrice(x.price)}
-                      </Home.FavoriteCoinPrice>
-                    </div>
-                    {/* Line chart  */}
-                    <DashLineChart />
-                  </Home.FavoriteCoin>
-                );
-              })}
-              {console.log(favoriteCoins)}
-            </Home.DashboardFavoriteItems>
+            {favoriteCoin.length === 0 ? (
+              <p>You are not following any coins</p>
+            ) : (
+              <Home.DashboardFavoriteItems>
+                {favoriteCoin.map(x => {
+                  return (
+                    <Home.FavoriteCoin>
+                      <Home.LogoAndNameWrapper>
+                        <Styles.CoinIcon src={x.logo_url} marginR />
+                        <Styles.TableDataP>{x.name}</Styles.TableDataP>
+                      </Home.LogoAndNameWrapper>
+                      {/* <p>{x["1d"].price_change_pct}</p> */}
+                      <div style={{ display: "flex", width: "200px" }}>
+                        <Home.FavoriteCoinPrice>
+                          ${props.simplifyPrice(x.price)}
+                        </Home.FavoriteCoinPrice>
+                      </div>
+                      {/* Line chart  */}
+                      <DashLineChart />
+                    </Home.FavoriteCoin>
+                  );
+                })}
+                {console.log(favoriteCoins)}
+              </Home.DashboardFavoriteItems>
+            )}
           </Scrollbars>
         </Home.DashboardPortfolioSection>
       </Home.FollowingSection>

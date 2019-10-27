@@ -56,14 +56,18 @@ const Chatroom = () => {
     }, [room]);
     return chats;
   }
+  console.log(allChats);
+
+  //this function makes the date look prettier
+  // it is using the date-fns library
 
   const fixDate = dat => {
-    var myDate = new Date(dat * 1000);
-    // const sus = myDate.toLocaleString();
-    const fns = formatDistanceToNow(myDate, { addSuffix: true });
-    return fns;
+    var result = formatDistanceToNow(new Date(dat * 1000), { addSuffix: true });
+
+    return result;
   };
 
+  console.log(allChats);
   return (
     //container & title
     <Styles.HomeMainWrapper>

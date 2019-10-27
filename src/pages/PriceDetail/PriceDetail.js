@@ -12,6 +12,11 @@ const PriceDetail = ({ location, match, props }) => {
     fetchItem();
     fetchMetaData();
   }, []);
+
+  useEffect(() => {
+    console.log("resized to: ", window.innerWidth, "x", window.innerHeight);
+  }, []);
+
   const [allCoins, setAllCoins] = useState(location.state.coins);
   const [price, setPrice] = useState({});
   const [metaData, setMetaData] = useState([]);
