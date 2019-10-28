@@ -20,6 +20,18 @@ const Routes = ({ loggedIn, emailVerified, dimensions }) => {
   console.log(dimensions.width);
   let routes;
 
+  {
+    /*this function is to be passed  
+  to every component that needs any
+  UI changed on mobile view
+  */
+  }
+
+  const mobileToggle = (desktop, mobile) => {
+    const toggle = dimensions > 1070 ? desktop : mobile;
+    return toggle;
+  };
+
   if (loggedIn && !emailVerified) {
     routes = (
       <Switch>

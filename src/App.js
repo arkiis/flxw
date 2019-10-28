@@ -8,6 +8,9 @@ import ReactNotifications from "react-notifications-component";
 
 import { connect } from "react-redux";
 
+//this function is to make sure when the
+//width is changed, theres a timeout
+//for each re render
 function debounce(fn, ms) {
   let timer;
   return _ => {

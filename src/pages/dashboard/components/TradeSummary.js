@@ -6,13 +6,14 @@ const TradeSummary = props => {
   return (
     <>
       <Style.TradeSummaryRowStyles>
-        <Style.TabelDataStyles bold matte size>
+        <Style.TabelDataStyles bold matte size none>
           Trade #{props.tradeNumber}
         </Style.TabelDataStyles>
         <Style.TabelDataStyles size gray>
           {date.format(props.now, "MM/DD/YYYY - HH:mm:ss")}
         </Style.TabelDataStyles>
         <Style.TabelDataStyles
+          none
           positive
           bold
           size
@@ -24,7 +25,7 @@ const TradeSummary = props => {
         >
           {props.children}
         </Style.TabelDataStyles>
-        <Style.TabelDataStyles bold matte size>
+        <Style.TabelDataStyles bold matte size none>
           {props.newTrigger}
         </Style.TabelDataStyles>
         <Style.TabelDataStyles

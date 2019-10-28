@@ -136,6 +136,9 @@ export const TabelDataStyles = styled.td`
   > td {
     color: gray;
   }
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: ${({ none }) => (none ? "none" : "unset")};
+  }
 `;
 export const TableDataP = styled.p`
   margin-left: 10px;
@@ -146,6 +149,9 @@ export const TabelHeadingStyles = styled.th`
   color: #33333370;
   font-size: 15px;
   border-collapse: collapse;
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: ${({ none }) => (none ? "none" : "unset")};
+  }
 `;
 
 // export const TD = ({ children, negative, positive }) => {
