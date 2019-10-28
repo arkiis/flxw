@@ -8,6 +8,9 @@ export const ChatroomWrapper = styled.div`
   -webkit-box-pack: center;
   justify-content: center;
   padding: 35px 24px 150px;
+  @media ${props => props.theme.mediaQueries.medium} {
+    padding: 0;
+  }
 `;
 
 export const ChatroomHeader = styled.h1`
@@ -34,6 +37,10 @@ export const ChatRoomButtonContainer = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    width: 100%;
+  }
 `;
 
 export const ChatroomButton = styled.button`
@@ -54,6 +61,26 @@ export const ChatroomButton = styled.button`
   &:hover {
     transform: translateY(-5px);
     transition: 0.4s all ease;
+  }
+  @media ${props => props.theme.mediaQueries.medium} {
+    padding: 5px;
+  }
+`;
+
+export const ChatroomForm = styled.form`
+  position: fixed;
+  margin: 2% auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 800px;
+  flex-grow: 1;
+  @media ${props => props.theme.mediaQueries.medium} {
+    width: 100%;
+    margin: unset;
   }
 `;
 
@@ -77,6 +104,9 @@ export const LabelMessage = styled.div`
   background: #edeff2;
   justify-content: center;
   flex-grow: 0.5;
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: none;
+  }
 `;
 export const ChatInput = styled.input`
   flex-grow: 4;
@@ -94,10 +124,15 @@ export const ChatSubmit = styled.input`
   outline: none;
   box-shadow: none;
   padding: 14px;
+  @media ${props => props.theme.mediaQueries.medium} {
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+  }
 `;
 
 export const ChatList = styled.ul`
   list-style: none;
+  text-align: left;
   text-decoration: none;
 `;
 
@@ -107,7 +142,7 @@ export const ChatListItems = styled.li`
   flex-direction: column;
   justify-content: flex-start;
   background: #fff;
-  font-size: 20px;
+  font-size: 19px;
   color: #555;
   border-collapse: collapse;
   position: relative;
@@ -116,17 +151,24 @@ export const ChatListItems = styled.li`
   border-top-style: solid;
   border-top-color: rgba(0, 0, 0, 0.12); */
   min-height: 66px;
+  @media ${props => props.theme.mediaQueries.medium} {
+    font-size: 17px;
+  }
 `;
 export const ChatListDiv = styled.div`
   font-weight: bold;
+  font-size: 19px;
+  @media ${props => props.theme.mediaQueries.medium} {
+    font-size: 18px !important;
+  }
 `;
 
 export const ChatListDivWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
   & :last-child {
-    margin-left: 12px;
+    margin-top: 8px;
   }
 `;
 export const ChatListDate = styled.div`

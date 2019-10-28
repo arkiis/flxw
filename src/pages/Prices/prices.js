@@ -6,28 +6,34 @@ import * as Styles from "./prices.styles";
 // import { connect } from "react-redux";
 // import { bindActionCreators } from "redux";
 
-const Prices = () => {
+const Prices = props => {
   const [coins, setCoins] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  console.log(props.dimensions);
 
   useEffect(() => {
+    const fetchItems = async () => {
+      setIsLoading(true);
+      const data = await fetch(
+        `https://api.nomics.com/v1/currencies/ticker?key=ba5753b91002279e7338b58479c03ea5&ids=BTC,ETH,XRP,USDT,BCH,LTC,EOS&interval=1h,1d,7d,30d,365d`
+      );
+      const coins = await data.json();
+
+      setCoins(coins);
+      setIsLoading(false);
+      console.log(coins);
+    };
     fetchItems();
   }, []);
-
-  const fetchItems = async () => {
-    const data = await fetch(
-      `https://api.nomics.com/v1/currencies/ticker?key=ba5753b91002279e7338b58479c03ea5&ids=BTC,ETH,XRP,USDT,BCH,LTC,EOS&interval=1h,1d,7d,30d,365d`
-    );
-
-    const coins = await data.json();
-
-    setCoins(coins);
-    console.log(coins);
-  };
 
   return (
     <Styles.HomeMainWrapper style={{ padding: "20px" }}>
       <Styles.HomepageWrapper>
-        <PriceList coins={coins} />
+        <PriceList
+          coins={coins}
+          isLoading={isLoading}
+          dimensions={props.dimensions.width}
+        />
       </Styles.HomepageWrapper>
     </Styles.HomeMainWrapper>
   );

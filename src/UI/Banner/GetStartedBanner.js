@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../../UI/Forms/Button/Button";
-import Image from "../../assets/images/spaceBg.png";
+
 import { Link } from "react-router-dom";
 
 const GetStartedBannerWrapper = styled.div`

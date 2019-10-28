@@ -40,19 +40,17 @@ export const SearchPriceChange = styled.div`
   align-items: center;
   flex-direction: row;
   @media ${props => props.theme.mediaQueries.medium} {
-    display: none;
   }
 `;
 
 export const MobileSearchPriceChange = styled.select`
-  display: none;
   padding-right: 4px;
   border-style: none;
   background: white;
   align-items: center;
   flex-direction: row;
   @media ${props => props.theme.mediaQueries.medium} {
-    display: flex;
+    display: none;
   }
 `;
 

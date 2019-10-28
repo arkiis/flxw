@@ -15,8 +15,9 @@ import RecoverPassword from "./components/auth/RecoverPassword/RecoverPassword";
 import Profile from "./components/auth/Profile/Profile";
 import PriceDetail from "./pages/PriceDetail/PriceDetail";
 
-const Routes = ({ loggedIn, emailVerified }) => {
+const Routes = ({ loggedIn, emailVerified, dimensions }) => {
   console.log(`LOGJS- Loggedin ${loggedIn}`);
+  console.log(dimensions.width);
   let routes;
 
   if (loggedIn && !emailVerified) {
@@ -33,8 +34,20 @@ const Routes = ({ loggedIn, emailVerified }) => {
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/chatroom" component={Chatroom} />
-        <Route exact path="/prices" exact component={Prices} />
-        <Route exact path="/prices/:id" exact component={PriceDetail} />
+        <Route
+          exact
+          path="/prices"
+          exact
+          render={props => <Prices {...props} dimensions={dimensions.width} />}
+        />
+        <Route
+          exact
+          path="/prices/:id"
+          exact
+          render={props => (
+            <PriceDetail {...props} dimensions={dimensions.width} />
+          )}
+        />
         <Route exact path="/logout" component={Logout} />
         <Redirect to="/dashboard" />
       </Switch>

@@ -31,7 +31,15 @@ const DashboardTradeSummary = () => {
     <>
       <Home.PortfolioHeader>Trade Summary</Home.PortfolioHeader>
       <Style.Tablestyles>
-        <TradeStyleWrap />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around"
+          }}
+        >
+          <TradeStyleWrap />
+        </div>
         <TradeSummary
           tradeNumber={1}
           currencySold={currencySold}

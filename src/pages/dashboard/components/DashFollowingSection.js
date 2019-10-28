@@ -81,7 +81,7 @@ const DashFollowingSection = props => {
             percentage={30}
             loadProgress={loadProgress}
             name={"United States"}
-            background={"FF873D"}
+            background={"C585FF"}
           />
           <ProgressBar
             percentage={20}
@@ -93,7 +93,7 @@ const DashFollowingSection = props => {
             percentage={50}
             loadProgress={loadProgress}
             name={"Australia"}
-            background={"54FAFC"}
+            background={"E5C7FF"}
           />
         </Home.DashboardFollowingItems>
       </Home.DashboardPortfolioSection>

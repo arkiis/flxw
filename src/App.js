@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/header/header.component";
 import SideHeader from "./components/header/SideHeader.component";
 import mainLogo from "../src/assets/images/startup.svg";
@@ -8,14 +8,50 @@ import ReactNotifications from "react-notifications-component";
 
 import { connect } from "react-redux";
 
+function debounce(fn, ms) {
+  let timer;
+  return _ => {
+    clearTimeout(timer);
+    timer = setTimeout(_ => {
+      timer = null;
+      fn.apply(this, arguments);
+    }, ms);
+  };
+}
+
 function App({ loggedIn }) {
+  //this is to get the value of the windows
+  //height and width. The handleRezise function
+  //will change dimension state based on window resize
+
+  const [dimensions, setDemsions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth
+  });
+
+  useEffect(() => {
+    const debounceHandleResize = debounce(function handleResize() {
+      setDemsions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      });
+    }, 1000);
+
+    window.addEventListener("resize", debounceHandleResize);
+
+    return _ => {
+      window.removeEventListener("resize", debounceHandleResize);
+    };
+  });
+  console.log(`${dimensions.height} x ${dimensions.width}`);
+
   return (
     <div>
       <SideHeader loggedIn={loggedIn} />
       <Header loggedIn={loggedIn} />
       <ReactNotifications />
 
-      <Routes />
+      <Routes dimensions={dimensions} />
     </div>
   );
 }

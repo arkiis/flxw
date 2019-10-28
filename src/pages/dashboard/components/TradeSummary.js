@@ -5,7 +5,7 @@ import * as Style from "../../../components/Table/Tables.styles";
 const TradeSummary = props => {
   return (
     <>
-      <Style.TradeTableRowStyles>
+      <Style.TradeSummaryRowStyles>
         <Style.TabelDataStyles bold matte size>
           Trade #{props.tradeNumber}
         </Style.TabelDataStyles>
@@ -50,7 +50,7 @@ const TradeSummary = props => {
         >
           {props.currencySold.Acquired.price}
         </Style.TabelDataStyles>
-      </Style.TradeTableRowStyles>
+      </Style.TradeSummaryRowStyles>
     </>
   );
 };

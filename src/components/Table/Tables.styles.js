@@ -92,6 +92,23 @@ export const TradeTableRowStyles = styled.tr`
     display: flex;
   }
 `;
+export const TradeSummaryRowStyles = styled.tr`
+  border-bottom: 1px solid #1c162110;
+  display: flex;
+  justify-content: space-around;
+  &:hover {
+    background: ${({ bg }) => (bg ? "" : "#b3b3b320")};
+  }
+  @media ${props => props.theme.mediaQueries.medium} {
+  }
+
+  &:hover {
+    background: ${({ bg }) => (bg ? "" : "#b3b3b320")};
+  }
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: flex;
+  }
+`;
 
 export const MobileRowStyles = styled.tr`
   border-bottom: 1px solid #1c162110;

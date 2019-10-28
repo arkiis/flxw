@@ -36,7 +36,7 @@ const Dashboard = () => {
         {
           label: "prices",
           data: btc,
-          backgroundColor: ["#00A8E8", "#007EA7", "#003459", "#00171F"]
+          backgroundColor: ["#DBB3FF", "#C585FF", "#A847FF", "#8600FF"]
         }
       ]
     });

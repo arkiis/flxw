@@ -34,16 +34,12 @@ const PriceList = props => {
     oneMonth: "30d",
     oneYear: "365d"
   };
-  console.log(priceChange);
+  console.log(props);
 
   useEffect(() => {
     setPriceChange(props.coins.price);
     setCoin(props.coins);
   }, [props.coins]);
-
-  console.log(priceChange);
-  console.log(coin);
-  console.log(reverseCoin);
 
   const updateSearch = e => {
     setSearch(e.target.value);
@@ -55,6 +51,10 @@ const PriceList = props => {
 
   const updateData = timeline => {
     setSelection(timeline);
+  };
+  const mobileToggle = (desktop, mobile) => {
+    const toggle = props.dimensions > 1070 ? desktop : mobile;
+    return toggle;
   };
 
   const getPriceList = () => {
@@ -68,6 +68,7 @@ const PriceList = props => {
           timeIntervals={timeIntervals}
           updateData={updateData}
           selection={selection}
+          mobileToggle={mobileToggle}
         />
         <Styles.Tablestyles>
           {/*Table header component*/}
@@ -81,6 +82,7 @@ const PriceList = props => {
             <GetPriceListBody
               search={search}
               setSearch={setSearch}
+              isLoading={props.isLoading}
               CoinIcon={Styles.CoinIcon}
               searchingFor={searchingFor}
               selection={selection}
@@ -88,7 +90,7 @@ const PriceList = props => {
               coins={props.coins}
               priceChange={priceChange}
             />
-            {/* <GetPriceListBodyMobile
+            <GetPriceListBodyMobile
               search={search}
               setSearch={setSearch}
               CoinIcon={Styles.CoinIcon}
@@ -96,7 +98,7 @@ const PriceList = props => {
               MarketCapLow={MarketCapLow}
               coins={props.coins}
               priceChange={priceChange}
-            /> */}
+            />
           </tbody>
         </Styles.Tablestyles>
       </Styles.TableContainer>

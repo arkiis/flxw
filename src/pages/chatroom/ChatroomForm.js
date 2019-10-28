@@ -36,21 +36,19 @@ const ChatroomForm = props => {
       });
   }
   return (
-    <form onSubmit={onSubmit}>
-      <Style.FormWrapper>
-        {/* input group */}
-        <Style.LabelMessage>
-          <div>Your message:</div>
-        </Style.LabelMessage>
-        <Style.ChatInput
-          type="text"
-          value={message}
-          onChange={e => setMessage(e.currentTarget.value)}
-        />
+    <Style.ChatroomForm onSubmit={onSubmit}>
+      {/* input group */}
+      <Style.LabelMessage>
+        <div>Your message:</div>
+      </Style.LabelMessage>
+      <Style.ChatInput
+        type="text"
+        value={message}
+        onChange={e => setMessage(e.currentTarget.value)}
+      />
 
-        <Style.ChatSubmit type="submit" value="send" />
-      </Style.FormWrapper>
-    </form>
+      <Style.ChatSubmit type="submit" value="send" />
+    </Style.ChatroomForm>
   );
 };
 

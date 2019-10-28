@@ -6,8 +6,9 @@ import GetHeadingChartSection from "../../components/Chart/ChartHeader/ChartHead
 import ChartDetails from "../../components/Chart/ChartDetails/ChartDetails";
 import paper from "../../assets/images/paper-plane-regular.svg";
 import ExpandedInfo from "./ExpandInfo";
+import PriceDetailBanner from "./PriceDetailBanner";
 
-const PriceDetail = ({ location, match, props }) => {
+const PriceDetail = ({ dimensions, location, match }) => {
   useEffect(() => {
     fetchItem();
     fetchMetaData();
@@ -22,9 +23,25 @@ const PriceDetail = ({ location, match, props }) => {
   const [metaData, setMetaData] = useState([]);
   const [simplifyMeta, setSimplifyMeta] = useState([]);
   const [coins, setCoins] = useState(match.coins);
-  console.log(match.params.id);
-  console.log(allCoins);
-  console.log(price);
+  const [buyButton, setBuyButton] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
+
+  function handleScroll(event) {
+    if (window.scrollY < 20) {
+      setBuyButton(false);
+    } else if (window.scrollY > 200) {
+      setBuyButton(true);
+    }
+  }
+  console.log(buyButton);
+
+  //MOBILE TOGGLE
+  const mobileToggle = (desktop, mobile) => {
+    const toggle = dimensions > 1070 ? desktop : mobile;
+    return toggle;
+  };
 
   const fetchItem = async () => {
     const fetchItem = await fetch(
@@ -32,6 +49,7 @@ const PriceDetail = ({ location, match, props }) => {
     );
     const prices = await fetchItem.json();
     setPrice(prices[0]);
+
     console.log(`VOLUME DATA HERE ${prices[0]}`);
   };
   const fetchMetaData = async () => {
@@ -55,11 +73,17 @@ const PriceDetail = ({ location, match, props }) => {
       <Styles.PriceMainWrapper>
         <Styles.PriceWrapper>
           <Styles.thirdPriceWrapper>
+            {/*  this is where the fixed nav will go */}
+            {mobileToggle(
+              "",
+              <PriceDetailBanner price={price} buyButton={buyButton} />
+            )}
             <GetHeadingChartSection price={price} /> {/* Heading component */}
             <Styles.ChartWrapper>
               <Styles.ChartSection>
                 <Styles.ChartAndDetailsWrapper>
-                  <CryptoChart /> {/*  Chart component    */}
+                  {/*  Chart component    */}
+                  <CryptoChart />
                   {/*  Chart details component    */}
                   <ChartDetails price={price} />
                 </Styles.ChartAndDetailsWrapper>
@@ -94,6 +118,7 @@ const PriceDetail = ({ location, match, props }) => {
                 ></iframe>
               </Styles.ChartSection>
               <GetAsideSection
+                mobileToggle={mobileToggle}
                 price={price}
                 allCoins={allCoins}
                 simplifyPrice={simplifyPrice}

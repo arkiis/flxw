@@ -20,7 +20,7 @@ export const PriceMainWrapper = styled.div`
 `;
 export const PriceWrapper = styled.div`
   position: relative;
-  width: 1140px;
+  max-width: 1140px;
   margin: 8px auto 32px;
 `;
 export const thirdPriceWrapper = styled.div`
@@ -35,6 +35,9 @@ export const ChartWrapper = styled.div`
   flex-direction: row;
   align-items: stretch;
   margin-bottom: 32px;
+  @media ${props => props.theme.mediaQueries.large} {
+    flex-direction: column;
+  }
 `;
 
 export const ChartSection = styled.div`
@@ -57,6 +60,10 @@ export const ChartDetailsWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 20px 32px;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    flex-direction: column;
+  }
 `;
 
 export const ChartDetailItem = styled.div`
@@ -66,6 +73,13 @@ export const ChartDetailItem = styled.div`
   width: 25%;
   margin: 14px 0;
   padding-left: 10px;
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+  }
 `;
 
 export const DetailItemHeader = styled.h2`
@@ -85,6 +99,10 @@ export const ChartAsideSection = styled.div`
   flex-direction: column;
   width: 370px;
   flex-shrink: 0;
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+    margin-left: unset;
+  }
 `;
 
 export const AsideBuySection = styled.div`
@@ -246,6 +264,10 @@ export const AsideAssets = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 14px;
+  @media only screen and (max-width: 1040px) {
+    width: 100%;
+    max-width: unset;
+  }
 `;
 export const AsideAssetsName = styled.div`
   display: flex;
@@ -311,6 +333,23 @@ export const CustomButton = styled.a`
   border: 0;
   transition: all 0.7s ease;
   background-color: ${props => props.buyColor};
+`;
+export const StickyButton = styled.a`
+  position: fixed;
+  padding: 20px;
+  z-index: 100;
+  border-radius: 4px;
+  box-shadow: 0px 10px 40px -10px rgba(100, 51, 255, 0.5);
+  text-align: center;
+  border: 0;
+  transition: all 0.7s ease;
+  width: 90%;
+  top: 0;
+  margin: 0 auto;
+
+  margin-top: 14px;
+  color: #fff;
+  background-color: #6433ff;
 `;
 
 //Heading styles/////////////////////

@@ -5,7 +5,7 @@ const theme = {
     smallest: `only screen and (max-width: 25em)`,
     small: `only screen and (max-width: 37.5em)`,
     medium: `only screen and (max-width: 50em)`,
-    large: `only screen and (max-width: 80em)`,
+    large: `only screen and (max-width: 65em)`,
     largest: `only screen and (max-width: 90 em)`
   }
 };

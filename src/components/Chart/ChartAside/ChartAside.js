@@ -19,8 +19,14 @@ const GetAsideSection = props => {
   return (
     <Styles.ChartAsideSection>
       {/* Aside section */}
+      {props.mobileToggle(
+        <AsideBuySection
+          price={props.price}
+          mobileToggle={props.mobileToggle}
+        />,
+        ""
+      )}
 
-      <AsideBuySection price={props.price} />
       <AsideBodySection
         allCoins={props.allCoins}
         simplifyPrice={props.simplifyPrice}

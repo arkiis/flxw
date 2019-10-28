@@ -6,7 +6,7 @@ import MobileChangeIntervals from "../PriceChangeIntervals/MobileChangeIntervals
 
 const GetSearchBar = props => {
   const [color, setColor] = useState("");
-
+  console.log(props);
   const handleClick = name => {
     setColor(name);
   };
@@ -36,6 +36,7 @@ const GetSearchBar = props => {
           timeIntervals={props.timeIntervals}
           updateData={props.updateData}
           selection={props.selection}
+          mobileToggle={props.mobileToggle}
         />
         {/* <MobileChangeIntervals
           color={color}
