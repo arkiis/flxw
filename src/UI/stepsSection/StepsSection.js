@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import SvgIcon from "../../assets/images/connectdevelop-brands.svg";
+import IconAccount from "../../assets/images/icon_account-01.svg";
+import IconBank from "../../assets/images/icon_bank-01.svg";
+import IconMoney from "../../assets/images/icon_money-01.svg";
 import CarrotArrow from "../../assets/images/caret-down-solid.svg";
 const StepWrapper = styled.div`
   display: flex;
@@ -77,7 +79,7 @@ const StepSections = () => {
   return (
     <StepWrapper>
       <Steps>
-        <StepImage src={SvgIcon} />
+        <StepImage src={IconAccount} />
         <StepsContent>
           <h3>Create an account</h3>
         </StepsContent>
@@ -88,7 +90,7 @@ const StepSections = () => {
         </StepsContent>
       </Steps>
       <Steps>
-        <StepImage src={SvgIcon} />
+        <StepImage src={IconBank} />
         <StepsContent>
           <h3>Link your bank account</h3>
         </StepsContent>
@@ -99,7 +101,7 @@ const StepSections = () => {
         </StepsContent>
       </Steps>
       <Steps>
-        <StepImage src={SvgIcon} />
+        <StepImage src={IconMoney} />
         <StepsContent>
           <h3>Start buying and selling</h3>
         </StepsContent>

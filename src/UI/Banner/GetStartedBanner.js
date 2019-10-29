@@ -1,34 +1,34 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../../UI/Forms/Button/Button";
-
+import iPhone from "../../assets/images/iphone.png";
 import { Link } from "react-router-dom";
 
 const GetStartedBannerWrapper = styled.div`
   background-color: #162244;
   position: relative;
   display: flex;
+  justify-content: center;
   width: 100%;
   margin-top: 40px;
   flex-direction: row;
   height: 460px;
-  overflow: hidden;
+
   @media ${props => props.theme.mediaQueries.medium} {
     flex-direction: column;
     flex-flow: column-reverse;
+    justify-content: space-between;
   }
 `;
 const GetStartedContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1 1 50%;
   justify-content: center;
   align-items: center;
   left: 0;
 
   @media ${props => props.theme.mediaQueries.medium} {
     left: unset;
-    flex: 1 1 100%;
   }
 `;
 
@@ -67,10 +67,10 @@ const GetStartedButton = styled.button`
 const GetStartedContenttwo = styled.div`
   display: flex;
   flex-direction: row;
-  align-self: flex-end;
+  align-self: flex-start;
   height: auto;
   width: 65%;
-  position: absolute;
+
   right: 0px;
   top: 0px;
   max-width: 750px;
@@ -100,7 +100,7 @@ const GetStartedBanner = () => {
       <GetStartedContentWrapper>
         <GetStartedContenttwo>
           {/* replace image. Use JPEG lower size image */}
-          {/* <img src={Image} /> */}
+          <img src={iPhone} />
         </GetStartedContenttwo>
       </GetStartedContentWrapper>
     </GetStartedBannerWrapper>

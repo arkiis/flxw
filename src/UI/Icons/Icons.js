@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SvgIcon from "../../assets/images/connectdevelop-brands.svg";
+import portfolioIcon from "../../assets/images/icon_portfolio-01.svg";
 
 const IconWrapper = styled.div`
   display: flex;
@@ -50,7 +51,7 @@ const Icons = () => {
   return (
     <IconWrapper>
       <Icon>
-        <IconImage src={SvgIcon} />
+        <IconImage src={portfolioIcon} />
         <IconContent>
           <h3>Manage your portfolio</h3>
           <p>
@@ -60,7 +61,7 @@ const Icons = () => {
         </IconContent>
       </Icon>
       <Icon>
-        <IconImage src={SvgIcon} />
+        <IconImage src={portfolioIcon} />
         <IconContent>
           <h3>Manage your portfolio</h3>
           <p>
@@ -70,7 +71,7 @@ const Icons = () => {
         </IconContent>
       </Icon>
       <Icon>
-        <IconImage src={SvgIcon} />
+        <IconImage src={portfolioIcon} />
         <IconContent>
           <h3>Manage your portfolio</h3>
           <p>
@@ -80,7 +81,7 @@ const Icons = () => {
         </IconContent>
       </Icon>
       <Icon>
-        <IconImage src={SvgIcon} />
+        <IconImage src={portfolioIcon} />
         <IconContent>
           <h3>Manage your portfolio</h3>
           <p>
