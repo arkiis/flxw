@@ -79,8 +79,6 @@ class Table extends Component {
     return this.state.coins.map((coin, index) => {
       const { id, symbol, name, price, change, icon } = coin;
 
-      console.log(change.charAt(0));
-
       return (
         <Styles.TableRowStyles key={id}>
           <Styles.TabelDataStyles>{id}</Styles.TabelDataStyles>
@@ -108,7 +106,6 @@ class Table extends Component {
   renderTableHeader() {
     let header = Object.keys(this.state.coins[0]);
 
-    console.log(header);
     return header.map((key, index) => {
       return (
         <Styles.TabelHeadingStyles key={index} bg>

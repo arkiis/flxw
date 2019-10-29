@@ -80,8 +80,6 @@ class MobileTable extends Component {
     return this.state.coins.map((coin, index) => {
       const { id, symbol, name, price, change, icon } = coin;
 
-      console.log(change.charAt(0));
-
       return (
         <Styles.MobileTableRowStyles key={id} bg>
           <Styles.TabelDataStyles>
