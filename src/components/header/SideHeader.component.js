@@ -269,26 +269,7 @@ const SideHeader = ({ loggedIn }) => {
               onClick={() => setIsOpened(!isOpened)}
               mobile
             >
-              <ToggleContent
-                toggle={show => (
-                  <a onClick={show} className="hover">
-                    Prices
-                  </a>
-                )}
-                content={hide => (
-                  <HomeModal>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "100vh",
-                        position: "absolute"
-                      }}
-                      onClick={hide}
-                    ></div>
-                    <LogUp signUp loading error cleanUp></LogUp>
-                  </HomeModal>
-                )}
-              />
+              Prices
             </OptionLinkStyle>
             <OptionLinkStyle
               activeClassName="selectedLink"

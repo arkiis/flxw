@@ -87,22 +87,7 @@ const Header = ({ loggedIn }) => {
             Home
           </NavLink>
           <NavLink className="optionLink" to="/prices">
-            <ToggleContent
-              toggle={show => <a onClick={show}>Prices</a>}
-              content={hide => (
-                <HomeModal>
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100vh",
-                      position: "absolute"
-                    }}
-                    onClick={hide}
-                  ></div>
-                  <LogUp signUp loading error cleanUp></LogUp>
-                </HomeModal>
-              )}
-            />
+            Prices
           </NavLink>
           <NavLink className="optionLink" to="/chatroom">
             Chatroom
