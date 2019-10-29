@@ -16,8 +16,6 @@ import Profile from "./components/auth/Profile/Profile";
 import PriceDetail from "./pages/PriceDetail/PriceDetail";
 
 const Routes = ({ loggedIn, emailVerified, dimensions }) => {
-  console.log(`LOGJS- Loggedin ${loggedIn}`);
-  console.log(dimensions.width);
   let routes;
 
   {

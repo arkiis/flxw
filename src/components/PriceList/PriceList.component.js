@@ -16,16 +16,11 @@ function searchingFor(search) {
 }
 
 const PriceList = props => {
-  console.log(props.coins);
-
   const [selection, setSelection] = useState("1d");
   const [priceChange, setPriceChange] = useState([]);
   const [coin, setCoin] = useState([]);
   const [MarketCapLow, setMarketCapLow] = useState(false);
   const [search, setSearch] = useState("");
-  const [reverseCoin, setReverseCoin] = useState(
-    [...coin].filter(searchingFor(search)).reverse()
-  );
 
   const timeIntervals = {
     oneHour: "1h",
@@ -34,7 +29,6 @@ const PriceList = props => {
     oneMonth: "30d",
     oneYear: "365d"
   };
-  console.log(props);
 
   useEffect(() => {
     setPriceChange(props.coins.price);
@@ -58,7 +52,6 @@ const PriceList = props => {
   };
 
   const getPriceList = () => {
-    console.log(`LOOK AT ME ${selection}`);
     return (
       <Styles.TableContainer>
         {/*Search bar component*/}

@@ -6,8 +6,12 @@ import Loader from "../../../UI/loader/loader";
 import styled from "styled-components";
 
 const LoaderWrapper = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100px;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +21,7 @@ const GetPriceListBody = props => {
   const lowercasedCoins = props.search.toLowerCase();
   const [coins, setCoins] = useState(props.coins);
   const priceChanges = props.priceChange;
-  console.log(props);
+
   //filters the coins when the user types in the search bar
 
   let filteredCoins = props.coins.filter(coin => {

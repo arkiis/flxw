@@ -84,7 +84,6 @@ class MobileTable extends Component {
 
       return (
         <Styles.MobileTableRowStyles key={id} bg>
-          <Styles.TabelDataStyles>{id}</Styles.TabelDataStyles>
           <Styles.TabelDataStyles>
             {name.icon}
             {name.Identity} {name.symbol}

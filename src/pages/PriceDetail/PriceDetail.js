@@ -14,10 +14,6 @@ const PriceDetail = ({ dimensions, location, match }) => {
     fetchMetaData();
   }, []);
 
-  useEffect(() => {
-    console.log("resized to: ", window.innerWidth, "x", window.innerHeight);
-  }, []);
-
   const [allCoins, setAllCoins] = useState(location.state.coins);
   const [price, setPrice] = useState({});
   const [metaData, setMetaData] = useState([]);
@@ -35,7 +31,6 @@ const PriceDetail = ({ dimensions, location, match }) => {
       setBuyButton(true);
     }
   }
-  console.log(buyButton);
 
   //MOBILE TOGGLE
   const mobileToggle = (desktop, mobile) => {
@@ -49,8 +44,6 @@ const PriceDetail = ({ dimensions, location, match }) => {
     );
     const prices = await fetchItem.json();
     setPrice(prices[0]);
-
-    console.log(`VOLUME DATA HERE ${prices[0]}`);
   };
   const fetchMetaData = async () => {
     const fetchMeta = await fetch(
@@ -60,7 +53,6 @@ const PriceDetail = ({ dimensions, location, match }) => {
     const simplify = meta[0].description.substring(0, 278);
     setSimplifyMeta(`${simplify}`);
     setMetaData(meta[0]);
-    console.log(meta[0]);
   };
 
   const simplifyPrice = data => {

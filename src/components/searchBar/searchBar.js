@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import * as Styles from "./searchBar.styles";
 import SearchIcon from "../../assets/images/search-solid.svg";
 import GetPriceChangeIntervals from "../PriceChangeIntervals/priceChangeIntervals";
-import MobileChangeIntervals from "../PriceChangeIntervals/MobileChangeIntervals";
 
 const GetSearchBar = props => {
   const [color, setColor] = useState("");
-  console.log(props);
+
   const handleClick = name => {
     setColor(name);
   };
@@ -15,6 +14,7 @@ const GetSearchBar = props => {
     <Styles.SearchBarMainContainer>
       <Styles.SearchBarContainer>
         <Styles.SearchInputContainer>
+          {/* icon on the search bar */}
           <img
             src={SearchIcon}
             width="20"
@@ -38,13 +38,6 @@ const GetSearchBar = props => {
           selection={props.selection}
           mobileToggle={props.mobileToggle}
         />
-        {/* <MobileChangeIntervals
-          color={color}
-          handleClick={handleClick}
-          timeIntervels={props.timeIntervels}
-          updateData={props.updateData}
-          selection={props.selection}
-        /> */}
       </Styles.SearchBarContainer>
     </Styles.SearchBarMainContainer>
   );

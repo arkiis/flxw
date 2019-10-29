@@ -2,14 +2,9 @@ import React, { Component, useState, useEffect } from "react";
 import PriceList from "../../components/PriceList/PriceList.component";
 import * as Styles from "./prices.styles";
 
-// import { fetchCrypto } from "../../store/actions/authActions";
-// import { connect } from "react-redux";
-// import { bindActionCreators } from "redux";
-
 const Prices = props => {
   const [coins, setCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(props.dimensions);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -21,7 +16,6 @@ const Prices = props => {
 
       setCoins(coins);
       setIsLoading(false);
-      console.log(coins);
     };
     fetchItems();
   }, []);

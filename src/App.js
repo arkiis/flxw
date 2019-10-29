@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/header/header.component";
 import SideHeader from "./components/header/SideHeader.component";
-import mainLogo from "../src/assets/images/startup.svg";
 import Routes from "./routes";
-
 import ReactNotifications from "react-notifications-component";
-
 import { connect } from "react-redux";
 
 //this function is to make sure when the
@@ -46,7 +43,6 @@ function App({ loggedIn }) {
       window.removeEventListener("resize", debounceHandleResize);
     };
   });
-  console.log(`${dimensions.height} x ${dimensions.width}`);
 
   return (
     <div>

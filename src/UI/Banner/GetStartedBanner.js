@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../../UI/Forms/Button/Button";
-import iPhone from "../../assets/images/iphone.png";
+import iPhone from "../../assets/images/icon_iphonex-01.svg";
 import { Link } from "react-router-dom";
 
 const GetStartedBannerWrapper = styled.div`
@@ -69,8 +69,8 @@ const GetStartedContenttwo = styled.div`
   flex-direction: row;
   align-self: flex-start;
   height: auto;
-  width: 65%;
-
+  width: 100%;
+  justify-content: center;
   right: 0px;
   top: 0px;
   max-width: 750px;
@@ -100,7 +100,7 @@ const GetStartedBanner = () => {
       <GetStartedContentWrapper>
         <GetStartedContenttwo>
           {/* replace image. Use JPEG lower size image */}
-          <img src={iPhone} />
+          <img src={iPhone} style={{ width: "400px" }} />
         </GetStartedContenttwo>
       </GetStartedContentWrapper>
     </GetStartedBannerWrapper>

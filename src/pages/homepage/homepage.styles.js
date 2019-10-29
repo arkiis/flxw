@@ -43,6 +43,7 @@ export const HomeMainWrapper = styled.div`
   position: relative;
   background: white;
   display: flex;
+  overflow: hidden;
   justify-content: center;
   align-items: center;
 `;

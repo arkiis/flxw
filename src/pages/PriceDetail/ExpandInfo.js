@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import * as Styles from "./PriceDetailStyles";
 
 const ExpandInfo = props => {
   const [expand, setExpanded] = useState(false);
 
   const [fullText, setFullText] = useState(props.metaData);
-
-  console.log(props.metaData);
 
   useEffect(() => {
     setFullText(props.metaData);

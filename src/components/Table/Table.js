@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Button from "../../UI/Forms/Button/Button";
 import * as Styles from "./Tables.styles";
-import BTC from "../../../node_modules/cryptocurrency-icons/svg/color/btc.svg";
+import Bitcoin from "../../assets/images/icon_bitcoin-01.svg";
 
 const TableContainer = styled.div`
   z-index: 10;
