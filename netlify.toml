@@ -7,6 +7,6 @@
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
-  for = "/*"
+  for = "/prices"
     [headers.values]
     Access-Control-Allow-Origin = "*"

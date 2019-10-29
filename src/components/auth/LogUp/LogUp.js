@@ -23,6 +23,9 @@ const FlexContainer = styled.div`
   * {
     flex: 1 40%;
   }
+  @media ${props => props.theme.mediaQueries.medium} {
+    flex-direction: column;
+  }
 `;
 
 const SignUpWrapper = styled.div`

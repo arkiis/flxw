@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import mainLogo from "../../assets/images/flxw-logo.jpg";
+import mainLogo from "../../assets/images/flxw-logo-01-01.png";
 import { NavLink } from "react-router-dom";
 import "./header.styles.scss";
 import { connect } from "react-redux";

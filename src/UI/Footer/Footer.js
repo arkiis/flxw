@@ -1,6 +1,6 @@
 import React from "react";
 import * as Styles from "./Footer.styles";
-import image from "../../assets/images/flxw-logo.jpg";
+import image from "../../assets/images/flxw-logo-01-01.png";
 
 const Footer = () => {
   return (
