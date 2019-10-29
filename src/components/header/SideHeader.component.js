@@ -25,7 +25,7 @@ const FixedWrapperSide = styled.header`
   z-index: 2220;
   left: 0;
   width: 100%;
-  height: 6rem;
+  height: auto;
   display: none;
   @media ${props => props.theme.mediaQueries.medium} {
     display: flex;
