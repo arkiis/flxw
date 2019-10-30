@@ -17,7 +17,7 @@ const LoaderWrapper = styled.div`
   align-items: center;
 `;
 
-const GetPriceListBody = props => {
+const PriceBody = props => {
   const lowercasedCoins = props.search.toLowerCase();
   const [coins, setCoins] = useState(props.coins);
   const priceChanges = props.priceChange;
@@ -108,4 +108,4 @@ const GetPriceListBody = props => {
   );
 };
 
-export default GetPriceListBody;
+export default PriceBody;

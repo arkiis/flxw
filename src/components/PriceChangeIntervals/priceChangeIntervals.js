@@ -1,7 +1,7 @@
 import React from "react";
 import * as Styles from "../searchBar/searchBar.styles";
 
-const GetPriceChangeIntervals = props => {
+const PriceChangeIntervals = props => {
   //This component will change the price change prct
   //on the price page
 
@@ -43,8 +43,8 @@ const GetPriceChangeIntervals = props => {
   );
 };
 
-GetPriceChangeIntervals.defaultProps = {
+PriceChangeIntervals.defaultProps = {
   selection: "1d"
 };
 
-export default GetPriceChangeIntervals;
+export default PriceChangeIntervals;

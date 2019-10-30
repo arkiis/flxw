@@ -10,7 +10,7 @@ const MobileLink = styled(Link)`
   width: 100%;
 `;
 
-const GetPriceListBodyMobile = props => {
+const PriceBodyMobile = props => {
   const lowercasedCoins = props.search.toLowerCase();
 
   //filters the coins when the user types in the search bar
@@ -82,4 +82,4 @@ const GetPriceListBodyMobile = props => {
   );
 };
 
-export default GetPriceListBodyMobile;
+export default PriceBodyMobile;

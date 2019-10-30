@@ -2,7 +2,7 @@ import React from "react";
 import * as Styles from "../../../components/Table/Tables.styles";
 import Icon from "../../../assets/images/sort-solid.svg";
 
-const GetPriceHeader = props => {
+const PriceHeader = props => {
   return (
     //This is the header for the table on the price page
 
@@ -26,4 +26,4 @@ const GetPriceHeader = props => {
   );
 };
 
-export default GetPriceHeader;
+export default PriceHeader;

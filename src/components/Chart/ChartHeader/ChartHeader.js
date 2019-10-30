@@ -2,7 +2,7 @@ import React from "react";
 import * as Styles from "../../../pages/PriceDetail/PriceDetailStyles";
 import FollowIcon from "../../../components/FollowIcon/FollowIcon";
 
-const GetHeadingChartSection = props => {
+const ChartHeader = props => {
   //This header is found above the area chart
 
   return (
@@ -21,4 +21,4 @@ const GetHeadingChartSection = props => {
   );
 };
 
-export default GetHeadingChartSection;
+export default ChartHeader;

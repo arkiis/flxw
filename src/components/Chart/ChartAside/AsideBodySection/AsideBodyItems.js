@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import * as Styles from "../../../../pages/PriceDetail/PriceDetailStyles";
 
 const AsideBodyItems = (props, match) => {
-  console.log(match);
-  console.log(props.allCoins);
-  console.log(props.price.currency);
   return (
     //coins showing in the discover more component
     //under the buy/sell component

@@ -1,19 +1,22 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Homepage from "./pages/homepage/homepage";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
-import Chatroom from "./pages/chatroom/Chatroom";
+
 import Login from "./components/auth/login";
 import VerifyEmail from "./components/auth/VerifyEmail/VerifyEmail";
 import { connect } from "react-redux";
-import Dashboard from "./pages/dashboard/dashboard";
 import LogUp from "./components/auth/LogUp/LogUp";
-import Prices from "./pages/Prices/prices";
+
 import Logout from "././components/auth/Logout/Logout";
 import RecoverPassword from "./components/auth/RecoverPassword/RecoverPassword";
 import Profile from "./components/auth/Profile/Profile";
-import PriceDetail from "./pages/PriceDetail/PriceDetail";
+
+const Dashboard = React.lazy(() => import("./pages/dashboard/dashboard"));
+const Chatroom = React.lazy(() => import("./pages/chatroom/Chatroom"));
+const Prices = React.lazy(() => import("./pages/Prices/prices"));
+const PriceDetail = React.lazy(() => import("./pages/PriceDetail/PriceDetail"));
 
 const Routes = ({ loggedIn, emailVerified, dimensions }) => {
   let routes;
@@ -40,27 +43,31 @@ const Routes = ({ loggedIn, emailVerified, dimensions }) => {
     );
   } else if (loggedIn && emailVerified) {
     routes = (
-      <Switch>
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/chatroom" component={Chatroom} />
-        <Route
-          exact
-          path="/prices"
-          exact
-          render={props => <Prices {...props} dimensions={dimensions.width} />}
-        />
-        <Route
-          exact
-          path="/prices/:id"
-          exact
-          render={props => (
-            <PriceDetail {...props} dimensions={dimensions.width} />
-          )}
-        />
-        <Route exact path="/logout" component={Logout} />
-        <Redirect to="/dashboard" />
-      </Switch>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/chatroom" component={Chatroom} />
+          <Route
+            exact
+            path="/prices"
+            exact
+            render={props => (
+              <Prices {...props} dimensions={dimensions.width} />
+            )}
+          />
+          <Route
+            exact
+            path="/prices/:id"
+            exact
+            render={props => (
+              <PriceDetail {...props} dimensions={dimensions.width} />
+            )}
+          />
+          <Route exact path="/logout" component={Logout} />
+          <Redirect to="/dashboard" />
+        </Switch>
+      </Suspense>
     );
   } else {
     routes = (

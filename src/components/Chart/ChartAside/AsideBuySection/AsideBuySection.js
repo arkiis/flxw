@@ -7,7 +7,6 @@ import BuyandSellTabs from "./BuyandSellTabs";
 const AsideBuySection = props => {
   const [activeTab, setActiveTab] = useState(false);
   const [active, setActive] = useState("");
-  const [asideTabs, setAsideTabs] = useState(["Buy", "Sell"]);
   const [width, setWidth] = useState("40px");
   const [buyColor, setBuyColor] = useState("#6433ff95");
   const [nocursor, setNoCursor] = useState("not-allowed");
@@ -39,8 +38,6 @@ const AsideBuySection = props => {
       setBuyColor("#6433ff");
     }
   };
-  console.log(value);
-  console.log(width);
 
   const toggleClass = name => {
     setActive(name);

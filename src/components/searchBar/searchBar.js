@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import * as Styles from "./searchBar.styles";
 import SearchIcon from "../../assets/images/search-solid.svg";
-import GetPriceChangeIntervals from "../PriceChangeIntervals/priceChangeIntervals";
+import PriceChangeIntervals from "../PriceChangeIntervals/priceChangeIntervals";
 
-const GetSearchBar = props => {
+const SearchBar = props => {
   const [color, setColor] = useState("");
 
   const handleClick = name => {
@@ -30,7 +30,7 @@ const GetSearchBar = props => {
           />
         </Styles.SearchInputContainer>
         {/* this is where the user can change the price-change prct */}
-        <GetPriceChangeIntervals
+        <PriceChangeIntervals
           color={color}
           handleClick={handleClick}
           timeIntervals={props.timeIntervals}
@@ -43,4 +43,4 @@ const GetSearchBar = props => {
   );
 };
 
-export default GetSearchBar;
+export default SearchBar;

@@ -5,6 +5,7 @@ import firebase from "../../Firebase/Firebase";
 import ChatroomForm from "./ChatroomForm";
 import { formatDistanceToNow } from "date-fns";
 import ChatroomButtons from "./ChatroomButtons";
+import ChatLists from "./ChatLists";
 
 // adding new chat documents
 // setting up a real-time listener to get new chats
@@ -76,19 +77,7 @@ const Chatroom = () => {
 
           {/* chat list / window */}
           <div>
-            <Style.ChatList className="chat-list">
-              {allChats.map(chat => (
-                <Style.ChatListItems key={chat.id}>
-                  <Style.ChatListDivWrapper>
-                    <Style.ChatListDiv>{chat.user}</Style.ChatListDiv>
-                    <div>{chat.message}</div>
-                  </Style.ChatListDivWrapper>
-                  <Style.ChatListDate>
-                    {fixDate(chat.created_at.seconds)}
-                  </Style.ChatListDate>
-                </Style.ChatListItems>
-              ))}
-            </Style.ChatList>
+            <ChatLists allChats={allChats} fixDate={fixDate} />
           </div>
 
           {/* new chat form */}

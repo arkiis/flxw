@@ -20,6 +20,7 @@ const Prices = props => {
     fetchItems();
   }, []);
 
+  console.log("practiceeeeeeeee");
   return (
     <Styles.HomeMainWrapper style={{ padding: "20px" }}>
       <Styles.HomepageWrapper>

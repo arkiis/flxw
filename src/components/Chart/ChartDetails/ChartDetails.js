@@ -2,13 +2,7 @@ import React from "react";
 import * as Styles from "../../../pages/PriceDetail/PriceDetailStyles";
 
 const ChartDetails = props => {
-  const {
-    high,
-    circulating_supply,
-    market_cap,
-    id
-    // ["1d"]: { volume } ///NEED HELP
-  } = props.price;
+  const { high, circulating_supply, market_cap, id } = props.price;
   const priceOneDay = props.price["1d"];
 
   const chartVolume = priceOneDay && priceOneDay.volume;

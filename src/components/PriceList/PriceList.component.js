@@ -4,10 +4,10 @@ import * as Styles from "../../components/Table/Tables.styles";
 
 import "./PriceList.scss";
 
-import GetSearchBar from "../../components/searchBar/searchBar";
-import GetPriceHeader from "../../components/PriceList/PriceHeader/PriceHeader";
-import GetPriceListBody from "../PriceList/PriceBody/PriceBody";
-import GetPriceListBodyMobile from "../PriceList/PriceBody/PriceBodyMobile";
+import SearchBar from "../../components/searchBar/searchBar";
+import PriceHeader from "../../components/PriceList/PriceHeader/PriceHeader";
+import PriceBody from "../PriceList/PriceBody/PriceBody";
+import PriceBodyMobile from "../PriceList/PriceBody/PriceBodyMobile";
 
 function searchingFor(search) {
   return function(x) {
@@ -55,7 +55,7 @@ const PriceList = props => {
     return (
       <Styles.TableContainer>
         {/*Search bar component*/}
-        <GetSearchBar
+        <SearchBar
           search={search}
           updateSearch={updateSearch}
           timeIntervals={timeIntervals}
@@ -66,13 +66,13 @@ const PriceList = props => {
         <Styles.Tablestyles>
           {/*Table header component*/}
           <tbody>
-            <GetPriceHeader
+            <PriceHeader
               CoinIcon={Styles.CoinIcon}
               MarketCapLow={MarketCapLow}
               setMarketCapLow={setMarketCapLow}
             />
             {/*Table body component*/}
-            <GetPriceListBody
+            <PriceBody
               search={search}
               setSearch={setSearch}
               isLoading={props.isLoading}
@@ -83,7 +83,7 @@ const PriceList = props => {
               coins={props.coins}
               priceChange={priceChange}
             />
-            <GetPriceListBodyMobile
+            <PriceBodyMobile
               search={search}
               setSearch={setSearch}
               CoinIcon={Styles.CoinIcon}
