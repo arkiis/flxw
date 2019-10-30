@@ -6,10 +6,10 @@ const TradeSummary = props => {
   return (
     <>
       <Style.TradeSummaryRowStyles>
-        <Style.TabelDataStyles bold matte size none>
+        <Style.TabelDataStyles bold matte size none zero>
           Trade #{props.tradeNumber}
         </Style.TabelDataStyles>
-        <Style.TabelDataStyles size gray>
+        <Style.TabelDataStyles size gray zero>
           {date.format(props.now, "MM/DD/YYYY - HH:mm:ss")}
         </Style.TabelDataStyles>
         <Style.TabelDataStyles
@@ -29,6 +29,7 @@ const TradeSummary = props => {
           {props.newTrigger}
         </Style.TabelDataStyles>
         <Style.TabelDataStyles
+          zero
           style={
             props.currencySold.price.charAt(0) === "+"
               ? { color: "#23cc9a" }
@@ -38,7 +39,7 @@ const TradeSummary = props => {
         >
           {props.currencySold.price}
         </Style.TabelDataStyles>
-        <Style.TabelDataStyles matte size>
+        <Style.TabelDataStyles matte size zero>
           1200.3243
         </Style.TabelDataStyles>
         <Style.TabelDataStyles
@@ -48,6 +49,7 @@ const TradeSummary = props => {
               : { color: "#eb5d5e" }
           }
           size
+          zero
         >
           {props.currencySold.Acquired.price}
         </Style.TabelDataStyles>

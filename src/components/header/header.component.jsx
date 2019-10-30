@@ -2,11 +2,7 @@ import React from "react";
 import mainLogo from "../../assets/images/flxw-logo-01.png";
 import { NavLink } from "react-router-dom";
 import "./header.styles.scss";
-import { connect } from "react-redux";
-import ToggleContent from "../../UI/Modal/ToggleContent.js";
-import HomeModal from "../../UI/Modal/HomeModal";
 import styled from "styled-components";
-import LogUp from "../auth/LogUp/LogUp";
 import HeaderDropDown from "../../components/dropdown/dropdown";
 
 const SpanArrow = styled.span`

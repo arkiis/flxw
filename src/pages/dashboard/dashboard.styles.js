@@ -59,6 +59,32 @@ export const FollowingSection = styled.div`
   border: 1px solid rgb(236, 239, 241);
 `;
 
+export const DeleteFollowing = styled.div`
+  opacity: 0.3;
+  width: 30px;
+  height: 30px;
+  transition: 0.4s all cubic-bezier(0.32, 0.76, 0.87, 0.38);
+
+  &:hover {
+    opacity: 1;
+  }
+  &:before,
+  :after {
+    position: absolute;
+    left: 15px;
+    content: " ";
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+`;
+
 export const DashboardPortfolioSection = styled.div`
   display: flex;
   flex-direction: column;
@@ -149,7 +175,7 @@ export const DashboardFollowingItems = styled.div`
 
 export const DashboardFavoriteItems = styled.div`
   display: flex;
-  overflow: hidden;
+
   flex-direction: column;
 `;
 

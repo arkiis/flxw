@@ -39,8 +39,6 @@ export const SearchPriceChange = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
-  @media ${props => props.theme.mediaQueries.medium} {
-  }
 `;
 
 export const MobileSearchPriceChange = styled.select`
@@ -62,6 +60,9 @@ export const SearchPriceChangeItems = styled.span`
   cursor: pointer;
   &:focus {
     color: blue;
+  }
+  @media ${props => props.theme.mediaQueries.medium} {
+    font-size: 12px;
   }
 `;
 export const MobileSearchPriceChangeItems = styled.option`

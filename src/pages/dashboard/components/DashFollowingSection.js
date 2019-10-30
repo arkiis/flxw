@@ -5,6 +5,7 @@ import ProgressBar from "../../../components/ProgressBar/ProgressBar";
 import firebase from "../../../Firebase/Firebase";
 import DashLineChart from "./DashLineChart";
 import { Scrollbars } from "react-custom-scrollbars";
+import FollowIcon from "../../../assets/images/no-coins-01.svg";
 
 const DashFollowingSection = props => {
   ///* firebase.auth().currentUser.uid */
@@ -15,10 +16,12 @@ const DashFollowingSection = props => {
   useEffect(() => {
     db.collection("coins")
       .where("userId", "==", firebase.auth().currentUser.uid)
-      .get()
-      .then(snapShot => {
+      .onSnapshot(snapShot => {
         var result = [];
-        snapShot.forEach(x => result.push(x.data()));
+        var ids = [];
+        snapShot.forEach(x => {
+          result.push(x);
+        });
         setFavoriteCoin(result);
       });
   }, []);
@@ -28,6 +31,7 @@ const DashFollowingSection = props => {
   console.log(`LOGJS- dataFRomFireStore ${firebase.auth().currentUser.uid}`);
 
   const [favoriteCoin, setFavoriteCoin] = useState([]);
+  const [documentId, setDocumentId] = useState();
   const [percentage, setPercentage] = useState(0);
   const [background, setBackground] = useState("");
   const [coinsFollowing, setCoinsFollowing] = useState(
@@ -39,7 +43,7 @@ const DashFollowingSection = props => {
   const loadProgress = perc => {
     setPercentage(perc);
   };
-
+  console.log(favoriteCoin);
   return (
     <Home.DashboardFollowing>
       <Home.FollowingSection>
@@ -47,24 +51,34 @@ const DashFollowingSection = props => {
           <Home.PortfolioHeader>Following</Home.PortfolioHeader>
           <Scrollbars style={{ height: 220 }}>
             {favoriteCoin.length === 0 ? (
-              <p>You are not following any coins</p>
+              <img style={{ height: "200px" }} src={FollowIcon}></img>
             ) : (
               <Home.DashboardFavoriteItems>
                 {favoriteCoin.map(x => {
                   return (
                     <Home.FavoriteCoin>
                       <Home.LogoAndNameWrapper>
-                        <Styles.CoinIcon src={x.logo_url} marginR />
-                        <Styles.TableDataP>{x.name}</Styles.TableDataP>
+                        <Styles.CoinIcon src={x.data().logo_url} marginR />
+                        <Styles.TableDataP>{x.data().name}</Styles.TableDataP>
                       </Home.LogoAndNameWrapper>
                       {/* <p>{x["1d"].price_change_pct}</p> */}
                       <div style={{ display: "flex", width: "200px" }}>
                         <Home.FavoriteCoinPrice>
-                          ${props.simplifyPrice(x.price)}
+                          ${props.simplifyPrice(x.data().price)}
                         </Home.FavoriteCoinPrice>
                       </div>
+
                       {/* Line chart  */}
                       <DashLineChart />
+                      {/* deleting data */}
+                      <Home.DeleteFollowing
+                        onClick={e => {
+                          e.stopPropagation();
+                          db.collection("coins")
+                            .doc(x.id)
+                            .delete();
+                        }}
+                      ></Home.DeleteFollowing>
                     </Home.FavoriteCoin>
                   );
                 })}

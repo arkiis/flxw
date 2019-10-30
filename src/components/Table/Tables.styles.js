@@ -100,6 +100,7 @@ export const TradeSummaryRowStyles = styled.tr`
     background: ${({ bg }) => (bg ? "" : "#b3b3b320")};
   }
   @media ${props => props.theme.mediaQueries.medium} {
+    padding: 10px;
   }
 
   &:hover {
@@ -138,6 +139,8 @@ export const TabelDataStyles = styled.td`
   }
   @media ${props => props.theme.mediaQueries.medium} {
     display: ${({ none }) => (none ? "none" : "unset")};
+    padding: ${({ zero }) => (zero ? "2px" : "22px")};
+    padding-left: ${({ zero }) => (zero ? "2px" : "32px")};
   }
 `;
 export const TableDataP = styled.p`
@@ -151,6 +154,7 @@ export const TabelHeadingStyles = styled.th`
   border-collapse: collapse;
   @media ${props => props.theme.mediaQueries.medium} {
     display: ${({ none }) => (none ? "none" : "unset")};
+    padding: ${({ zero }) => (zero ? "18px 18px" : "21px 12px 21px 32px")};
   }
 `;
 
