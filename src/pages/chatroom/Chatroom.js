@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import * as Styles from "../Prices/prices.styles";
 import * as Style from "./Chatroom.styles";
-import BtcIcon from "../../assets/chatroomIcons/Bitcoin.png";
 import firebase from "../../Firebase/Firebase";
 import ChatroomForm from "./ChatroomForm";
 import { formatDistanceToNow } from "date-fns";
-
-const db = firebase.firestore();
+import ChatroomButtons from "./ChatroomButtons";
 
 // adding new chat documents
 // setting up a real-time listener to get new chats
@@ -21,22 +19,19 @@ const ROOMS = {
 
 const Chatroom = () => {
   const [selection, setSelection] = useState("general");
-  const [loading, setLoading] = useState(false);
   const allChats = useChats();
-  const [sortBy, setSortBy] = useState("GENERAL");
   const [room, setRoom] = useState("");
-  const [username, setUsername] = useState();
-  const [chats, setChats] = useState(db.collection("chats"));
 
+  //this function is to change the room based on
+  //what the argument string is.
   const updateSelection = select => {
     setSelection(select);
   };
+  //this function is grabbing data from firebase and
+  //placing that data depending on which room it's subscribed to
 
   function useChats(room = selection) {
-    const now = new Date();
     const [chats, setChats] = useState([]);
-    console.log(ROOMS.ROOM);
-    const [createdAt, setCreatedAt] = useState("");
     useEffect(() => {
       const unsubscribe = firebase
         .firestore()
@@ -50,24 +45,22 @@ const Chatroom = () => {
           }));
           setRoom(ROOMS[room].chatroom);
           setChats(newChats);
-          console.log(room);
         });
       return () => unsubscribe();
     }, [room]);
+    //this is to re render everytime the room
+    //state updates
     return chats;
   }
-  console.log(allChats);
 
   //this function makes the date look prettier
   // it is using the date-fns library
 
   const fixDate = dat => {
     var result = formatDistanceToNow(new Date(dat * 1000), { addSuffix: true });
-
     return result;
   };
 
-  console.log(allChats);
   return (
     //container & title
     <Styles.HomeMainWrapper>
@@ -75,36 +68,10 @@ const Chatroom = () => {
         <Style.ChatroomWrapper>
           <Style.ChatroomHeader>Crypto Chat</Style.ChatroomHeader>
 
-          {/* buttons for chatrooms */}
+          {/* buttons and heading for chatrooms */}
           <Style.ChatRooms>
             <div>Choose a chatroom:</div>
-            <Style.ChatRoomButtonWrapper>
-              <Style.ChatRoomButtonContainer>
-                <Style.ChatroomButton
-                  onClick={() => updateSelection("general")}
-                >
-                  #general
-                </Style.ChatroomButton>
-                <Style.ChatroomButton
-                  onClick={() => updateSelection("bitcoin")}
-                >
-                  #bitcoin
-                </Style.ChatroomButton>
-                <Style.ChatroomButton
-                  onClick={() => updateSelection("etheruem")}
-                >
-                  #etheruem
-                </Style.ChatroomButton>
-                <Style.ChatroomButton
-                  onClick={() => updateSelection("litecoin")}
-                >
-                  #litecoin
-                </Style.ChatroomButton>
-                <Style.ChatroomButton onClick={() => updateSelection("ripple")}>
-                  #ripple
-                </Style.ChatroomButton>
-              </Style.ChatRoomButtonContainer>
-            </Style.ChatRoomButtonWrapper>
+            <ChatroomButtons updateSelection={updateSelection} />
           </Style.ChatRooms>
 
           {/* chat list / window */}

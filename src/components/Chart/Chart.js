@@ -282,8 +282,8 @@ class AreaChart extends React.Component {
   }
 
   render() {
+    //timestamp data in a csv
     const timeStamp = this.state.coins;
-    console.log(timeStamp);
 
     //These are the differnet time intervals for the area chart
 
