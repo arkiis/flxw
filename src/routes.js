@@ -8,7 +8,7 @@ import Login from "./components/auth/login";
 import VerifyEmail from "./components/auth/VerifyEmail/VerifyEmail";
 import { connect } from "react-redux";
 import LogUp from "./components/auth/LogUp/LogUp";
-
+import PriceDetail from "./pages/PriceDetail/PriceDetail";
 import Logout from "././components/auth/Logout/Logout";
 import RecoverPassword from "./components/auth/RecoverPassword/RecoverPassword";
 import Profile from "./components/auth/Profile/Profile";
@@ -16,7 +16,6 @@ import Profile from "./components/auth/Profile/Profile";
 const Dashboard = React.lazy(() => import("./pages/dashboard/dashboard"));
 const Chatroom = React.lazy(() => import("./pages/chatroom/Chatroom"));
 const Prices = React.lazy(() => import("./pages/Prices/prices"));
-const PriceDetail = React.lazy(() => import("./pages/PriceDetail/PriceDetail"));
 
 const Routes = ({ loggedIn, emailVerified, dimensions }) => {
   let routes;
