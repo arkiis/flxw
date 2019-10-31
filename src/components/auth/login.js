@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import * as actions from "../../store/actions/index";
-import "../auth/kolor.scss";
 import "../auth/Signin-styles.scss";
 import { FormWrapper, StyledForm } from "../../hoc/layout/elements/index";
 import { MainWrapper } from "../../hoc/layout/layout";

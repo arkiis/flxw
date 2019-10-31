@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Button from "../../UI/Forms/Button/Button";
 import * as Styles from "./Tables.styles";
-import Bitcoin from "../../assets/images/icon_bitcoin-01.svg";
+import TableHeader from "./TableHeader";
+import TableBody from "./TableBody";
 
 const TableContainer = styled.div`
   z-index: 10;
@@ -10,14 +10,15 @@ const TableContainer = styled.div`
   display: flex;
   max-width: 1180px;
   @media ${props => props.theme.mediaQueries.medium} {
-    display: none;
+    display: flex;
   }
 `;
-
+//TABLE FOR HOMEPAGE--------------->
 class Table extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      //Fake data
       coins: [
         {
           id: 1,
@@ -62,57 +63,7 @@ class Table extends Component {
         }
       ]
     };
-  }
-
-  //fetches the data to show on the table
-  //on the price page
-
-  fetchCrpto() {
-    fetch(
-      "https://api.nomics.com/v1/currencies/ticker?key=ba5753b91002279e7338b58479c03ea5&ids=BTC,ETH,XRP,BCH,LTC,EOS&interval=1d,30d"
-    )
-      .then(response => response.json())
-      .then(data => console.log(data));
-  }
-
-  renderTableData() {
-    return this.state.coins.map((coin, index) => {
-      const { id, symbol, name, price, change, icon } = coin;
-
-      return (
-        <Styles.TableRowStyles key={id}>
-          <Styles.TabelDataStyles>{id}</Styles.TabelDataStyles>
-          <Styles.TabelDataStyles>
-            {name.icon}
-            {name.Identity} {name.symbol}
-          </Styles.TabelDataStyles>
-          <Styles.TabelDataStyles>{price}</Styles.TabelDataStyles>
-          <Styles.TabelDataStyles
-            style={
-              change.charAt(0) === "+"
-                ? { color: "#23cc9a" }
-                : { color: "#eb5d5e" }
-            }
-          >
-            {change}
-          </Styles.TabelDataStyles>
-          <Button padding width noMargin onClick={this.fetchCrpto}>
-            Buy
-          </Button>
-        </Styles.TableRowStyles>
-      );
-    });
-  }
-  renderTableHeader() {
-    let header = Object.keys(this.state.coins[0]);
-
-    return header.map((key, index) => {
-      return (
-        <Styles.TabelHeadingStyles key={index} bg>
-          {key.toUpperCase()}
-        </Styles.TabelHeadingStyles>
-      );
-    });
+    this.headers = Object.keys(this.state.coins[0]);
   }
 
   render() {
@@ -120,10 +71,14 @@ class Table extends Component {
       <TableContainer>
         <Styles.Tablestyles>
           <tbody>
-            <Styles.TableRowStyles bg>
-              {this.renderTableHeader()}
+            <Styles.TableRowStyles bg flex spaceEvenly LastChildDel>
+              <TableHeader headers={this.headers} />
+              {/* this data is being mapped on the  
+            tabel body*/}
             </Styles.TableRowStyles>
-            {this.renderTableData()}
+            {this.state.coins.map((coin, index) => {
+              return <TableBody coin={coin} />;
+            })}
           </tbody>
         </Styles.Tablestyles>
       </TableContainer>

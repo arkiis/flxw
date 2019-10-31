@@ -1,6 +1,7 @@
 import React from "react";
 import * as Styles from "./Footer.styles";
 import image from "../../assets/images/flxw-logo-01-01.png";
+import Link from "../Link/Link";
 
 const Footer = () => {
   return (
@@ -13,12 +14,12 @@ const Footer = () => {
         </Styles.FooterContent>
         <Styles.FooterContent>
           <h3>Discover</h3>
-          <a>About</a>
+          <Link link={"#"}>About</Link>
         </Styles.FooterContent>
         <Styles.FooterContent>
           <h3>Follow us</h3>
-          <a>Twitter</a>
-          <a>Instagram</a>
+          <Link link={"#"}>Twitter</Link>
+          <Link link={"#"}>Instagram</Link>
         </Styles.FooterContent>
       </Styles.FooterContainer>
     </Styles.FooterWrapper>

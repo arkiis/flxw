@@ -9,7 +9,6 @@ const SearchBar = props => {
   const handleClick = name => {
     setColor(name);
   };
-  console.log("hellooooooooo");
   return (
     <Styles.SearchBarMainContainer>
       <Styles.SearchBarContainer>
@@ -31,6 +30,7 @@ const SearchBar = props => {
         </Styles.SearchInputContainer>
         {/* this is where the user can change the price-change prct */}
         <PriceChangeIntervals
+          intervalsFetched={props.intervalsFetched}
           color={color}
           handleClick={handleClick}
           timeIntervals={props.timeIntervals}

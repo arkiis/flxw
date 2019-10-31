@@ -1,13 +1,10 @@
 import React, { Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Homepage from "./pages/homepage/homepage";
-import SignIn from "./components/auth/SignIn";
-import SignUp from "./components/auth/SignUp";
-
 import Login from "./components/auth/login";
 import VerifyEmail from "./components/auth/VerifyEmail/VerifyEmail";
 import { connect } from "react-redux";
-import LogUp from "./components/auth/LogUp/LogUp";
+import SignUp from "./components/auth/SignUp/SignUp";
 import PriceDetail from "./pages/PriceDetail/PriceDetail";
 import Logout from "././components/auth/Logout/Logout";
 import RecoverPassword from "./components/auth/RecoverPassword/RecoverPassword";
@@ -72,10 +69,8 @@ const Routes = ({ loggedIn, emailVerified, dimensions }) => {
     routes = (
       <Switch>
         <Route exact path="/" component={Homepage} />
-        <Route exact path="/signin" component={SignIn} />
-        <Route exact path="/signUp" component={SignUp} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/logUp" component={LogUp} />
+        <Route exact path="/logUp" component={SignUp} />
         <Route exact path="/recover" component={RecoverPassword} />
         <Redirect to="/" />
       </Switch>

@@ -8,38 +8,18 @@ const PriceChangeIntervals = props => {
   console.log(props);
   return (
     <Styles.SearchPriceChange>
-      <Styles.SearchPriceChangeItems
-        onClick={() => props.updateData(props.timeIntervals.oneHour)}
-        className={props.selection === props.timeIntervals.oneHour ? "bus" : ""}
-      >
-        1H
-      </Styles.SearchPriceChangeItems>
-      <Styles.SearchPriceChangeItems
-        onClick={() => props.updateData(props.timeIntervals.oneDay)}
-        className={props.selection === props.timeIntervals.oneDay ? "bus" : ""}
-      >
-        24H
-      </Styles.SearchPriceChangeItems>
-      <Styles.SearchPriceChangeItems
-        onClick={() => props.updateData(props.timeIntervals.oneWeek)}
-        className={props.selection === props.timeIntervals.oneWeek ? "bus" : ""}
-      >
-        1W
-      </Styles.SearchPriceChangeItems>
-      <Styles.SearchPriceChangeItems
-        onClick={() => props.updateData(props.timeIntervals.oneMonth)}
-        className={
-          props.selection === props.timeIntervals.oneMonth ? "bus" : ""
-        }
-      >
-        1M
-      </Styles.SearchPriceChangeItems>
-      <Styles.SearchPriceChangeItems
-        onClick={() => props.updateData(props.timeIntervals.oneYear)}
-        className={props.selection === props.timeIntervals.oneYear ? "bus" : ""}
-      >
-        1Y
-      </Styles.SearchPriceChangeItems>
+      {props.intervalsFetched.map(interval => {
+        return (
+          <>
+            <Styles.SearchPriceChangeItems
+              onClick={() => props.updateData(interval)}
+              className={props.selection === interval ? "active" : ""}
+            >
+              {interval}
+            </Styles.SearchPriceChangeItems>
+          </>
+        );
+      })}
     </Styles.SearchPriceChange>
   );
 };

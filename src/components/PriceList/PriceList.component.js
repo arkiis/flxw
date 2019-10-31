@@ -56,6 +56,7 @@ const PriceList = props => {
       <Styles.TableContainer>
         {/*Search bar component*/}
         <SearchBar
+          intervalsFetched={props.intervalsFetched}
           search={search}
           updateSearch={updateSearch}
           timeIntervals={timeIntervals}

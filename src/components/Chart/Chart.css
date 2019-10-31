@@ -19,7 +19,7 @@
   background: #ffffff;
   cursor: pointer;
 }
-.bus {
+.active {
   color: #6433ff;
   border-top: 2px solid #6433ff;
   background: white;
