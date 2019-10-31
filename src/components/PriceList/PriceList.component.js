@@ -30,6 +30,8 @@ const PriceList = props => {
     oneYear: "365d"
   };
 
+  const tableHeaders = ["#", "name", "price", "change", "market cap", "trade"];
+
   useEffect(() => {
     setPriceChange(props.coins.price);
     setCoin(props.coins);
@@ -74,6 +76,9 @@ const PriceList = props => {
             />
             {/*Table body component*/}
             <PriceBody
+              tableHeaders={tableHeaders}
+              MarketCapLow={MarketCapLow}
+              setMarketCapLow={setMarketCapLow}
               search={search}
               setSearch={setSearch}
               isLoading={props.isLoading}
@@ -85,7 +90,7 @@ const PriceList = props => {
               priceChange={priceChange}
               selection={selection}
             />
-            <PriceBodyMobile
+            {/* <PriceBodyMobile
               search={search}
               setSearch={setSearch}
               CoinIcon={Styles.CoinIcon}
@@ -93,7 +98,7 @@ const PriceList = props => {
               MarketCapLow={MarketCapLow}
               coins={props.coins}
               priceChange={priceChange}
-            />
+            /> */}
           </tbody>
         </Styles.Tablestyles>
       </Styles.TableContainer>

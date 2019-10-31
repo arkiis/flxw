@@ -5,7 +5,7 @@ import * as Styles from "./Tables.styles";
 const TableBody = ({ coin }) => {
   const { id, symbol, name, price, change, icon } = coin;
   return (
-    <Styles.TableRowStyles key={id} flex spaceEvenly>
+    <Styles.TableRowStyles key={id} flexMobile spaceEvenly>
       <Styles.TabelDataStyles>{id}</Styles.TabelDataStyles>
       <Styles.TabelDataStyles>
         {name.icon}
