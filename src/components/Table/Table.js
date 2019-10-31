@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Button from "../../UI/Forms/Button/Button";
 import * as Styles from "./Tables.styles";
 import TableHeader from "./TableHeader";
+import TableBody from "./TableBody";
 
 const TableContainer = styled.div`
   z-index: 10;
@@ -65,46 +65,6 @@ class Table extends Component {
     this.header = Object.keys(this.state.coins[0]);
   }
 
-  //fetches the data to show on the table
-  //on the price page
-
-  fetchCrpto() {
-    fetch(
-      "https://api.nomics.com/v1/currencies/ticker?key=ba5753b91002279e7338b58479c03ea5&ids=BTC,ETH,XRP,BCH,LTC,EOS&interval=1d,30d"
-    )
-      .then(response => response.json())
-      .then(data => console.log(data));
-  }
-
-  renderTableData() {
-    return this.state.coins.map((coin, index) => {
-      const { id, symbol, name, price, change, icon } = coin;
-
-      return (
-        <Styles.TableRowStyles key={id}>
-          <Styles.TabelDataStyles>{id}</Styles.TabelDataStyles>
-          <Styles.TabelDataStyles>
-            {name.icon}
-            {name.Identity} {name.symbol}
-          </Styles.TabelDataStyles>
-          <Styles.TabelDataStyles>{price}</Styles.TabelDataStyles>
-          <Styles.TabelDataStyles
-            style={
-              change.charAt(0) === "+"
-                ? { color: "#23cc9a" }
-                : { color: "#eb5d5e" }
-            }
-          >
-            {change}
-          </Styles.TabelDataStyles>
-          <Button padding width noMargin onClick={this.fetchCrpto}>
-            Buy
-          </Button>
-        </Styles.TableRowStyles>
-      );
-    });
-  }
-
   render() {
     return (
       <TableContainer>
@@ -112,8 +72,12 @@ class Table extends Component {
           <tbody>
             <Styles.TableRowStyles bg>
               <TableHeader header={this.header} />
+              {/* this data is being mapped on the  
+            tabel body*/}
             </Styles.TableRowStyles>
-            {this.renderTableData()}
+            {this.state.coins.map((coin, index) => {
+              return <TableBody coin={coin} />;
+            })}
           </tbody>
         </Styles.Tablestyles>
       </TableContainer>
