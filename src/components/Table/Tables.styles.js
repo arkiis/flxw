@@ -66,7 +66,12 @@ export const TableRowStyles = styled.tr`
     background: ${({ bg }) => (bg ? "" : "#b3b3b320")};
   }
   @media ${props => props.theme.mediaQueries.medium} {
-    display: none;
+    display: ${({ flex }) => (flex ? "flex" : "none")};
+    justify-content: ${({ spaceEvenly }) =>
+      spaceEvenly ? "space-evenly" : "unset"};
+    & :last-child {
+      display: ${({ LastChildDel }) => (LastChildDel ? "none" : "")};
+    }
   }
 `;
 
@@ -139,6 +144,7 @@ export const TabelDataStyles = styled.td`
   }
   @media ${props => props.theme.mediaQueries.medium} {
     display: ${({ none }) => (none ? "none" : "unset")};
+
     padding: ${({ zero }) => (zero ? "2px" : "22px")};
     padding-left: ${({ zero }) => (zero ? "2px" : "32px")};
   }

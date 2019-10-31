@@ -13,11 +13,12 @@ const TableContainer = styled.div`
     display: flex;
   }
 `;
-
+//TABLE FOR HOMEPAGE--------------->
 class Table extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      //Fake data
       coins: [
         {
           id: 1,
@@ -62,7 +63,7 @@ class Table extends Component {
         }
       ]
     };
-    this.header = Object.keys(this.state.coins[0]);
+    this.headers = Object.keys(this.state.coins[0]);
   }
 
   render() {
@@ -70,8 +71,8 @@ class Table extends Component {
       <TableContainer>
         <Styles.Tablestyles>
           <tbody>
-            <Styles.TableRowStyles bg>
-              <TableHeader header={this.header} />
+            <Styles.TableRowStyles bg flex spaceEvenly LastChildDel>
+              <TableHeader headers={this.headers} />
               {/* this data is being mapped on the  
             tabel body*/}
             </Styles.TableRowStyles>

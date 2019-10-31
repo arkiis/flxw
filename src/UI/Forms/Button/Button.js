@@ -29,11 +29,15 @@ const StyledButton = styled.button`
     cursor: not-allowed;
     background-color: #333;
   }
+
+  @media ${props => props.theme.mediaQueries.medium} {
+    display: ${({ none }) => (none ? "none" : "flex")};
+  }
 `;
 
-const Button = ({ children, padding, disabled, loading, ...rest }) => {
+const Button = ({ none, children, padding, disabled, loading, ...rest }) => {
   return (
-    <StyledButton padding={padding} disabled={disabled} {...rest}>
+    <StyledButton none={none} padding={padding} disabled={disabled} {...rest}>
       {loading ? loading : children}
     </StyledButton>
   );

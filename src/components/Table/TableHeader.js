@@ -1,11 +1,11 @@
 import React from "react";
 import * as Styles from "./Tables.styles";
 
-const TableHeader = ({ header }) => {
-  return header.map((key, index) => {
+const TableHeader = ({ headers }) => {
+  return headers.map((header, index) => {
     return (
-      <Styles.TabelHeadingStyles key={index} bg>
-        {key.toUpperCase()}
+      <Styles.TabelHeadingStyles key={index} bg spaceEvenly>
+        {header.toUpperCase()}
       </Styles.TabelHeadingStyles>
     );
   });
