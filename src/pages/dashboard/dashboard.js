@@ -2,10 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as Styles from "../Prices/prices.styles";
 import * as Style from "../../components/Table/Tables.styles";
 import * as Home from "../dashboard/dashboard.styles";
-import DashboardChart from "./components/DashboardChart";
-import AsideBodyItems from "../../components/Chart/ChartAside/AsideBodySection/AsideBodyItems";
 import DashboardRowOne from "../dashboard/components/DashboardRowOne";
-import date from "date-and-time";
 
 import DashboardTradeSummary from "./components/DashboardTradeSummary";
 
@@ -14,7 +11,6 @@ const Dashboard = () => {
 
   const btc = [1400, 300, 2000, 1200];
   const total = [...btc].reduce((a, b) => a + b, 0);
-
   const [text, setText] = useState("");
 
   //this hook holds total balance for portfolio component

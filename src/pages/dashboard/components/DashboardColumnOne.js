@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-import * as Home from "../../dashboard/dashboard.styles";
+import * as Home from "../dashboard.styles";
 import * as Styles from "../../../components/Table/Tables.styles";
-import ProgressBar from "../../../components/ProgressBar/ProgressBar";
 import firebase from "../../../Firebase/Firebase";
 import DashLineChart from "./DashLineChart";
 import { Scrollbars } from "react-custom-scrollbars";
 import FollowIcon from "../../../assets/images/no-coins-01.svg";
+import DashboardMarketAct from "./DashboardMarketAct";
 
-const DashFollowingSection = props => {
-  ///* firebase.auth().currentUser.uid */
-  // UZcHE52EdzNdRSs2Tbmc3TbQ2Jq2
-
+const DashboardColumnOne = props => {
   //waiting to grab the data from the firebase database
   // and putting that data into favoriteCoin state
   useEffect(() => {
@@ -18,7 +15,7 @@ const DashFollowingSection = props => {
       .where("userId", "==", firebase.auth().currentUser.uid)
       .onSnapshot(snapShot => {
         var result = [];
-        var ids = [];
+
         snapShot.forEach(x => {
           result.push(x);
         });
@@ -26,24 +23,16 @@ const DashFollowingSection = props => {
       });
   }, []);
 
-  const db = firebase.firestore();
-  var favoriteCoins = [];
-  console.log(`LOGJS- dataFRomFireStore ${firebase.auth().currentUser.uid}`);
-
-  const [favoriteCoin, setFavoriteCoin] = useState([]);
-  const [documentId, setDocumentId] = useState();
-  const [percentage, setPercentage] = useState(0);
-  const [background, setBackground] = useState("");
-  const [coinsFollowing, setCoinsFollowing] = useState(
-    JSON.parse(localStorage.getItem("coinsFollowing"))
-  );
-
-  const [name, setName] = useState("");
-
   const loadProgress = perc => {
     setPercentage(perc);
   };
-  console.log(favoriteCoin);
+
+  const db = firebase.firestore();
+  var favoriteCoins = [];
+
+  const [favoriteCoin, setFavoriteCoin] = useState([]);
+  const [percentage, setPercentage] = useState(0);
+
   return (
     <Home.DashboardFollowing>
       <Home.FollowingSection>
@@ -61,7 +50,7 @@ const DashFollowingSection = props => {
                         <Styles.CoinIcon src={x.data().logo_url} marginR />
                         <Styles.TableDataP>{x.data().name}</Styles.TableDataP>
                       </Home.LogoAndNameWrapper>
-                      {/* <p>{x["1d"].price_change_pct}</p> */}
+
                       <div style={{ display: "flex", width: "200px" }}>
                         <Home.FavoriteCoinPrice>
                           ${props.simplifyPrice(x.data().price)}
@@ -71,6 +60,8 @@ const DashFollowingSection = props => {
                       {/* Line chart  */}
                       <DashLineChart />
                       {/* deleting data */}
+                      {/* if user clicks this element,
+                      that coin will be del */}
                       <Home.DeleteFollowing
                         onClick={e => {
                           e.stopPropagation();
@@ -82,37 +73,14 @@ const DashFollowingSection = props => {
                     </Home.FavoriteCoin>
                   );
                 })}
-                {console.log(favoriteCoins)}
               </Home.DashboardFavoriteItems>
             )}
           </Scrollbars>
         </Home.DashboardPortfolioSection>
       </Home.FollowingSection>
-      <Home.DashboardPortfolioSection>
-        <Home.PortfolioHeader>Todays Market Activity</Home.PortfolioHeader>
-        <Home.DashboardFollowingItems>
-          <ProgressBar
-            percentage={30}
-            loadProgress={loadProgress}
-            name={"United States"}
-            background={"C585FF"}
-          />
-          <ProgressBar
-            percentage={20}
-            loadProgress={loadProgress}
-            name={"Canada"}
-            background={"D72483"}
-          />
-          <ProgressBar
-            percentage={50}
-            loadProgress={loadProgress}
-            name={"Australia"}
-            background={"E5C7FF"}
-          />
-        </Home.DashboardFollowingItems>
-      </Home.DashboardPortfolioSection>
+      <DashboardMarketAct loadProgress={loadProgress} />
     </Home.DashboardFollowing>
   );
 };
 
-export default DashFollowingSection;
+export default DashboardColumnOne;
