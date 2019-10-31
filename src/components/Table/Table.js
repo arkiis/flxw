@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Button from "../../UI/Forms/Button/Button";
 import * as Styles from "./Tables.styles";
-import Bitcoin from "../../assets/images/icon_bitcoin-01.svg";
+import TableHeader from "./TableHeader";
 
 const TableContainer = styled.div`
   z-index: 10;
@@ -10,7 +10,7 @@ const TableContainer = styled.div`
   display: flex;
   max-width: 1180px;
   @media ${props => props.theme.mediaQueries.medium} {
-    display: none;
+    display: flex;
   }
 `;
 
@@ -62,6 +62,7 @@ class Table extends Component {
         }
       ]
     };
+    this.header = Object.keys(this.state.coins[0]);
   }
 
   //fetches the data to show on the table
@@ -103,17 +104,6 @@ class Table extends Component {
       );
     });
   }
-  renderTableHeader() {
-    let header = Object.keys(this.state.coins[0]);
-
-    return header.map((key, index) => {
-      return (
-        <Styles.TabelHeadingStyles key={index} bg>
-          {key.toUpperCase()}
-        </Styles.TabelHeadingStyles>
-      );
-    });
-  }
 
   render() {
     return (
@@ -121,7 +111,7 @@ class Table extends Component {
         <Styles.Tablestyles>
           <tbody>
             <Styles.TableRowStyles bg>
-              {this.renderTableHeader()}
+              <TableHeader header={this.header} />
             </Styles.TableRowStyles>
             {this.renderTableData()}
           </tbody>

@@ -78,7 +78,7 @@ export const MobileTableRowStyles = styled.tr`
     background: ${({ bg }) => (bg ? "" : "#b3b3b320")};
   }
   @media ${props => props.theme.mediaQueries.medium} {
-    display: flex;
+    display: none;
   }
 `;
 
@@ -157,7 +157,3 @@ export const TabelHeadingStyles = styled.th`
     padding: ${({ zero }) => (zero ? "18px 18px" : "21px 12px 21px 32px")};
   }
 `;
-
-// export const TD = ({ children, negative, positive }) => {
-//   return <TabelDataStyles>{children}</TabelDataStyles>;
-// };
