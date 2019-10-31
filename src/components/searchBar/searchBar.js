@@ -30,6 +30,7 @@ const SearchBar = props => {
         </Styles.SearchInputContainer>
         {/* this is where the user can change the price-change prct */}
         <PriceChangeIntervals
+          intervalsFetched={props.intervalsFetched}
           color={color}
           handleClick={handleClick}
           timeIntervals={props.timeIntervals}
