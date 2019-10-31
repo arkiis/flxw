@@ -23,7 +23,6 @@ const PriceBody = props => {
   const priceChanges = props.priceChange;
 
   //filters the coins when the user types in the search bar
-
   let filteredCoins = props.coins.filter(coin => {
     return Object.keys(coin).some(
       key =>

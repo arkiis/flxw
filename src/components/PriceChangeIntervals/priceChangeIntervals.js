@@ -1,5 +1,6 @@
 import React from "react";
 import * as Styles from "../searchBar/searchBar.styles";
+import PropTypes from "prop-types";
 
 const PriceChangeIntervals = props => {
   //This component will change the price change prct

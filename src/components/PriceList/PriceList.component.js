@@ -82,6 +82,7 @@ const PriceList = props => {
               MarketCapLow={MarketCapLow}
               coins={props.coins}
               priceChange={priceChange}
+              selection={selection}
             />
             <PriceBodyMobile
               search={search}
@@ -94,6 +95,7 @@ const PriceList = props => {
             />
           </tbody>
         </Styles.Tablestyles>
+        GetPriceListBody
       </Styles.TableContainer>
     );
   };
