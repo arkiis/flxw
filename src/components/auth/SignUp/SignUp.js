@@ -88,7 +88,7 @@ const SignUp = ({ signUp, loading, error, cleanUp }) => {
     >
       {({ isSubmitting, isValid, cleanUp }) => (
         <SignUpWrapper>
-          <FormWrapper>
+          <FormWrapper negZindex>
             <Heading size="h1" color="#6433ff">
               Create your account
             </Heading>

@@ -8,7 +8,7 @@ const BuyandSellTabs = props => {
         onClick={tab => {
           props.toggleClass(tab);
         }}
-        className={props.activeTab === false ? "bus" : "#4a4a4a70"}
+        className={props.activeTab === false ? "active" : "#4a4a4a70"}
       >
         Buy
       </Styles.AsideBuyTabs>
@@ -16,7 +16,7 @@ const BuyandSellTabs = props => {
         onClick={tab => {
           props.toggleClass(tab);
         }}
-        className={props.activeTab === true ? "bus" : "#4a4a4a70"}
+        className={props.activeTab === true ? "active" : "#4a4a4a70"}
       >
         Sell
       </Styles.AsideBuyTabs>
