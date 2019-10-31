@@ -96,7 +96,6 @@ const PriceList = props => {
             />
           </tbody>
         </Styles.Tablestyles>
-        GetPriceListBody
       </Styles.TableContainer>
     );
   };
