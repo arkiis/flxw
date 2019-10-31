@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Formik, Field } from "formik";
 import * as Yup from "yup";
 import { connect } from "react-redux";
-import "../../auth/kolor.scss";
+import "../../auth/Signin-styles.scss";
 import styled from "styled-components";
 import {
   FormWrapper,
