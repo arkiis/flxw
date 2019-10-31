@@ -24,7 +24,7 @@ export const FormWrapper = styled.div`
 
   @media ${props => props.theme.mediaQueries.medium} {
     margin-top: 40px;
-    z-index: 0;
+    z-index: ${({ negZindex }) => (negZindex ? "-3" : "0")};
   }
 `;
 

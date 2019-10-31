@@ -11,7 +11,6 @@ const Dashboard = () => {
 
   const btc = [1400, 300, 2000, 1200];
   const total = [...btc].reduce((a, b) => a + b, 0);
-  const [text, setText] = useState("");
 
   //this hook holds total balance for portfolio component
   const [totalData, getTotalData] = useState(total);

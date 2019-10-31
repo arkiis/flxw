@@ -8,7 +8,6 @@ import FollowSvgIcon from "./FollowSvgIcon";
 // import MyNotification from "../Notification/Notification";
 
 const FollowIcon = ({ price }) => {
-  console.log(price);
   let coinsFollowing = [];
 
   // console.log(`LOGJS- FirebaseObject`);
@@ -37,7 +36,6 @@ const FollowIcon = ({ price }) => {
     localStorage.setItem("following", JSON.stringify(following));
   });
 
-  console.log(following);
   const handleClick = () => {
     let data = {
       following: following,
@@ -82,7 +80,6 @@ const FollowIcon = ({ price }) => {
       </div>
     );
   }
-  console.log(following);
   return (
     //this whole container is the follow button
 

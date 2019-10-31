@@ -60,15 +60,22 @@ export const Tablestyles = styled.table`
 `;
 
 export const TableRowStyles = styled.tr`
+  width: ${({ fullWidth }) => (fullWidth ? "100%" : "")};
+  justify-content: space-around;
   border-bottom: 1px solid #1c162110;
-
+  display: ${({ flexDesktop }) => (flexDesktop ? "flex" : "")};
+  display: ${({ noDesktop }) => (noDesktop ? "none" : "")};
+  flex-direction: row;
   &:hover {
     background: ${({ bg }) => (bg ? "" : "#b3b3b320")};
   }
   @media ${props => props.theme.mediaQueries.medium} {
-    display: ${({ flex }) => (flex ? "flex" : "none")};
+    display: ${({ flexMobile }) => (flexMobile ? "flex" : "")};
+    width: ${({ noMobileWidth }) => (noMobileWidth ? "unset" : "")};
+    display: ${({ noMobile }) => (noMobile ? "none" : "")};
+    flex-direction: ${({ col }) => (col ? "column" : "row")};
     justify-content: ${({ spaceEvenly }) =>
-      spaceEvenly ? "space-evenly" : "unset"};
+      spaceEvenly ? "space-evenly" : ""};
     & :last-child {
       display: ${({ LastChildDel }) => (LastChildDel ? "none" : "")};
     }

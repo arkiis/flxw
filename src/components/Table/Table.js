@@ -71,7 +71,7 @@ class Table extends Component {
       <TableContainer>
         <Styles.Tablestyles>
           <tbody>
-            <Styles.TableRowStyles bg flex spaceEvenly LastChildDel>
+            <Styles.TableRowStyles bg flexMobile spaceEvenly LastChildDel>
               <TableHeader headers={this.headers} />
               {/* this data is being mapped on the  
             tabel body*/}

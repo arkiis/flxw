@@ -3,7 +3,6 @@ import * as Styles from "../../../../pages/PriceDetail/PriceDetailStyles";
 import AsideBodyItems from "./AsideBodyItems";
 
 const AsideBodySection = props => {
-  console.log(props.price);
   return (
     <Styles.AsideAssetsSection>
       <Styles.AsideAssetsWrapper>

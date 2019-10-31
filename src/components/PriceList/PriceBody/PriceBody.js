@@ -19,10 +19,9 @@ const LoaderWrapper = styled.div`
 
 const PriceBody = props => {
   const lowercasedCoins = props.search.toLowerCase();
-  const [coins, setCoins] = useState(props.coins);
-  const priceChanges = props.priceChange;
 
   //filters the coins when the user types in the search bar
+
   let filteredCoins = props.coins.filter(coin => {
     return Object.keys(coin).some(
       key =>
@@ -60,45 +59,66 @@ const PriceBody = props => {
                 : Math.sign(market_cap) * Math.abs(market_cap);
 
             return (
-              <Styles.TableRowStyles key={rank}>
-                <Styles.TabelDataStyles>{rank}</Styles.TabelDataStyles>
-                <Styles.TabelDataStyles grey flex>
-                  <props.CoinIcon
-                    style={{ marginRight: "12px" }}
-                    src={logo_url}
-                  />
-                  {name}
-                  <Styles.TableDataP style={{ color: "#33333380" }}>
-                    {currency}
-                  </Styles.TableDataP>
-                </Styles.TabelDataStyles>
-
-                <Styles.TabelDataStyles>${newPrice}</Styles.TabelDataStyles>
-
-                <Styles.TabelDataStyles
-                  style={
-                    newMarketPct.charAt(0) === "-"
-                      ? { color: "#ff2734" }
-                      : { color: "#23cc9a" }
-                  }
-                >
-                  {newMarketPct}%
-                </Styles.TabelDataStyles>
-                <Styles.TabelDataStyles>${newMarketCap}</Styles.TabelDataStyles>
-
-                <Styles.TabelDataStyles>
-                  <Link
-                    to={{
-                      pathname: `/prices/${coin.currency}`,
-                      state: { coins: props.coins }
-                    }}
+              <>
+                <Styles.TableRowStyles key={rank} flex spaceEvenly flexDesktop>
+                  <Styles.TableRowStyles flexMobile col noDesktop>
+                    {props.tableHeaders.map(header => {
+                      return (
+                        <Styles.TabelDataStyles>
+                          {header}
+                        </Styles.TabelDataStyles>
+                      );
+                    })}
+                  </Styles.TableRowStyles>
+                  <Styles.TableRowStyles
+                    col
+                    flexDesktop
+                    flexMobile
+                    fullWidth
+                    noMobileWidth
                   >
-                    <Button padding style={{ width: "60%" }}>
-                      Trade
-                    </Button>
-                  </Link>
-                </Styles.TabelDataStyles>
-              </Styles.TableRowStyles>
+                    <Styles.TabelDataStyles>{rank}</Styles.TabelDataStyles>
+                    <Styles.TabelDataStyles grey flex zero>
+                      <props.CoinIcon
+                        style={{ marginRight: "12px" }}
+                        src={logo_url}
+                      />
+                      {name}
+                      <Styles.TableDataP style={{ color: "#33333380" }}>
+                        {currency}
+                      </Styles.TableDataP>
+                    </Styles.TabelDataStyles>
+
+                    <Styles.TabelDataStyles>${newPrice}</Styles.TabelDataStyles>
+
+                    <Styles.TabelDataStyles
+                      style={
+                        newMarketPct.charAt(0) === "-"
+                          ? { color: "#ff2734" }
+                          : { color: "#23cc9a" }
+                      }
+                    >
+                      {newMarketPct}%
+                    </Styles.TabelDataStyles>
+                    <Styles.TabelDataStyles>
+                      ${newMarketCap}
+                    </Styles.TabelDataStyles>
+
+                    <Styles.TabelDataStyles>
+                      <Link
+                        to={{
+                          pathname: `/prices/${coin.currency}`,
+                          state: { coins: props.coins }
+                        }}
+                      >
+                        <Button padding style={{ width: "60%" }}>
+                          Trade
+                        </Button>
+                      </Link>
+                    </Styles.TabelDataStyles>
+                  </Styles.TableRowStyles>
+                </Styles.TableRowStyles>
+              </>
             );
           })}
         </>

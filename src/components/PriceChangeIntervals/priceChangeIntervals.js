@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 const PriceChangeIntervals = props => {
   //This component will change the price change prct
   //on the price page
-  console.log(props);
   return (
     <Styles.SearchPriceChange>
       {props.intervalsFetched.map(interval => {

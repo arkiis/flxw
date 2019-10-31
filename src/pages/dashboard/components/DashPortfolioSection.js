@@ -19,9 +19,6 @@ const DashPortfolioSection = props => {
             </Home.PortfolioBalance>
           </Home.DashboardPortfolioItems>
         </Home.DashboardPortfolioTop>
-        <div>Data from portfolio sent here</div>
-        <div>Data from portfolio sent here</div>
-        <div>Data from portfolio sent here</div>
       </Home.DashboardPortfolioSection>
     </Home.DashboardPortfolio>
   );

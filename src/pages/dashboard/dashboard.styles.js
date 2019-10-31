@@ -61,9 +61,12 @@ export const FollowingSection = styled.div`
 
 export const DeleteFollowing = styled.div`
   opacity: 0.3;
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 30px;
   height: 30px;
-  transition: 0.4s all cubic-bezier(0.32, 0.76, 0.87, 0.38);
+  transition: 0.4s all ease-in;
 
   &:hover {
     opacity: 1;
@@ -73,7 +76,7 @@ export const DeleteFollowing = styled.div`
     position: absolute;
     left: 15px;
     content: " ";
-    height: 33px;
+    height: 25px;
     width: 2px;
     background-color: #333;
   }
@@ -185,7 +188,7 @@ export const FavoriteCoin = styled.div`
   flex-direction: row;
   align-items: center;
   font-size: 18px;
-
+  position: relative;
   border-collapse: collapse;
   border-bottom: 1px solid rgb(236, 239, 241);
 `;
