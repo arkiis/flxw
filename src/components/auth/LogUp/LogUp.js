@@ -9,7 +9,6 @@ import {
   StyledForm,
   StyledField
 } from "../../../hoc/layout/elements/index";
-import { MainWrapper } from "../../../hoc/layout/layout";
 import Input from "../../../UI/Forms/Input/input";
 import Button from "../../../UI/Forms/Button/Button";
 import Heading from "../../../UI/Headings/Heading";

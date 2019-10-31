@@ -3,7 +3,7 @@ import * as Styles from "../../../../../pages/PriceDetail/PriceDetailStyles";
 import Arrow from "../../../../../assets/images/chevron-right-solid.svg";
 import Paypal from "../../../../../assets/images/paypal-seeklogo.com.svg";
 
-const AsideSelectionTwo = props => {
+const AsideSelectionTwo = () => {
   return (
     <Styles.AsideBuySelectionItems>
       <Styles.AsideBuySelectionOne>Pay With</Styles.AsideBuySelectionOne>

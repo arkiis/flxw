@@ -16,19 +16,18 @@ const AsideBuySection = props => {
   // to only accept numbers
 
   const onChange = e => {
-    const re = /^[0-9\b]+$/;
+    const num = /^[0-9\b]+$/;
 
-    if (e.target.value === "" || re.test(e.target.value)) {
+    if (e.target.value === "" || num.test(e.target.value)) {
       setValue(e.target.value);
     }
   };
 
   //make input width change based on
-  //the content's width
+  //the content's width entered in price input
   const toggleInputSize = event => {
     const input = (event.target.value.length + 1) * 24 + "px";
 
-    console.log(event.keyCode);
     setWidth(input);
     if (event.target.value.length === 0) {
       setNoCursor("not-allowed");

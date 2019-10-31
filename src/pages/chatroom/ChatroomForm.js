@@ -12,11 +12,13 @@ const ChatroomForm = props => {
   const [message, setMessage] = useState("");
   const [created_at, setCreated_at] = useState(today);
   const [active_room, setActiveRoom] = useState("");
-  console.log(props);
-  console.log(firebase.auth());
+
   useEffect(() => {
     setActiveRoom(props.room);
   }, [props.room]);
+
+  //function takes state data and adds it
+  //to the chat collection on firebase when user sends message
 
   function onSubmit(e) {
     e.preventDefault();

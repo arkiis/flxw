@@ -4,7 +4,7 @@ import * as Styles from "../searchBar/searchBar.styles";
 const PriceChangeIntervals = props => {
   //This component will change the price change prct
   //on the price page
-
+  console.log(props);
   return (
     <Styles.SearchPriceChange>
       <Styles.SearchPriceChangeItems
