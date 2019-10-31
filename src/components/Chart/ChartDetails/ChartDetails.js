@@ -6,7 +6,6 @@ const ChartDetails = props => {
   const priceOneDay = props.price["1d"];
 
   const chartVolume = priceOneDay && priceOneDay.volume;
-  console.log(chartVolume);
   const simplifyPrice = data => {
     const sus = Math.floor(data * 100) / 100;
     return sus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

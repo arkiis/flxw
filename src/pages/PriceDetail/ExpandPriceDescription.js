@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const ExpandInfo = props => {
+const ExpandPriceDescription = props => {
   const [expand, setExpanded] = useState(false);
 
   const [fullText, setFullText] = useState(props.metaData);
@@ -38,4 +38,4 @@ const ExpandInfo = props => {
   return <div onClick={expandedText}>{expandedDiv}</div>;
 };
 
-export default ExpandInfo;
+export default ExpandPriceDescription;

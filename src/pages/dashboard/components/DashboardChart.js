@@ -15,7 +15,6 @@ const ChartStyles = styled.div`
 
 const DashboardChart = props => {
   const [barData, setBarData] = useState({});
-  console.log(props.chartData);
 
   useEffect(() => {
     setBarData(props.chartData);

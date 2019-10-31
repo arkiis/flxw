@@ -4,7 +4,6 @@ import AsideBuySection from "./AsideBuySection/AsideBuySection";
 import AsideBodySection from "./AsideBodySection/AsideBodySection";
 
 const GetAsideSection = props => {
-  console.log(props.price);
   useEffect(() => {
     fetchItem();
   }, []);
@@ -14,7 +13,6 @@ const GetAsideSection = props => {
       `https://cryptopanic.com/api/v1/posts/?auth_token=a2d04d7d2be17785239c37a3b62ed5784c796f07&currencies=BTC`
     );
     const news = await fetchItem.json();
-    console.log(news);
   };
   return (
     <Styles.ChartAsideSection>
