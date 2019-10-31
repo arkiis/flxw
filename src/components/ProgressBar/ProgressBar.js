@@ -3,9 +3,6 @@ import * as Styles from "./ProgressBar.styles";
 import PropTypes from "prop-types";
 
 const ProgressBar = props => {
-  console.log("I am adding stuff to refactor branch");
-  console.log("I am adding stuff to refactor branch");
-  console.log("hello world");
   return (
     //These are the progress bars for the dashboard page
     //under Today's market activity

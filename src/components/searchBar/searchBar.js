@@ -9,7 +9,7 @@ const SearchBar = props => {
   const handleClick = name => {
     setColor(name);
   };
-
+  console.log("hellooooooooo");
   return (
     <Styles.SearchBarMainContainer>
       <Styles.SearchBarContainer>
