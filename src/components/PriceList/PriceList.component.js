@@ -7,7 +7,6 @@ import "./PriceList.scss";
 import SearchBar from "../../components/searchBar/searchBar";
 import PriceHeader from "../../components/PriceList/PriceHeader/PriceHeader";
 import PriceBody from "../PriceList/PriceBody/PriceBody";
-import PriceBodyMobile from "../PriceList/PriceBody/PriceBodyMobile";
 
 function searchingFor(search) {
   return function(x) {
