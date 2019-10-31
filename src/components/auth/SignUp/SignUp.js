@@ -64,7 +64,7 @@ const SignUpSchema = Yup.object().shape({
     .required("Confirm your password")
 });
 
-const LogUp = ({ signUp, loading, error, cleanUp }) => {
+const SignUp = ({ signUp, loading, error, cleanUp }) => {
   useEffect(() => {
     return () => {
       cleanUp();
@@ -160,4 +160,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LogUp);
+)(SignUp);
