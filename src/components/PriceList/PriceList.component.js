@@ -89,15 +89,6 @@ const PriceList = props => {
               priceChange={priceChange}
               selection={selection}
             />
-            {/* <PriceBodyMobile
-              search={search}
-              setSearch={setSearch}
-              CoinIcon={Styles.CoinIcon}
-              searchingFor={searchingFor}
-              MarketCapLow={MarketCapLow}
-              coins={props.coins}
-              priceChange={priceChange}
-            /> */}
           </tbody>
         </Styles.Tablestyles>
       </Styles.TableContainer>
