@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 
 import { Formik, Field } from "formik";
 import {
@@ -9,10 +8,13 @@ import {
 } from "../../../hoc/layout/elements/index";
 import styled from "styled-components";
 import * as Yup from "yup";
-import Message from "../../../UI/Message/Message";
 import Heading from "../../../UI/Headings/Heading";
 import Input from "../../../UI/Forms/Input/input";
 import Button from "../../../UI/Forms/Button/Button";
+
+//THIS COMPONENT IS STILL IN DEVELOPMENT <------------------*********
+//adding in features to change your username
+//adding in features to change your profile picture
 
 const FlexContainer = styled.div`
   width: 100%;
@@ -58,9 +60,10 @@ const ProfileSchema = Yup.object().shape({
     .required("Confirm your password")
 });
 
-//This is where users sign up for an account
+//This is where users can change the settings
+//on their account
 
-const Profile = () => {
+const AccountSettings = () => {
   return (
     <Formik
       initialValues={{
@@ -72,7 +75,6 @@ const Profile = () => {
       }}
       validationSchema={ProfileSchema}
       onSubmit={async (values, { setSubmitting }) => {
-        console.log(values);
         // edit the profile here
         setSubmitting(false);
       }}
@@ -81,7 +83,7 @@ const Profile = () => {
         <SignUpWrapper>
           <FormWrapper>
             <Heading size="h1" color="#6433ff">
-              Create your account
+              Settings
             </Heading>
             <StyledForm>
               {/* holds input feilds */}
@@ -120,18 +122,10 @@ const Profile = () => {
                 component={Input}
               />
 
-              <Button
-                disabled={!isValid || isSubmitting}
-                // loading={loading ? "Signing up" : null}
-                type="submit"
-              >
+              <Button disabled={!isValid || isSubmitting} type="submit">
                 Save
               </Button>
-              <MessageWrapper>
-                {/* <Message error show={error}>
-                  {error}
-                </Message> */}
-              </MessageWrapper>
+              <MessageWrapper></MessageWrapper>
             </StyledForm>
           </FormWrapper>
         </SignUpWrapper>
@@ -140,4 +134,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default AccountSettings;
