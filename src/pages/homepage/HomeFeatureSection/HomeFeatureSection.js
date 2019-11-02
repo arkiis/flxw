@@ -1,7 +1,6 @@
 import React from "react";
 import * as Styles from "../homepage.styles";
-import styled from "styled-components";
-import Iphone from "../../../assets/images/earth-01.png";
+import Earth from "../../../assets/images/earth-01.png";
 import Icons from "../../../UI/Icons/Icons";
 
 const HomeFeatureSection = props => {
@@ -16,9 +15,10 @@ const HomeFeatureSection = props => {
           trading cryptocurrency portfolio.
         </props.Heading>
         <Styles.FeatureWrapper>
+          {/*  manage your profile icons */}
           <Icons />
           <div>
-            <Styles.FeatureImg src={Iphone} />
+            <Styles.FeatureImg src={Earth} />
           </div>
         </Styles.FeatureWrapper>
       </Styles.HeaderContainer>

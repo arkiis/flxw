@@ -4,7 +4,7 @@ import CryptoChart from "../../components/Chart/AreaChart";
 import GetAsideSection from "../../components/Chart/ChartAside/ChartAside";
 import GetHeadingChartSection from "../../components/Chart/ChartHeader/ChartHeader";
 import ChartDetails from "../../components/Chart/ChartDetails/ChartDetails";
-import PriceDetailBanner from "./PriceDetailBanner";
+import MobileFixedButton from "./MobileFixedButton";
 import PriceDescription from "./PriceDescription";
 
 const PriceDetail = ({ dimensions, location, match }) => {
@@ -70,7 +70,7 @@ const PriceDetail = ({ dimensions, location, match }) => {
             {/*  this is where the fixed nav will go */}
             {mobileToggle(
               "",
-              <PriceDetailBanner price={price} buyButton={buyButton} />
+              <MobileFixedButton price={price} buyButton={buyButton} />
             )}
             <GetHeadingChartSection price={price} /> {/* Heading component */}
             <Styles.ChartWrapper>

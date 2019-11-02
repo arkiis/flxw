@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as Style from "../../../components/Table/Tables.styles";
 import * as Home from "../../dashboard/dashboard.styles";
 import TradeSummaryHeader from "../components/TradeSummaryHeader";
-import TradeSummary from "../components/TradeSummary";
+import TradeSummaryBody from "./TradeSummaryBody";
 import styled from "styled-components";
 
 const TradeStyleWrap = styled(TradeSummaryHeader)`
@@ -40,14 +40,15 @@ const DashboardTradeSummary = () => {
         >
           <TradeStyleWrap />
         </div>
-        <TradeSummary
+        {/* Each TradeSummary component is a table row on the table */}
+        <TradeSummaryBody
           tradeNumber={1}
           currencySold={currencySold}
           now={now}
           newTrigger={newTrigger}
           children={"Buy"}
         />
-        <TradeSummary
+        <TradeSummaryBody
           tradeNumber={2}
           currencySold={currencySold}
           now={now}

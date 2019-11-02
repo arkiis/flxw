@@ -4,6 +4,8 @@ import React, { Component } from "react";
 
 //this component is made for the login page
 //where users can login or login with Google
+//It acts as the seperator
+//WILL BE SET IN FUTURE USE*************
 
 class OrSpacer extends Component {
   render() {

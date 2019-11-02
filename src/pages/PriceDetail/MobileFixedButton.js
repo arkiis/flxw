@@ -1,7 +1,7 @@
 import React from "react";
-import * as Styles from "../PriceDetail/PriceDetailStyles";
+import * as Styles from "./PriceDetailStyles";
 
-const PriceDetailBanner = props => {
+const MobileFixedButton = props => {
   return props.buyButton ? (
     <Styles.StickyButton>Buy {props.price.name}</Styles.StickyButton>
   ) : (
@@ -9,4 +9,4 @@ const PriceDetailBanner = props => {
   );
 };
 
-export default PriceDetailBanner;
+export default MobileFixedButton;

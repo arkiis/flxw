@@ -28,7 +28,6 @@ const DashboardColumnOne = props => {
   };
 
   const db = firebase.firestore();
-  var favoriteCoins = [];
 
   const [favoriteCoin, setFavoriteCoin] = useState([]);
   const [percentage, setPercentage] = useState(0);
@@ -42,6 +41,7 @@ const DashboardColumnOne = props => {
             {favoriteCoin.length === 0 ? (
               <img style={{ height: "200px" }} src={FollowIcon}></img>
             ) : (
+              //Mapping the coins into the following component on the dashboard
               <Home.DashboardFavoriteItems>
                 {favoriteCoin.map(x => {
                   return (
@@ -78,6 +78,7 @@ const DashboardColumnOne = props => {
           </Scrollbars>
         </Home.DashboardPortfolioSection>
       </Home.FollowingSection>
+      {/* The dashboard Market Activity component */}
       <DashboardMarketAct loadProgress={loadProgress} />
     </Home.DashboardFollowing>
   );

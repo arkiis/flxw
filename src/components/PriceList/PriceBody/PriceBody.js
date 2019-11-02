@@ -20,7 +20,7 @@ const LoaderWrapper = styled.div`
 const PriceBody = props => {
   const lowercasedCoins = props.search.toLowerCase();
 
-  //filters the coins when the user types in the search bar
+  //filteredCoins filters the coins when the user types in the search bar
 
   let filteredCoins = props.coins.filter(coin => {
     return Object.keys(coin).some(
@@ -31,6 +31,7 @@ const PriceBody = props => {
     );
   });
 
+  //if user clicks on the market_cap header, it will display the reversed row
   filteredCoins = props.MarketCapLow ? filteredCoins.reverse() : filteredCoins;
 
   return (
@@ -70,6 +71,7 @@ const PriceBody = props => {
                       );
                     })}
                   </Styles.TableRowStyles>
+                  {/*  this is the table data line 73-122 */}
                   <Styles.TableRowStyles
                     col
                     flexDesktop

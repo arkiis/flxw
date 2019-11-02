@@ -21,6 +21,7 @@ const PriceList = props => {
   const [MarketCapLow, setMarketCapLow] = useState(false);
   const [search, setSearch] = useState("");
 
+  //object for the PriceChangeIntervals
   const timeIntervals = {
     oneHour: "1h",
     oneDay: "1d",
@@ -29,6 +30,7 @@ const PriceList = props => {
     oneYear: "365d"
   };
 
+  //Array for the table headers
   const tableHeaders = ["#", "name", "price", "change", "market cap", "trade"];
 
   useEffect(() => {

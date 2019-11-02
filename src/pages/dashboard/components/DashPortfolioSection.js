@@ -9,6 +9,7 @@ const DashPortfolioSection = props => {
         <Home.DashboardPortfolioTop>
           <Home.PortfolioHeader>Portfolio</Home.PortfolioHeader>
           <Home.DashboardPortfolioItems>
+            {/* The doughnut chart for the dashboard portfolio section */}
             <DashboardChart chartData={props.chartData} />
             <Home.PortfolioSeperator />
             <Home.PortfolioBalance>

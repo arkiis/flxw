@@ -3,6 +3,8 @@ import * as Styles from "./searchBar.styles";
 import SearchIcon from "../../assets/images/search-solid.svg";
 import PriceChangeIntervals from "../PriceChangeIntervals/priceChangeIntervals";
 
+//SearchBar component holds filtered input and pricechangeintervals
+
 const SearchBar = props => {
   const [color, setColor] = useState("");
 

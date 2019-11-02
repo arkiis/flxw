@@ -2,7 +2,7 @@ import React from "react";
 import date from "date-and-time";
 import * as Style from "../../../components/Table/Tables.styles";
 
-const TradeSummary = props => {
+const TradeSummaryBody = props => {
   return (
     <>
       <Style.TradeSummaryRowStyles>
@@ -58,4 +58,4 @@ const TradeSummary = props => {
   );
 };
 
-export default TradeSummary;
+export default TradeSummaryBody;
