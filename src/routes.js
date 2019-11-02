@@ -18,7 +18,7 @@ const Routes = ({ loggedIn, emailVerified, dimensions }) => {
   let routes;
 
   {
-    /*this function is to be passed  
+    /*mobileToggle function is to be passed  
   to every component that needs any
   UI changed on mobile view
   */

@@ -123,18 +123,3 @@ export function fetchCrypto() {
     payload: request
   };
 }
-
-// export const fetchCrypto = () => {
-//   return async dispatch => {
-//     dispatch(fetchingCryptoStart());
-//     try {
-//       let response = await fetch(
-//         "https://api.nomics.com/v1/currencies/ticker?key=ba5753b91002279e7338b58479c03ea5&ids=BTC,ETH,XRP,BCH,LTC,EOS&interval=1d,30d"
-//       );
-//       let json = await response.json();
-//       dispatch(fetchingCrpyotSuccess(json));
-//     } catch (error) {
-//       dispatch(fetchingCryptoFail(error));
-//     }
-//   };
-// };

@@ -13,8 +13,6 @@ const P = styled.p`
   opacity: ${({ show }) => (show ? "1" : "0")};
   transform: translateY(${({ show }) => (show ? "60px" : "0px")});
   transition: all 0.2s;
-
-  /*style later */
 `;
 
 const Message = ({ children, error, success, show }) => {
