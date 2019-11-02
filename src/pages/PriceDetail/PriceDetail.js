@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
 import * as Styles from "./PriceDetailStyles";
-import CryptoChart from "../../components/Chart/Chart";
+import CryptoChart from "../../components/Chart/AreaChart";
 import GetAsideSection from "../../components/Chart/ChartAside/ChartAside";
 import GetHeadingChartSection from "../../components/Chart/ChartHeader/ChartHeader";
 import ChartDetails from "../../components/Chart/ChartDetails/ChartDetails";
-import paper from "../../assets/images/paper-plane-regular.svg";
-import ExpandedInfo from "./ExpandPriceDescription";
 import PriceDetailBanner from "./PriceDetailBanner";
 import PriceDescription from "./PriceDescription";
 

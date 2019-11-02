@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import * as Styles from "../../../pages/PriceDetail/PriceDetailStyles";
 import AsideBuySection from "./AsideBuySection/AsideBuySection";
-import AsideBodySection from "./AsideBodySection/AsideBodySection";
+import AsideDiscoverMoreSection from "./AsideDiscoverMoreSection/AsideDiscoverMoreSection";
 
 const GetAsideSection = props => {
   useEffect(() => {
@@ -25,7 +25,7 @@ const GetAsideSection = props => {
         ""
       )}
 
-      <AsideBodySection
+      <AsideDiscoverMoreSection
         allCoins={props.allCoins}
         simplifyPrice={props.simplifyPrice}
         price={props.price}

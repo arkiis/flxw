@@ -17,7 +17,8 @@ const ChartDetails = props => {
       : Math.sign(data) * (Math.abs(data) / 1000000).toFixed(2) + "M";
   };
   {
-    /* This data can be found under the area chart */
+    /* This component can be found under the area chart */
+    //this is the data for each specifc coin
   }
   return (
     <Styles.ChartDetailsWrapper>

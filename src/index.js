@@ -1,14 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import promiseMiddleware from "redux-promise";
 import App from "./App";
 import styled from "styled-components";
 import { Provider } from "react-redux";
 import GlobalStyle from "../src/global.styles";
 import store from "./store/index";
 import { ThemeProvider } from "styled-components";
-import theme from "./utils/mediaQueries";
+import theme from "./mediaQueries/mediaQueries";
 import * as serviceWorker from "./serviceWorker";
 import Loader from "./UI/loader/loader";
 

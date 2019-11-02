@@ -3,7 +3,7 @@ import mainLogo from "../../assets/images/flxw-logo-01.png";
 import { NavLink } from "react-router-dom";
 import "./header.styles.scss";
 import styled from "styled-components";
-import HeaderDropDown from "../../components/dropdown/dropdown";
+import HeaderDropDown from "../dropdown/dropdown";
 
 const SpanArrow = styled.span`
   transform: rotate(180deg);
@@ -28,7 +28,7 @@ const FixedWrapper = styled.header`
   }
 `;
 
-const Header = ({ loggedIn }) => {
+const Navigation = ({ loggedIn }) => {
   let links;
   if (loggedIn.uid) {
     links = (
@@ -103,4 +103,4 @@ const Header = ({ loggedIn }) => {
   return <FixedWrapper>{links}</FixedWrapper>;
 };
 
-export default Header;
+export default Navigation;
