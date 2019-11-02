@@ -5,7 +5,7 @@ import AsideBuyFooter from "./AsideBuyFooter/AsideBuyFooter";
 import BuyandSellTabs from "./BuyandSellTabs";
 
 const AsideBuySection = props => {
-  const [activeTab, setActiveTab] = useState(false);
+  const [activeTab, setActiveTab] = useState("buy");
   const [active, setActive] = useState("");
   const [width, setWidth] = useState("40px");
   const [buyColor, setBuyColor] = useState("#6433ff95");
@@ -38,16 +38,22 @@ const AsideBuySection = props => {
     }
   };
 
-  const toggleClass = name => {
-    setActive(name);
-    setActiveTab(!activeTab);
+  const tabs = ["buy", "sell"];
+
+  const toggleActiveTab = tab => {
+    setActiveTab(tab);
   };
 
   return (
     <Styles.AsideBuySection>
       <Styles.AsideBuyWrapper>
         {/*Tabs for the buy and sell section */}
-        <BuyandSellTabs toggleClass={toggleClass} activeTab={activeTab} />
+        <BuyandSellTabs
+          tabs={tabs}
+          toggleActiveTab={toggleActiveTab}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
         <Styles.AsideBuyContent>
           {/* Input section to purchase the coin */}
           <Styles.AsideBuyBody>
