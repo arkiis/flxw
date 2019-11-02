@@ -2,6 +2,11 @@ import React from "react";
 import * as Home from "../dashboard.styles";
 import { Line } from "react-chartjs-2";
 
+{
+  /* this component is a green line chart
+added in the following component*/
+}
+
 const DashLineChart = () => {
   const data = {
     labels: ["M", "T", "W", "T", "F", "S", "S"],

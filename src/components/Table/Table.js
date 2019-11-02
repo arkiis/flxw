@@ -13,7 +13,7 @@ const TableContainer = styled.div`
     display: flex;
   }
 `;
-//TABLE FOR HOMEPAGE--------------->
+//TABLE FOR HOMEPAGE----------------------->
 class Table extends Component {
   constructor(props) {
     super(props);

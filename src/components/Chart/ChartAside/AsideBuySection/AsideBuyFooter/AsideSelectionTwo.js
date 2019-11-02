@@ -4,6 +4,9 @@ import Arrow from "../../../../../assets/images/chevron-right-solid.svg";
 import Paypal from "../../../../../assets/images/paypal-seeklogo.com.svg";
 
 const AsideSelectionTwo = () => {
+  //this component will show which payment system the user
+  //will use to purchase X coin.
+
   return (
     <Styles.AsideBuySelectionItems>
       <Styles.AsideBuySelectionOne>Pay With</Styles.AsideBuySelectionOne>

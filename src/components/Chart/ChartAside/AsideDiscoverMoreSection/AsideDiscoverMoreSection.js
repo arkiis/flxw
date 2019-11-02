@@ -1,14 +1,14 @@
 import React from "react";
 import * as Styles from "../../../../pages/PriceDetail/PriceDetailStyles";
-import AsideBodyItems from "./AsideBodyItems";
+import DiscoverMoreItems from "./DiscoverMoreItems";
 
-const AsideBodySection = props => {
+const AsideDiscoverMoreSection = props => {
   return (
     <Styles.AsideAssetsSection>
       <Styles.AsideAssetsWrapper>
         <Styles.AsideAssetsHeader>Discover More</Styles.AsideAssetsHeader>
         {/* shows all the other coin assets you can discover */}
-        <AsideBodyItems
+        <DiscoverMoreItems
           allCoins={props.allCoins}
           simplifyPrice={props.simplifyPrice}
           price={props.price}
@@ -18,4 +18,4 @@ const AsideBodySection = props => {
   );
 };
 
-export default AsideBodySection;
+export default AsideDiscoverMoreSection;

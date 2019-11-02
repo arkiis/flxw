@@ -5,7 +5,7 @@ import "./header.styles.scss";
 import Hamburger from "./Hamburger/Hamburger";
 import * as Styles from "./SideHeader.styles";
 
-const SideHeader = ({ loggedIn }) => {
+const SideNavigation = ({ loggedIn }) => {
   const [isOpened, setIsOpened] = useState(false);
   let links;
   if (loggedIn.uid) {
@@ -164,4 +164,4 @@ const SideHeader = ({ loggedIn }) => {
   return <div>{links}</div>;
 };
 
-export default SideHeader;
+export default SideNavigation;

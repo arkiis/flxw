@@ -106,7 +106,7 @@ export default class HeaderDropDown extends Component {
         {this.state.open && (
           <DropDown>
             <DDUnordered>
-              <Link to="/profile" onClick={this.handleClick}>
+              <Link to="/account-settings" onClick={this.handleClick}>
                 <DDList>Settings</DDList>
               </Link>
               <Link to="/logout">

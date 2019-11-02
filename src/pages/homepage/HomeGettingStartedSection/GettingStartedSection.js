@@ -14,6 +14,7 @@ const GettingStartedSection = props => {
         </props.Heading>
       </Styles.HeaderContainer>
       <Styles.FeatureWrapper>
+        {/* this steps section is a row of icons */}
         <StepSections></StepSections>
       </Styles.FeatureWrapper>
     </>

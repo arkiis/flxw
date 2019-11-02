@@ -8,7 +8,7 @@ import SignUp from "./components/auth/SignUp/SignUp";
 import PriceDetail from "./pages/PriceDetail/PriceDetail";
 import Logout from "././components/auth/Logout/Logout";
 import RecoverPassword from "./components/auth/RecoverPassword/RecoverPassword";
-import Profile from "./components/auth/Profile/Profile";
+import AccountSettings from "./components/auth/AccountSettings/AccountSettings";
 
 const Dashboard = React.lazy(() => import("./pages/dashboard/dashboard"));
 const Chatroom = React.lazy(() => import("./pages/chatroom/Chatroom"));
@@ -18,7 +18,7 @@ const Routes = ({ loggedIn, emailVerified, dimensions }) => {
   let routes;
 
   {
-    /*this function is to be passed  
+    /*mobileToggle function is to be passed  
   to every component that needs any
   UI changed on mobile view
   */
@@ -41,7 +41,7 @@ const Routes = ({ loggedIn, emailVerified, dimensions }) => {
     routes = (
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/account-settings" component={AccountSettings} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/chatroom" component={Chatroom} />
           <Route

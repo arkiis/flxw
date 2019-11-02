@@ -21,6 +21,7 @@ const PriceList = props => {
   const [MarketCapLow, setMarketCapLow] = useState(false);
   const [search, setSearch] = useState("");
 
+  //object for the PriceChangeIntervals
   const timeIntervals = {
     oneHour: "1h",
     oneDay: "1d",
@@ -29,6 +30,7 @@ const PriceList = props => {
     oneYear: "365d"
   };
 
+  //Array for the table headers
   const tableHeaders = ["#", "name", "price", "change", "market cap", "trade"];
 
   useEffect(() => {
@@ -89,15 +91,6 @@ const PriceList = props => {
               priceChange={priceChange}
               selection={selection}
             />
-            {/* <PriceBodyMobile
-              search={search}
-              setSearch={setSearch}
-              CoinIcon={Styles.CoinIcon}
-              searchingFor={searchingFor}
-              MarketCapLow={MarketCapLow}
-              coins={props.coins}
-              priceChange={priceChange}
-            /> */}
           </tbody>
         </Styles.Tablestyles>
       </Styles.TableContainer>

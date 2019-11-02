@@ -1,5 +1,7 @@
 import React from "react";
 
+//This SVG is the Star icon on the PriceDetails page
+
 const FollowSvgIcon = props => {
   return (
     <svg

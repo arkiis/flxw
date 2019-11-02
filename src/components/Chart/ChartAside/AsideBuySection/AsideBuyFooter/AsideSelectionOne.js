@@ -3,6 +3,9 @@ import * as Styles from "../../../../../pages/PriceDetail/PriceDetailStyles";
 import Arrow from "../../../../../assets/images/chevron-right-solid.svg";
 
 const AsideSelectionOne = props => {
+  //this component will show which coin you are about to
+  //purchase on the PriceDetails page
+
   return (
     <Styles.AsideBuySelectionItems>
       <Styles.AsideBuySelectionOne>Buy</Styles.AsideBuySelectionOne>

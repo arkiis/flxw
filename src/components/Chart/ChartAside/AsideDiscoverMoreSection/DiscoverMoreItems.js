@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as Styles from "../../../../pages/PriceDetail/PriceDetailStyles";
 
-const AsideBodyItems = (props, match) => {
+const DiscoverMoreItems = (props, match) => {
   return (
     //coins showing in the discover more component
     //under the buy/sell component
@@ -36,4 +36,4 @@ const AsideBodyItems = (props, match) => {
   );
 };
 
-export default AsideBodyItems;
+export default DiscoverMoreItems;

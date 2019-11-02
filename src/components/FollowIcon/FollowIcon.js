@@ -5,21 +5,9 @@ import "react-notifications-component/dist/theme.css";
 import "animate.css";
 import firebase from "../../Firebase/Firebase";
 import FollowSvgIcon from "./FollowSvgIcon";
-// import MyNotification from "../Notification/Notification";
 
 const FollowIcon = ({ price }) => {
-  let coinsFollowing = [];
-
-  // console.log(`LOGJS- FirebaseObject`);
-  // console.log(firebase.auth().currentUser.uid);
-  // firebase.auth = user id
-
   const db = firebase.firestore();
-
-  //   const [following, setFollowing] = useState("");
-
-  //NEED HELP KEEPING THE FOLLOWING BUTTON ACTIVE
-  //AFTER THE PAGE REFRESHES
 
   const [title, setTitle] = useState("Follow");
 
@@ -32,6 +20,7 @@ const FollowIcon = ({ price }) => {
     }
   }, []);
 
+  //storing the following state value in local storage
   useEffect(() => {
     localStorage.setItem("following", JSON.stringify(following));
   });

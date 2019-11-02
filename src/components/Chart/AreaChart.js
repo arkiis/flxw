@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import "./Chart.css";
 
+//this chart can be found on the PriceDetails component
+
 class AreaChart extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,7 @@ class AreaChart extends React.Component {
     this.state = {
       coins: "hello",
       isFetching: false,
-      selection: "one_year",
+      selection: "one_year", // this data is for the ReactApexChart line 14-207
       options: {
         annotations: {
           yaxis: [
@@ -114,6 +116,7 @@ class AreaChart extends React.Component {
 
       series: [
         {
+          //timestamps for the areaChart
           data: [
             [1327359600000, 30.95],
             [1327446000000, 31.34],

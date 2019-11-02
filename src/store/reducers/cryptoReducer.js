@@ -4,12 +4,6 @@ import {
   FETCHING_CRYPTO_FAIL
 } from "../actions/actionTypes";
 
-// const initialState = {
-//   isFetching: false,
-//   errorMessage: "",
-//   cryptoList: []
-// };
-
 const CryptoReducer = (state = {}, action) => {
   switch (action.type) {
     case FETCHING_CRYPTO_START:

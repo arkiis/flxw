@@ -6,7 +6,6 @@ const ToggleContent = ({ toggle, content }) => {
   const show = () => setIsShown(true);
 
   return (
-    //those <> elements are React Fragements
     <>
       {toggle(show)}
       {isShown && content(hide)}

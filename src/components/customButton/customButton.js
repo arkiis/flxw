@@ -5,6 +5,7 @@ import React, { Component } from "react";
 
 //This is the google sign in button that will
 //be used for users to sign in using their google account
+//THIS COMPONENT IS SET UP FOR FUTURE USE*******************
 
 class CustomButton extends Component {
   render() {

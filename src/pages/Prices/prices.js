@@ -27,6 +27,7 @@ const Prices = props => {
   return (
     <Styles.HomeMainWrapper style={{ padding: "20px" }}>
       <Styles.HomepageWrapper>
+        {/* PriceList holds searchbar and PriceTable components */}
         <PriceList
           intervalsFetched={intervalsFetched}
           coins={coins}

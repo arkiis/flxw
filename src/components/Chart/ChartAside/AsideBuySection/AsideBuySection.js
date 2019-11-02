@@ -49,6 +49,7 @@ const AsideBuySection = props => {
         {/*Tabs for the buy and sell section */}
         <BuyandSellTabs toggleClass={toggleClass} activeTab={activeTab} />
         <Styles.AsideBuyContent>
+          {/* Input section to purchase the coin */}
           <Styles.AsideBuyBody>
             <Styles.Heading1
               style={{ display: "flex", justifyContent: "center" }}
