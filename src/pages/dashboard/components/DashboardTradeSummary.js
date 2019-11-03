@@ -5,7 +5,7 @@ import TradeSummaryHeader from "../components/TradeSummaryHeader";
 import TradeSummaryBody from "./TradeSummaryBody";
 import styled from "styled-components";
 
-const TradeStyleWrap = styled(TradeSummaryHeader)`
+const TradeSummaryHeaderContainer = styled(TradeSummaryHeader)`
   @media ${props => props.theme.mediaQueries.medium} {
     display: flex;
     flex-direction: row;
@@ -38,7 +38,7 @@ const DashboardTradeSummary = () => {
             justifyContent: "space-around"
           }}
         >
-          <TradeStyleWrap />
+          <TradeSummaryHeaderContainer />
         </div>
         {/* Each TradeSummary component is a table row on the table */}
         <TradeSummaryBody

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Table from "../../components/Table/Table";
 import Heading from "../../UI/Headings/Heading";
 
-import Banner from "../../UI/Banner/Homepage-banner";
+import HomepageStatisticBanner from "../../UI/Banner/HomepageStatisticBanner";
 
 import GetStartedBanner from "../../UI/Banner/GetStartedBanner";
 import Footer from "../../UI/Footer/Footer";
@@ -10,6 +10,13 @@ import * as Styles from "./homepage.styles";
 import HomeHeroSection from "./HomeHeroSection/HomeHeroSection";
 import HomeFeatureSection from "./HomeFeatureSection/HomeFeatureSection";
 import GettingStartedSection from "./HomeGettingStartedSection/GettingStartedSection";
+
+//data for the statistic banner
+const bannerData = [
+  { heading: "$150B", subHeading: "Cryptocurrency exchanged" },
+  { heading: "24", subHeading: "Countries Supported" },
+  { heading: "100", subHeading: "Customers served" }
+];
 
 class Homepage extends Component {
   render() {
@@ -25,7 +32,10 @@ class Homepage extends Component {
 
           {/*Statistics banner of homepage*/}
           <Styles.BlueBackground>
-            <Banner children></Banner>
+            <HomepageStatisticBanner
+              bannerData={bannerData}
+              children
+            ></HomepageStatisticBanner>
           </Styles.BlueBackground>
 
           {/*Getting started section and banner of homepage*/}
