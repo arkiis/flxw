@@ -72,7 +72,7 @@ const Chatroom = () => {
           {/* buttons and heading for chatrooms */}
           <Style.ChatRooms>
             <div>Choose a chatroom:</div>
-            <ChatroomButtons updateSelection={updateSelection} />
+            <ChatroomButtons rooms={ROOMS} updateSelection={updateSelection} />
           </Style.ChatRooms>
 
           {/* chat list / window */}
