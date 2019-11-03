@@ -16,6 +16,23 @@ const bannerData = [
   { heading: "$150B", subHeading: "Cryptocurrency exchanged" },
   { heading: "24", subHeading: "Countries Supported" },
   { heading: "100", subHeading: "Customers served" }
+]; //icons for the feature Section
+const icons = [
+  {
+    heading: "Manage your portfolio",
+    subHeading:
+      "Buy and sell popular digital currencies, keep track of them in one place."
+  },
+  {
+    heading: "Manage your portfolio",
+    subHeading:
+      "Buy and sell popular digital currencies, keep track of them in one place."
+  },
+  {
+    heading: "Manage your portfolio",
+    subHeading:
+      "Buy and sell popular digital currencies, keep track of them in one place."
+  }
 ];
 
 class Homepage extends Component {
@@ -28,7 +45,7 @@ class Homepage extends Component {
           <Table />
 
           {/*Feature section of homepage*/}
-          <HomeFeatureSection Heading={Heading} />
+          <HomeFeatureSection Heading={Heading} icons={icons} />
 
           {/*Statistics banner of homepage*/}
           <Styles.BlueBackground>
