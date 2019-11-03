@@ -4,7 +4,7 @@ import IconBank from "../../assets/images/icon_bank-01.svg";
 import IconMoney from "../../assets/images/icon_money-01.svg";
 import * as Styles from "./StepsSection.styles";
 
-const StepSections = () => {
+const StepSections = ({ homepageStepsSection }) => {
   return (
     <Styles.StepWrapper>
       <Styles.Steps>

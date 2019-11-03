@@ -10,13 +10,24 @@ import * as Styles from "./homepage.styles";
 import HomeHeroSection from "./HomeHeroSection/HomeHeroSection";
 import HomeFeatureSection from "./HomeFeatureSection/HomeFeatureSection";
 import GettingStartedSection from "./HomeGettingStartedSection/GettingStartedSection";
+import IconAccount from "../../assets/images/icon_account-01.svg";
+import IconBank from "../../assets/images/icon_bank-01.svg";
+import IconMoney from "../../assets/images/icon_money-01.svg";
 
 //data for the statistic banner
 const bannerData = [
   { heading: "$150B", subHeading: "Cryptocurrency exchanged" },
   { heading: "24", subHeading: "Countries Supported" },
   { heading: "100", subHeading: "Customers served" }
-]; //icons for the feature Section
+];
+
+const homepageStepsSection = [
+  { image: IconAccount, heading: "Create an account" },
+  { image: IconBank, heading: "Create an account" },
+  { image: IconMoney, heading: "Create an account" }
+];
+
+//icons for the feature Section
 const icons = [
   {
     heading: "Manage your portfolio",
@@ -56,7 +67,10 @@ class Homepage extends Component {
           </Styles.BlueBackground>
 
           {/*Getting started section and banner of homepage*/}
-          <GettingStartedSection Heading={Heading} />
+          <GettingStartedSection
+            Heading={Heading}
+            homepageStepsSection={homepageStepsSection}
+          />
           <GetStartedBanner></GetStartedBanner>
 
           {/*footer*/}

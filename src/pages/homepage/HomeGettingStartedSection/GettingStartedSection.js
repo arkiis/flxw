@@ -15,7 +15,9 @@ const GettingStartedSection = props => {
       </Styles.HeaderContainer>
       <Styles.FeatureWrapper>
         {/* this steps section is a row of icons */}
-        <StepSections></StepSections>
+        <StepSections
+          homepageStepsSection={props.homepageStepsSection}
+        ></StepSections>
       </Styles.FeatureWrapper>
     </>
   );
