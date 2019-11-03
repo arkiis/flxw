@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import mainLogo from "../../assets/images/flxw-logo-01-01.png";
 import { NavLink } from "react-router-dom";
-import "./header.styles.scss";
+import "./navigation.styles.scss";
 import Hamburger from "./Hamburger/Hamburger";
-import * as Styles from "./SideHeader.styles";
+import * as Styles from "./SideNavigation.styles";
 
-const SideNavigation = ({ loggedIn }) => {
-  const [isOpened, setIsOpened] = useState(false);
+const SideNavigation = ({ loggedIn, navLinks, setIsOpened, isOpened }) => {
   let links;
   if (loggedIn.uid) {
     links = (
@@ -27,53 +26,24 @@ const SideNavigation = ({ loggedIn }) => {
             </Styles.BurgerWrapper>
           </nav>
         </Styles.FixedWrapperSide>
+        {/* dropdown menu if logged in*/}
         <Styles.Menu opened={!isOpened}>
           <Styles.OptionsContainerStyle mobile>
-            <Styles.OptionLinkStyle
-              activeClassName="selectedLink"
-              className="optionLink"
-              onClick={() => setIsOpened(!isOpened)}
-              to="/dashboard"
-              mobile
-            >
-              Home
-            </Styles.OptionLinkStyle>
-            <Styles.OptionLinkStyle
-              activeClassName="selectedLink"
-              className="optionLink"
-              onClick={() => setIsOpened(!isOpened)}
-              to="/prices"
-              mobile
-            >
-              Prices
-            </Styles.OptionLinkStyle>
-            <Styles.OptionLinkStyle
-              activeClassName="selectedLink"
-              onClick={() => setIsOpened(!isOpened)}
-              className="optionLink"
-              to="/chatroom"
-              mobile
-            >
-              Chatroom
-            </Styles.OptionLinkStyle>
-            <Styles.OptionLinkStyle
-              activeClassName="selectedLink"
-              onClick={() => setIsOpened(!isOpened)}
-              className="optionLink"
-              to="/profile"
-              mobile
-            >
-              Settings
-            </Styles.OptionLinkStyle>
-            <Styles.OptionLinkStyle
-              activeClassName="selectedLink"
-              onClick={() => setIsOpened(!isOpened)}
-              className="optionLink"
-              to="/logout"
-              mobile
-            >
-              Logout
-            </Styles.OptionLinkStyle>
+            {navLinks.map(nav => {
+              return (
+                <Styles.OptionLinkStyle
+                  exact
+                  mobile
+                  className="optionLink"
+                  activeClassName="selectedLink"
+                  onClick={() => setIsOpened(!isOpened)}
+                  to={nav.component}
+                >
+                  {nav.nav}
+                </Styles.OptionLinkStyle>
+              );
+            })}
+
             <Styles.LoginContainerStyle mobile>
               <Styles.OptionLinkStyle
                 to="/prices"
@@ -106,36 +76,27 @@ const SideNavigation = ({ loggedIn }) => {
             </Styles.BurgerWrapper>
           </nav>
         </Styles.FixedWrapperSide>
+        {/* dropdown menu if logged out */}
         <Styles.Menu opened={!isOpened}>
           <Styles.OptionsContainerStyle mobile>
-            <Styles.OptionLinkStyle
-              activeClassName="selectedLink"
-              className="optionLink"
-              onClick={() => setIsOpened(!isOpened)}
-              exact
-              to="/"
-              mobile
-            >
-              Home
-            </Styles.OptionLinkStyle>
-            <Styles.OptionLinkStyle
-              to="/prices"
-              className="optionLink"
-              activeClassName="selectedLink"
-              onClick={() => setIsOpened(!isOpened)}
-              mobile
-            >
-              Prices
-            </Styles.OptionLinkStyle>
-            <Styles.OptionLinkStyle
-              activeClassName="selectedLink"
-              onClick={() => setIsOpened(!isOpened)}
-              className="optionLink"
-              to="/chatroom"
-              mobile
-            >
-              Chatroom
-            </Styles.OptionLinkStyle>
+            {navLinks
+              .filter(nav => {
+                return nav.nav !== "Settings" && nav.nav !== "Logout";
+              })
+              .map(nav => {
+                return (
+                  <Styles.OptionLinkStyle
+                    exact
+                    mobile
+                    className="optionLink"
+                    activeClassName="selectedLink"
+                    onClick={() => setIsOpened(!isOpened)}
+                    to={nav.component}
+                  >
+                    {nav.nav}
+                  </Styles.OptionLinkStyle>
+                );
+              })}
 
             <Styles.LoginContainerStyle mobile>
               <Styles.OptionLinkStyle

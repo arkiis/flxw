@@ -4,7 +4,7 @@ import * as Styles from "../../../pages/PriceDetail/PriceDetailStyles";
 const ChartDetails = props => {
   const { high, circulating_supply, market_cap, id } = props.price;
   const priceOneDay = props.price["1d"];
-
+  console.log(props.price);
   const chartVolume = priceOneDay && priceOneDay.volume;
   const simplifyPrice = data => {
     const sus = Math.floor(data * 100) / 100;

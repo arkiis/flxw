@@ -4,22 +4,18 @@ import * as Styles from "../../../../pages/PriceDetail/PriceDetailStyles";
 const BuyandSellTabs = props => {
   return (
     <Styles.AsideBuyLabel>
-      <Styles.AsideBuyTabs
-        onClick={tab => {
-          props.toggleClass(tab);
-        }}
-        className={props.activeTab === false ? "active" : "#4a4a4a70"}
-      >
-        Buy
-      </Styles.AsideBuyTabs>
-      <Styles.AsideBuyTabs
-        onClick={tab => {
-          props.toggleClass(tab);
-        }}
-        className={props.activeTab === true ? "active" : "#4a4a4a70"}
-      >
-        Sell
-      </Styles.AsideBuyTabs>
+      {props.tabs.map(tab => {
+        return (
+          <Styles.AsideBuyTabs
+            onClick={() => {
+              props.toggleActiveTab(tab);
+            }}
+            className={props.activeTab === tab ? "active" : "#4a4a4a70"}
+          >
+            {tab}
+          </Styles.AsideBuyTabs>
+        );
+      })}
     </Styles.AsideBuyLabel>
   );
 };
