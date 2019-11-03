@@ -18,8 +18,18 @@ function debounce(fn, ms) {
     }, ms);
   };
 }
+//Object for the navigation bar
+
+const navLinks = [
+  { nav: "Home", component: "/" },
+  { nav: "Prices", component: "/prices" },
+  { nav: "Chatroom", component: "/chatroom" },
+  { nav: "Settings", component: "/profile" },
+  { nav: "Logout", component: "/logout" }
+];
 
 function App({ loggedIn }) {
+  const [isOpened, setIsOpened] = useState(false);
   //this is to get the value of the windows
   //height and width. The handleRezise function
   //will change dimension state based on window resize
@@ -28,7 +38,6 @@ function App({ loggedIn }) {
     height: window.innerHeight,
     width: window.innerWidth
   });
-
   useEffect(() => {
     const debounceHandleResize = debounce(function handleResize() {
       setDemsions({
@@ -46,8 +55,18 @@ function App({ loggedIn }) {
 
   return (
     <div>
-      <SideNavigation loggedIn={loggedIn} />
-      <Navigation loggedIn={loggedIn} />
+      <SideNavigation
+        loggedIn={loggedIn}
+        navLinks={navLinks}
+        setIsOpened={setIsOpened}
+        isOpened={isOpened}
+      />
+      <Navigation
+        loggedIn={loggedIn}
+        navLinks={navLinks}
+        setIsOpened={setIsOpened}
+        isOpened={isOpened}
+      />
       <ReactNotifications />
 
       <Routes dimensions={dimensions} />

@@ -11,7 +11,7 @@ class AreaChart extends React.Component {
     this.state = {
       coins: "hello",
       isFetching: false,
-      selection: "one_year", // this data is for the ReactApexChart line 14-207
+      selection: "one_year", // this data is for the ReactApexChart line 14-395
       options: {
         annotations: {
           yaxis: [

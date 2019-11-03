@@ -1,9 +1,10 @@
 import React from "react";
 import mainLogo from "../../assets/images/flxw-logo-01.png";
 import { NavLink } from "react-router-dom";
-import "./header.styles.scss";
+import "./navigation.styles.scss";
 import styled from "styled-components";
 import HeaderDropDown from "../dropdown/dropdown";
+import OptionLinks from "./OptionLinks";
 
 const SpanArrow = styled.span`
   transform: rotate(180deg);
@@ -28,7 +29,7 @@ const FixedWrapper = styled.header`
   }
 `;
 
-const Navigation = ({ loggedIn }) => {
+const Navigation = ({ loggedIn, navLinks, setIsOpened, isOpened }) => {
   let links;
   if (loggedIn.uid) {
     links = (
@@ -36,29 +37,12 @@ const Navigation = ({ loggedIn }) => {
         <div className="logoContainer">
           <img className="logo" src={mainLogo} alt="flxw logo" />
         </div>
-        <div className="optionsContainer">
-          <NavLink
-            activeClassName="selectedLink"
-            className="optionLink"
-            to="/dashboard"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            activeClassName="selectedLink"
-            className="optionLink"
-            to="/prices"
-          >
-            Prices
-          </NavLink>
-          <NavLink
-            activeClassName="selectedLink"
-            className="optionLink"
-            to="/chatroom"
-          >
-            Chatroom
-          </NavLink>
-        </div>
+        {/* option links on the navigation bar */}
+        <OptionLinks
+          navLinks={navLinks}
+          setIsOpened={setIsOpened}
+          isOpened={isOpened}
+        />
         <div className="loginContainer">
           <NavLink to="/prices">
             <button className="btn-header">Trade</button>
@@ -74,21 +58,12 @@ const Navigation = ({ loggedIn }) => {
         <div className="logoContainer">
           <img className="logo" src={mainLogo} alt="flxw logo" />
         </div>
-        <div className="optionsContainer">
-          <NavLink
-            activeClassName="selectedLink"
-            className="optionLink"
-            to="/dashboard"
-          >
-            Home
-          </NavLink>
-          <NavLink className="optionLink" to="/prices">
-            Prices
-          </NavLink>
-          <NavLink className="optionLink" to="/chatroom">
-            Chatroom
-          </NavLink>
-        </div>
+        {/* option links on the navigation bar */}
+        <OptionLinks
+          navLinks={navLinks}
+          setIsOpened={setIsOpened}
+          isOpened={isOpened}
+        />
         <div className="loginContainer">
           <NavLink className="optionLink" to="/login">
             Login
