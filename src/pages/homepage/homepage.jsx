@@ -20,11 +20,11 @@ const bannerData = [
   { heading: "24", subHeading: "Countries Supported" },
   { heading: "100", subHeading: "Customers served" }
 ];
-
+//data for the steps section
 const homepageStepsSection = [
   { image: IconAccount, heading: "Create an account" },
-  { image: IconBank, heading: "Create an account" },
-  { image: IconMoney, heading: "Create an account" }
+  { image: IconBank, heading: "Link your bank account" },
+  { image: IconMoney, heading: "Start buying & selling" }
 ];
 
 //icons for the feature Section
