@@ -96,12 +96,6 @@ class AreaChart extends React.Component {
   }
 
   render() {
-    console.log(this.state.chartData);
-    console.log(this.state.chartDataSelection);
-    console.log(
-      this.state.chartDataOptions && this.state.chartDataOptions.xaxis
-    );
-
     //These are the differnet time intervals for the area chart
 
     return (

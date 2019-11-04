@@ -5,7 +5,6 @@ import IconMoney from "../../assets/images/icon_money-01.svg";
 import * as Styles from "./StepsSection.styles";
 
 const StepSections = ({ homepageStepsSection }) => {
-  console.log(homepageStepsSection);
   return (
     <Styles.StepWrapper>
       {homepageStepsSection.map(step => {
