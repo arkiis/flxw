@@ -16,7 +16,7 @@ const HomeFeatureSection = props => {
         </props.Heading>
         <Styles.FeatureWrapper>
           {/*  manage your profile icons */}
-          <Icons />
+          <Icons icons={props.icons} />
           <div>
             <Styles.FeatureImg src={Earth} />
           </div>

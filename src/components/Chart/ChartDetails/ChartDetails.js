@@ -11,6 +11,13 @@ const ChartDetails = props => {
     return sus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
+  const details = [
+    { header: "Market cap", detail: market_cap },
+    { header: "Volume(24 hours)", detail: chartVolume },
+    { header: "Circulating supply", detail: circulating_supply },
+    { header: "All-time high", detail: high }
+  ];
+
   const simplifyData = data => {
     return Math.abs(data) > 999999999
       ? Math.sign(data) * (Math.abs(data) / 1000000000).toFixed(1) + "B"
@@ -22,28 +29,20 @@ const ChartDetails = props => {
   }
   return (
     <Styles.ChartDetailsWrapper>
-      <Styles.ChartDetailItem>
-        <Styles.DetailItemHeader>Market cap</Styles.DetailItemHeader>
-        <Styles.DetailItemBody>
-          ${simplifyData(market_cap)}
-        </Styles.DetailItemBody>
-      </Styles.ChartDetailItem>
-      <Styles.ChartDetailItem>
-        <Styles.DetailItemHeader>Volume(24 hours)</Styles.DetailItemHeader>
-        <Styles.DetailItemBody>
-          ${simplifyPrice(chartVolume)}
-        </Styles.DetailItemBody>
-      </Styles.ChartDetailItem>
-      <Styles.ChartDetailItem>
-        <Styles.DetailItemHeader>Circulating supply</Styles.DetailItemHeader>
-        <Styles.DetailItemBody>
-          {simplifyData(circulating_supply)} {id}
-        </Styles.DetailItemBody>
-      </Styles.ChartDetailItem>
-      <Styles.ChartDetailItem>
-        <Styles.DetailItemHeader>All-time high</Styles.DetailItemHeader>
-        <Styles.DetailItemBody>${simplifyPrice(high)}</Styles.DetailItemBody>
-      </Styles.ChartDetailItem>
+      {details.map(detail => {
+        return (
+          <Styles.ChartDetailItem>
+            <Styles.DetailItemHeader>{detail.header}</Styles.DetailItemHeader>
+            <Styles.DetailItemBody>
+              {detail.detail === market_cap ||
+              detail.detail === circulating_supply
+                ? `$${simplifyData(detail.detail)}
+                `
+                : `$${simplifyPrice(detail.detail)}`}
+            </Styles.DetailItemBody>
+          </Styles.ChartDetailItem>
+        );
+      })}
     </Styles.ChartDetailsWrapper>
   );
 };

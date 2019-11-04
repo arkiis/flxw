@@ -1,25 +1,20 @@
 import React from "react";
 import * as Style from "./Chatroom.styles";
+import Button from "../chatroom/Button";
 
-const ChatroomButtons = ({ updateSelection }) => {
+const ChatroomButtons = ({ updateSelection, rooms }) => {
+  const room = Object.keys(rooms);
+
   return (
     <Style.ChatRoomButtonWrapper>
       <Style.ChatRoomButtonContainer>
-        <Style.ChatroomButton onClick={() => updateSelection("general")}>
-          #general
-        </Style.ChatroomButton>
-        <Style.ChatroomButton onClick={() => updateSelection("bitcoin")}>
-          #bitcoin
-        </Style.ChatroomButton>
-        <Style.ChatroomButton onClick={() => updateSelection("etheruem")}>
-          #etheruem
-        </Style.ChatroomButton>
-        <Style.ChatroomButton onClick={() => updateSelection("litecoin")}>
-          #litecoin
-        </Style.ChatroomButton>
-        <Style.ChatroomButton onClick={() => updateSelection("ripple")}>
-          #ripple
-        </Style.ChatroomButton>
+        {room.map((room, index) => {
+          return (
+            <Button key={index} updateSelection={updateSelection} room={room}>
+              #{room}
+            </Button>
+          );
+        })}
       </Style.ChatRoomButtonContainer>
     </Style.ChatRoomButtonWrapper>
   );

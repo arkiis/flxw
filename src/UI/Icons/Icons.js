@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import SvgIcon from "../../assets/images/connectdevelop-brands.svg";
 import portfolioIcon from "../../assets/images/icon_portfolio-01.svg";
 
 const IconWrapper = styled.div`
@@ -47,49 +46,20 @@ const IconContent = styled.div`
   }
 `;
 
-const Icons = () => {
+const Icons = ({ icons }) => {
   return (
     <IconWrapper>
-      <Icon>
-        <IconImage src={portfolioIcon} />
-        <IconContent>
-          <h3>Manage your portfolio</h3>
-          <p>
-            Buy and sell popular digital currencies, keep track of them in the
-            one place.
-          </p>
-        </IconContent>
-      </Icon>
-      <Icon>
-        <IconImage src={portfolioIcon} />
-        <IconContent>
-          <h3>Manage your portfolio</h3>
-          <p>
-            Buy and sell popular digital currencies, keep track of them in the
-            one place.
-          </p>
-        </IconContent>
-      </Icon>
-      <Icon>
-        <IconImage src={portfolioIcon} />
-        <IconContent>
-          <h3>Manage your portfolio</h3>
-          <p>
-            Buy and sell popular digital currencies, keep track of them in the
-            one place.
-          </p>
-        </IconContent>
-      </Icon>
-      <Icon>
-        <IconImage src={portfolioIcon} />
-        <IconContent>
-          <h3>Manage your portfolio</h3>
-          <p>
-            Buy and sell popular digital currencies, keep track of them in the
-            one place.
-          </p>
-        </IconContent>
-      </Icon>
+      {icons.map(icon => {
+        return (
+          <Icon>
+            <IconImage src={portfolioIcon} />
+            <IconContent>
+              <h3>{icon.heading}</h3>
+              <p>{icon.subHeading}</p>
+            </IconContent>
+          </Icon>
+        );
+      })}
     </IconWrapper>
   );
 };
