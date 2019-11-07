@@ -63,6 +63,7 @@ export const TableRowStyles = styled.tr`
   width: ${({ fullWidth }) => (fullWidth ? "100%" : "")};
   justify-content: space-around;
   border-bottom: 1px solid #1c162110;
+
   display: ${({ flexDesktop }) => (flexDesktop ? "flex" : "")};
   display: ${({ noDesktop }) => (noDesktop ? "none" : "")};
   flex-direction: row;
@@ -70,10 +71,13 @@ export const TableRowStyles = styled.tr`
     background: ${({ bg }) => (bg ? "" : "#b3b3b320")};
   }
   @media ${props => props.theme.mediaQueries.medium} {
+    display: ${({ inlineBlock }) => (inlineBlock ? "inline-block" : "")};
     display: ${({ flexMobile }) => (flexMobile ? "flex" : "")};
     width: ${({ noMobileWidth }) => (noMobileWidth ? "unset" : "")};
     display: ${({ noMobile }) => (noMobile ? "none" : "")};
     flex-direction: ${({ col }) => (col ? "column" : "row")};
+    width: ${({ customWidth }) => (customWidth ? "49%" : "")};
+
     justify-content: ${({ spaceEvenly }) =>
       spaceEvenly ? "space-evenly" : ""};
     & :last-child {
@@ -151,7 +155,9 @@ export const TabelDataStyles = styled.td`
   }
   @media ${props => props.theme.mediaQueries.medium} {
     display: ${({ none }) => (none ? "none" : "unset")};
-
+    display: ${({ inlineBlockMobile }) =>
+      inlineBlockMobile ? "inline-block" : ""};
+    width: ${({ fullWidth }) => (fullWidth ? "100%" : "")};
     padding: ${({ zero }) => (zero ? "2px" : "22px")};
     padding-left: ${({ zero }) => (zero ? "2px" : "32px")};
   }

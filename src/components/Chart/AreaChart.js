@@ -36,20 +36,15 @@ class AreaChart extends React.Component {
   }
 
   updateData(timeline) {
+    console.log(CHART_DATA.options.xaxis.min);
     this.setState({
       chartDataSelection: timeline
     });
 
     switch (timeline) {
       case "one_month":
-        this.setState({
-          chartDataOptions: {
-            xaxis: {
-              min: new Date("28 Jan 2013").getTime(),
-              max: new Date("27 Feb 2013").getTime()
-            }
-          }
-        });
+        CHART_DATA.options.xaxis.min = new Date("28 Jan 2013").getTime();
+
         break;
       case "six_months":
         this.setState({
@@ -96,6 +91,7 @@ class AreaChart extends React.Component {
   }
 
   render() {
+    let cool = { ...CHART_DATA };
     //These are the differnet time intervals for the area chart
 
     return (

@@ -6,7 +6,7 @@ const PriceHeader = props => {
   return (
     //This is the header for the table on the price page
 
-    <Styles.TableRowStyles bg flexDesktop noMobile>
+    <Styles.TableRowStyles bg noMobile>
       <Styles.TabelHeadingStyles bg>#</Styles.TabelHeadingStyles>
       <Styles.TabelHeadingStyles bg>NAME</Styles.TabelHeadingStyles>
       <Styles.TabelHeadingStyles bg>PRICE</Styles.TabelHeadingStyles>

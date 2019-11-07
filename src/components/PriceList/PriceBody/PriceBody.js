@@ -61,64 +61,73 @@ const PriceBody = props => {
 
             return (
               <>
-                <Styles.TableRowStyles key={rank} flex spaceEvenly flexDesktop>
-                  <Styles.TableRowStyles flexMobile col noDesktop>
-                    {props.tableHeaders.map(header => {
-                      return (
-                        <Styles.TabelDataStyles>
-                          {header}
-                        </Styles.TabelDataStyles>
-                      );
-                    })}
-                  </Styles.TableRowStyles>
-                  {/*  this is the table data line 73-122 */}
-                  <Styles.TableRowStyles
-                    col
-                    flexDesktop
-                    flexMobile
+                <Styles.TableRowStyles col noDesktop inlineBlock customWidth>
+                  {props.tableHeaders.map(header => {
+                    return (
+                      <Styles.TabelDataStyles inlineBlockMobile fullWidth>
+                        {header}
+                      </Styles.TabelDataStyles>
+                    );
+                  })}
+                </Styles.TableRowStyles>
+                {/*  this is the table data line 73-122 */}
+                <Styles.TableRowStyles
+                  col
+                  noMobileWidth
+                  inlineBlock
+                  customWidth
+                >
+                  <Styles.TabelDataStyles inlineBlockMobile fullWidth>
+                    {rank}
+                  </Styles.TabelDataStyles>
+                  <Styles.TabelDataStyles
+                    grey
+                    flex
+                    zero
+                    inlineBlockMobile
                     fullWidth
-                    noMobileWidth
                   >
-                    <Styles.TabelDataStyles>{rank}</Styles.TabelDataStyles>
-                    <Styles.TabelDataStyles grey flex zero>
-                      <props.CoinIcon
-                        style={{ marginRight: "12px" }}
-                        src={logo_url}
-                      />
-                      {name}
-                      <Styles.TableDataP style={{ color: "#33333380" }}>
-                        {currency}
-                      </Styles.TableDataP>
-                    </Styles.TabelDataStyles>
+                    <props.CoinIcon
+                      style={{ marginRight: "12px" }}
+                      src={logo_url}
+                    />
+                    {name}
+                    <Styles.TableDataP style={{ color: "#33333380" }}>
+                      {currency}
+                    </Styles.TableDataP>
+                  </Styles.TabelDataStyles>
 
-                    <Styles.TabelDataStyles>${newPrice}</Styles.TabelDataStyles>
+                  <Styles.TabelDataStyles inlineBlockMobile fullWidth>
+                    ${newPrice}
+                  </Styles.TabelDataStyles>
 
-                    <Styles.TabelDataStyles
-                      style={
-                        newMarketPct.charAt(0) === "-"
-                          ? { color: "#ff2734" }
-                          : { color: "#23cc9a" }
-                      }
+                  <Styles.TabelDataStyles
+                    inlineBlockMobile
+                    fullWidth
+                    style={
+                      newMarketPct.charAt(0) === "-"
+                        ? { color: "#ff2734" }
+                        : { color: "#23cc9a" }
+                    }
+                  >
+                    {newMarketPct}%
+                  </Styles.TabelDataStyles>
+                  <Styles.TabelDataStyles inlineBlockMobile fullWidth>
+                    ${newMarketCap}
+                  </Styles.TabelDataStyles>
+
+                  <Styles.TabelDataStyles inlineBlockMobile fullWidth>
+                    <Link
+                      to={{
+                        pathname: `/prices/${coin.currency}`,
+                        state: { coins: props.coins }
+                      }}
                     >
-                      {newMarketPct}%
-                    </Styles.TabelDataStyles>
-                    <Styles.TabelDataStyles>
-                      ${newMarketCap}
-                    </Styles.TabelDataStyles>
-
-                    <Styles.TabelDataStyles>
-                      <Link
-                        to={{
-                          pathname: `/prices/${coin.currency}`,
-                          state: { coins: props.coins }
-                        }}
-                      >
-                        <Button padding style={{ width: "60%" }}>
-                          Trade
-                        </Button>
-                      </Link>
-                    </Styles.TabelDataStyles>
-                  </Styles.TableRowStyles>
+                      <Button padding style={{ width: "60%" }}>
+                        Trade
+                      </Button>
+                    </Link>
+                  </Styles.TabelDataStyles>
                 </Styles.TableRowStyles>
               </>
             );
