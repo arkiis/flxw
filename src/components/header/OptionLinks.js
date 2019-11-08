@@ -12,9 +12,10 @@ const OptionLinks = ({ navLinks }) => {
             nav.nav !== "login"
           );
         })
-        .map(nav => {
+        .map((nav, index) => {
           return (
             <Styles.OptionLinkStyle
+              key={index}
               exact
               className="optionLink"
               activeClassName="selectedLink"

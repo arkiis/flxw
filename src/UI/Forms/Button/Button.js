@@ -7,7 +7,8 @@ const StyledButton = styled.button`
   text-transform: uppercase;
   border: none;
   flex: 2 !important;
-  width: ${({ width }) => (width ? "30%" : "100%")}!important;
+
+  width: ${({ scaleDown }) => (scaleDown ? "30%" : "100%")}!important;
   background: #6433ff;
   border-radius: 4px;
   color: white;

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import ReactApexChart from "react-apexcharts";
 import CHART_DATA from "./AreaChartData";
 import "./Chart.css";

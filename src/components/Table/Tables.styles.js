@@ -25,8 +25,8 @@ export const MobileTableContainer = styled.div`
 `;
 
 export const CoinIcon = styled.img`
-  width: ${({ width }) => (width ? "12px" : "36px")};
-  height: ${({ height }) => (height ? "12px" : "36px")};
+  width: ${({ lowerwidth }) => (lowerwidth ? "12px" : "36px")};
+  height: ${({ lowerheight }) => (lowerheight ? "12px" : "36px")};
   margin-right: ${({ marginR }) => (marginR ? "12px" : "")};
 `;
 

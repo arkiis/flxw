@@ -18,7 +18,7 @@ const PriceHeader = props => {
           }}
         >
           <div>MARKET CAP</div>
-          <props.CoinIcon width height src={Icon} />
+          <props.CoinIcon lowerwidth lowerheight src={Icon} />
         </Styles.MarketCap>
       </Styles.TabelHeadingStyles>
       <Styles.TabelHeadingStyles bg>TRADE</Styles.TabelHeadingStyles>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import * as Styles from "../../Table/Tables.styles";
 import Button from "../../../UI/Forms/Button/Button";
@@ -42,8 +42,16 @@ const PriceBody = props => {
         </LoaderWrapper>
       ) : (
         <>
-          {filteredCoins.map(coin => {
-            const { rank, logo_url, name, currency, price, market_cap } = coin;
+          {filteredCoins.map((coin, index) => {
+            const {
+              rank,
+              logo_url,
+              id,
+              name,
+              currency,
+              price,
+              market_cap
+            } = coin;
 
             const pricePercent = coin[props.selection];
 
@@ -62,9 +70,13 @@ const PriceBody = props => {
             return (
               <>
                 <Styles.TableRowStyles col noDesktop inlineBlock customWidth>
-                  {props.tableHeaders.map(header => {
+                  {props.tableHeaders.map((header, index) => {
                     return (
-                      <Styles.TabelDataStyles inlineBlockMobile fullWidth>
+                      <Styles.TabelDataStyles
+                        inlineBlockMobile
+                        fullWidth
+                        key={index}
+                      >
                         {header}
                       </Styles.TabelDataStyles>
                     );
@@ -72,6 +84,7 @@ const PriceBody = props => {
                 </Styles.TableRowStyles>
                 {/*  this is the table data line 73-122 */}
                 <Styles.TableRowStyles
+                  key={index}
                   col
                   noMobileWidth
                   inlineBlock

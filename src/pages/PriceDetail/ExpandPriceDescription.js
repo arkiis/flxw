@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import * as Styles from "./PriceDetailStyles";
 
 const ExpandPriceDescription = props => {
   const [expand, setExpanded] = useState(false);
@@ -17,18 +18,16 @@ const ExpandPriceDescription = props => {
     if (expand) {
       return (
         <>
-          <div style={{ lineHeight: "1.8rem" }}>
-            {props.metaData.description}
-          </div>
+          <Styles.InfoBody>{props.metaData.description}</Styles.InfoBody>
           <a>Read less</a>
         </>
       );
     } else {
       return (
         <>
-          <div style={{ lineHeight: "1.8rem" }}>
+          <Styles.InfoBody>
             {props.simplifyMeta}... <a>Read More</a>
-          </div>
+          </Styles.InfoBody>
         </>
       );
     }

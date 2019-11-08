@@ -23,7 +23,6 @@ const DashboardChart = props => {
   return (
     <ChartStyles>
       <Doughnut
-        height="220px"
         data={barData}
         options={{
           cutoutPercentage: 84,

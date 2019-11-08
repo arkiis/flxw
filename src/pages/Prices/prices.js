@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import PriceList from "../../components/PriceList/PriceList.component";
 import * as Styles from "./prices.styles";
 

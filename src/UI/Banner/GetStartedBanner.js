@@ -16,7 +16,11 @@ const GetStartedBanner = () => {
       </Styles.GetStartedContentWrapper>
       <Styles.GetStartedContentWrapper>
         <Styles.GetStartedContenttwo>
-          <img src={iPhone} style={{ width: "400px" }} />
+          <img
+            src={iPhone}
+            style={{ width: "400px" }}
+            alt="Iphone with bitcoins falling into it"
+          />
         </Styles.GetStartedContenttwo>
       </Styles.GetStartedContentWrapper>
     </Styles.GetStartedBannerWrapper>

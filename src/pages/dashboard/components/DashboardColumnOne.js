@@ -8,8 +8,10 @@ import FollowIcon from "../../../assets/images/no-coins-01.svg";
 import DashboardMarketAct from "./DashboardMarketAct";
 
 const DashboardColumnOne = props => {
+  const db = firebase.firestore();
   //waiting to grab the data from the firebase database
   // and putting that data into favoriteCoin state
+
   useEffect(() => {
     db.collection("coins")
       .where("userId", "==", firebase.auth().currentUser.uid)
@@ -27,8 +29,6 @@ const DashboardColumnOne = props => {
     setPercentage(perc);
   };
 
-  const db = firebase.firestore();
-
   const [favoriteCoin, setFavoriteCoin] = useState([]);
   const [percentage, setPercentage] = useState(0);
 
@@ -39,13 +39,17 @@ const DashboardColumnOne = props => {
           <Home.PortfolioHeader>Following</Home.PortfolioHeader>
           <Scrollbars style={{ height: 220 }}>
             {favoriteCoin.length === 0 ? (
-              <img style={{ height: "200px" }} src={FollowIcon}></img>
+              <img
+                style={{ height: "200px" }}
+                src={FollowIcon}
+                alt="gray star"
+              ></img>
             ) : (
               //Mapping the coins into the following component on the dashboard
               <Home.DashboardFavoriteItems>
-                {favoriteCoin.map(x => {
+                {favoriteCoin.map((x, index) => {
                   return (
-                    <Home.FavoriteCoin>
+                    <Home.FavoriteCoin key={index}>
                       <Home.LogoAndNameWrapper>
                         <Styles.CoinIcon src={x.data().logo_url} marginR />
                         <Styles.TableDataP>{x.data().name}</Styles.TableDataP>

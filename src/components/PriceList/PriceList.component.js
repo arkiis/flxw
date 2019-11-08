@@ -78,7 +78,6 @@ const PriceList = props => {
             {/*Table body component*/}
             <PriceBody
               tableHeaders={tableHeaders}
-              MarketCapLow={MarketCapLow}
               setMarketCapLow={setMarketCapLow}
               search={search}
               setSearch={setSearch}
@@ -89,7 +88,6 @@ const PriceList = props => {
               MarketCapLow={MarketCapLow}
               coins={props.coins}
               priceChange={priceChange}
-              selection={selection}
             />
           </tbody>
         </Styles.Tablestyles>

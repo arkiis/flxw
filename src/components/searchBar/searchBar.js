@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import * as Styles from "./searchBar.styles";
 import SearchIcon from "../../assets/images/search-solid.svg";
 import PriceChangeIntervals from "../PriceChangeIntervals/priceChangeIntervals";
@@ -21,6 +21,7 @@ const SearchBar = props => {
             width="20"
             height="20"
             style={{ marginRight: "16px" }}
+            alt="Magnifying glass"
           />
           {/* this is where the user searches for the coin */}
           <Styles.SearchBarInput

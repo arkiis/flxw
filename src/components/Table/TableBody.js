@@ -4,6 +4,7 @@ import * as Styles from "./Tables.styles";
 
 const TableBody = ({ coin }) => {
   const { id, symbol, name, price, change, icon } = coin;
+
   return (
     <Styles.TableRowStyles key={id} flexMobile spaceEvenly>
       <Styles.TabelDataStyles>{id}</Styles.TabelDataStyles>
@@ -20,7 +21,7 @@ const TableBody = ({ coin }) => {
         {change}
       </Styles.TabelDataStyles>
       {/* none refers to display none until past max-width 800px */}
-      <Button padding width noMargin none>
+      <Button padding scaleDown noMargin none>
         Buy
       </Button>
     </Styles.TableRowStyles>

@@ -77,7 +77,7 @@ class Table extends Component {
             tabel body*/}
             </Styles.TableRowStyles>
             {this.state.coins.map((coin, index) => {
-              return <TableBody coin={coin} />;
+              return <TableBody coin={coin} key={coin.id} />;
             })}
           </tbody>
         </Styles.Tablestyles>

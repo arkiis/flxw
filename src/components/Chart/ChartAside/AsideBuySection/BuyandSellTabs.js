@@ -4,9 +4,10 @@ import * as Styles from "../../../../pages/PriceDetail/PriceDetailStyles";
 const BuyandSellTabs = props => {
   return (
     <Styles.AsideBuyLabel>
-      {props.tabs.map(tab => {
+      {props.tabs.map((tab, index) => {
         return (
           <Styles.AsideBuyTabs
+            key={index}
             onClick={() => {
               props.toggleActiveTab(tab);
             }}

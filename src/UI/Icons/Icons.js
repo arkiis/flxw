@@ -49,9 +49,9 @@ const IconContent = styled.div`
 const Icons = ({ icons }) => {
   return (
     <IconWrapper>
-      {icons.map(icon => {
+      {icons.map((icon, index) => {
         return (
-          <Icon>
+          <Icon key={index}>
             <IconImage src={portfolioIcon} />
             <IconContent>
               <h3>{icon.heading}</h3>

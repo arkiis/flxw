@@ -7,10 +7,10 @@ const HomeFeatureSection = props => {
   return (
     <Styles.HeaderWrapper>
       <Styles.HeaderContainer>
-        <props.Heading size="h1" scale noMargin color={"#4A4A4A"}>
+        <props.Heading size="h1" zIndexToggle noMargin color={"#4A4A4A"}>
           Create your crypto portfolio today
         </props.Heading>
-        <props.Heading size="h2" scale noMargin color={"#4A4A4A"}>
+        <props.Heading size="h2" zIndexToggle noMargin color={"#4A4A4A"}>
           Flxw has a variety of features that make it the best place to start
           trading cryptocurrency portfolio.
         </props.Heading>

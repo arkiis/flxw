@@ -6,10 +6,10 @@ const GettingStartedSection = props => {
   return (
     <>
       <Styles.HeaderContainer>
-        <props.Heading size="h1" scale noMargin color={"#4A4A4A"}>
+        <props.Heading size="h1" zIndexToggle noMargin color={"#4A4A4A"}>
           Get started in minutes
         </props.Heading>
-        <props.Heading size="h2" scale noMargin color={"#4A4A4A"}>
+        <props.Heading size="h2" zIndexToggle noMargin color={"#4A4A4A"}>
           Flxw supports a variety of the most popular digital currencies.
         </props.Heading>
       </Styles.HeaderContainer>

@@ -29,9 +29,9 @@ const ChartDetails = props => {
   }
   return (
     <Styles.ChartDetailsWrapper>
-      {details.map(detail => {
+      {details.map((detail, index) => {
         return (
-          <Styles.ChartDetailItem>
+          <Styles.ChartDetailItem key={index}>
             <Styles.DetailItemHeader>{detail.header}</Styles.DetailItemHeader>
             <Styles.DetailItemBody>
               {detail.detail === market_cap ||

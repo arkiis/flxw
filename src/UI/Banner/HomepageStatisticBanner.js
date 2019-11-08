@@ -5,8 +5,8 @@ import StatisticBannerContent from "./StatisticBannerContent";
 const HomepageStatisticBanner = ({ bannerData }) => {
   return (
     <Styles.BannerContainer>
-      {bannerData.map(data => {
-        return <StatisticBannerContent data={data} />;
+      {bannerData.map((data, index) => {
+        return <StatisticBannerContent key={index} data={data} />;
       })}
     </Styles.BannerContainer>
   );

@@ -17,18 +17,6 @@ const Prices = React.lazy(() => import("./pages/Prices/prices"));
 const Routes = ({ loggedIn, emailVerified, dimensions }) => {
   let routes;
 
-  {
-    /*mobileToggle function is to be passed  
-  to every component that needs any
-  UI changed on mobile view
-  */
-  }
-
-  const mobileToggle = (desktop, mobile) => {
-    const toggle = dimensions > 1070 ? desktop : mobile;
-    return toggle;
-  };
-
   if (loggedIn && !emailVerified) {
     routes = (
       <Switch>

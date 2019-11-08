@@ -41,7 +41,6 @@ const DashLineChart = () => {
         <Line
           data={data}
           backgroundColor={"green"}
-          height="100%"
           options={{
             scales: {
               xAxes: [

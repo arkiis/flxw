@@ -13,7 +13,7 @@ const TradeSummaryHeaderContainer = styled(TradeSummaryHeader)`
 `;
 
 const DashboardTradeSummary = () => {
-  const [trigger, setTrigger] = useState(["MACD", "RSI", "Stop Rise", "DAC"]);
+  const [trigger] = useState(["MACD", "RSI", "Stop Rise", "DAC"]);
   const newTrigger = trigger[Math.floor(Math.random() * trigger.length)];
 
   const now = new Date();

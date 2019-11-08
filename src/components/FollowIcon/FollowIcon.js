@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 import * as Stlyes from "./FollowIcon.styles";
 import { store } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";

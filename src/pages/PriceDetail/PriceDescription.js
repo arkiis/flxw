@@ -11,9 +11,8 @@ const PriceDescription = ({ price, simplifyMeta, metaData }) => {
           What is {price.name}?
         </Styles.AsideAssetsHeader>
 
-        <Styles.InfoBody>
-          <ExpandedInfo simplifyMeta={simplifyMeta} metaData={metaData} />
-        </Styles.InfoBody>
+        <ExpandedInfo simplifyMeta={simplifyMeta} metaData={metaData} />
+
         <Styles.ResourceHeader>Resources</Styles.ResourceHeader>
         <Styles.ResourceLink href={metaData.whitepaper_url}>
           <Styles.ResourceIcon src={paper} />

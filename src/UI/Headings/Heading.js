@@ -14,7 +14,7 @@ const baseStyle = css`
 const Heading1 = styled.h1`
   word-spacing: 4px;
 
-  z-index: ${({ scale }) => (scale ? "30" : "")};
+  z-index: ${({ zIndexToggle }) => (zIndexToggle ? "30" : "")};
   font-size: 38px;
   ${baseStyle}
 
@@ -25,22 +25,22 @@ line-height: 1.2;
 `;
 const Heading2 = styled.h2`
   font-size: 1rem;
-  z-index: ${({ scale }) => (scale ? "30" : "")};
+  z-index: ${({ zIndexToggle }) => (zIndexToggle ? "30" : "")};
   font-weight: 500 !important;
   text-align: center;
   ${baseStyle}
 `;
 
-const Heading = ({ children, color, noMargin, size, scale }) => {
+const Heading = ({ children, color, noMargin, size, zIndexToggle }) => {
   if (size === "h1")
     return (
-      <Heading1 noMargin={noMargin} color={color} scale={scale}>
+      <Heading1 noMargin={noMargin} color={color} zIndexToggle={zIndexToggle}>
         {children}
       </Heading1>
     );
   else if (size === "h2")
     return (
-      <Heading2 noMargin={noMargin} color={color} scale={scale}>
+      <Heading2 noMargin={noMargin} color={color} zIndexToggle={zIndexToggle}>
         {children}
       </Heading2>
     );

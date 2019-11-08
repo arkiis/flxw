@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import mainLogo from "../../assets/images/flxw-logo-01-01.png";
 import { NavLink } from "react-router-dom";
 import "./navigation.styles.scss";
@@ -15,7 +15,7 @@ const SideNavigation = ({ loggedIn, navLinks, setIsOpened, isOpened }) => {
             <div className="logoContainer">
               <img className="logo" src={mainLogo} alt="flxw logo" />
             </div>
-            <Styles.BurgerWrapper mobile>
+            <Styles.BurgerWrapper phoneresponsive>
               <NavLink to="/prices">
                 <Styles.TradeButton>Trade</Styles.TradeButton>
               </NavLink>
@@ -28,12 +28,13 @@ const SideNavigation = ({ loggedIn, navLinks, setIsOpened, isOpened }) => {
         </Styles.FixedWrapperSide>
         {/* dropdown menu if logged in*/}
         <Styles.Menu opened={!isOpened}>
-          <Styles.OptionsContainerStyle mobile>
-            {navLinks.map(nav => {
+          <Styles.OptionsContainerStyle phoneresponsive>
+            {navLinks.map((nav, index) => {
               return (
                 <Styles.OptionLinkStyle
+                  key={index}
                   exact
-                  mobile
+                  phoneresponsive
                   className="optionLink"
                   activeClassName="selectedLink"
                   onClick={() => setIsOpened(!isOpened)}
@@ -44,13 +45,13 @@ const SideNavigation = ({ loggedIn, navLinks, setIsOpened, isOpened }) => {
               );
             })}
 
-            <Styles.LoginContainerStyle mobile>
+            <Styles.LoginContainerStyle phoneresponsive>
               <Styles.OptionLinkStyle
                 to="/prices"
-                mobile
+                phoneresponsive
                 onClick={() => setIsOpened(!isOpened)}
               >
-                <Styles.BtnHeader mobile>Trade</Styles.BtnHeader>
+                <Styles.BtnHeader phoneresponsive>Trade</Styles.BtnHeader>
               </Styles.OptionLinkStyle>
             </Styles.LoginContainerStyle>
           </Styles.OptionsContainerStyle>
@@ -65,7 +66,7 @@ const SideNavigation = ({ loggedIn, navLinks, setIsOpened, isOpened }) => {
             <div className="logoContainer">
               <img className="logo" src={mainLogo} alt="flxw logo" />
             </div>
-            <Styles.BurgerWrapper mobile>
+            <Styles.BurgerWrapper phoneresponsive>
               <NavLink to="/prices">
                 <Styles.TradeButton>Trade</Styles.TradeButton>
               </NavLink>
@@ -78,16 +79,17 @@ const SideNavigation = ({ loggedIn, navLinks, setIsOpened, isOpened }) => {
         </Styles.FixedWrapperSide>
         {/* dropdown menu if logged out */}
         <Styles.Menu opened={!isOpened}>
-          <Styles.OptionsContainerStyle mobile>
+          <Styles.OptionsContainerStyle phoneresponsive>
             {navLinks
               .filter(nav => {
                 return nav.nav !== "Settings" && nav.nav !== "Logout";
               })
-              .map(nav => {
+              .map((nav, index) => {
                 return (
                   <Styles.OptionLinkStyle
+                    key={index}
                     exact
-                    mobile
+                    phoneresponsive
                     className="optionLink"
                     activeClassName="selectedLink"
                     onClick={() => setIsOpened(!isOpened)}
@@ -98,23 +100,23 @@ const SideNavigation = ({ loggedIn, navLinks, setIsOpened, isOpened }) => {
                 );
               })}
 
-            <Styles.LoginContainerStyle mobile>
+            <Styles.LoginContainerStyle phoneresponsive>
               <Styles.OptionLinkStyle
                 exact
                 activeClassName="selectedLink"
                 onClick={() => setIsOpened(!isOpened)}
                 className="optionLink"
                 to="/login"
-                mobile
+                phoneresponsive
               >
                 Login
               </Styles.OptionLinkStyle>
               <Styles.OptionLinkStyle
                 to="/logUp"
-                mobile
+                phoneresponsive
                 onClick={() => setIsOpened(!isOpened)}
               >
-                <Styles.BtnHeader mobile>Sign up</Styles.BtnHeader>
+                <Styles.BtnHeader phoneresponsive>Sign up</Styles.BtnHeader>
               </Styles.OptionLinkStyle>
             </Styles.LoginContainerStyle>
           </Styles.OptionsContainerStyle>

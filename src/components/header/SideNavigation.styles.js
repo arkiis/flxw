@@ -60,25 +60,26 @@ export const Menu = styled.div`
 `;
 
 export const OptionsContainerStyle = styled.div`
-  width: ${props => (props.mobile ? "100%" : "50%")};
+  width: ${props => (props.phoneresponsive ? "100%" : "50%")};
   height: 100%;
   display: flex;
-  flex-direction: ${props => (props.mobile ? "column" : "row")};
+  flex-direction: ${props => (props.phoneresponsive ? "column" : "row")};
   align-items: center;
-  justify-content: ${props => (props.mobile ? "flex-start" : "center")};
+  justify-content: ${props =>
+    props.phoneresponsive ? "flex-start" : "center"};
 `;
 
 export const LoginContainerStyle = styled.div`
   font-weight: bold;
   display: flex;
-  height: ${props => (props.mobile ? "" : "100%")};
+  height: ${props => (props.phoneresponsive ? "" : "100%")};
   align-items: center;
-  width: ${props => (props.mobile ? "100%" : "30%")};
+  width: ${props => (props.phoneresponsive ? "100%" : "30%")};
   justify-content: space-evenly;
-  flex-direction: ${props => (props.mobile ? "column" : "row")};
+  flex-direction: ${props => (props.phoneresponsive ? "column" : "row")};
 
   & button {
-    padding: ${props => (props.mobile ? "15px" : "10px")};
+    padding: ${props => (props.phoneresponsive ? "15px" : "10px")};
     border: none;
     background: #6433ff;
     border-radius: 4px;
@@ -92,10 +93,10 @@ export const OptionLinkStyle = styled(NavLink)`
   padding: 10px 19px;
   font-weight: bold;
   cursor: pointer;
-  justify-content: ${props => (props.mobile ? "center" : "")};
+  justify-content: ${props => (props.phoneresponsive ? "center" : "")};
   height: 10vh;
   display: flex;
-  width: ${props => (props.mobile ? "100%" : "")};
+  width: ${props => (props.phoneresponsive ? "100%" : "")};
   align-items: center;
   & :hover {
     color: $purple;
@@ -110,7 +111,7 @@ export const BtnHeader = styled.button`
   background: #6433ff;
   border-radius: 4px;
   color: white;
-  width: ${props => (props.mobile ? "100%" : "")};
+  width: ${props => (props.phoneresponsive ? "100%" : "")};
   font-weight: bold;
   cursor: pointer;
 `;
@@ -119,7 +120,7 @@ export const BurgerWrapper = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
-  width: ${props => (props.mobile ? "" : "30%")};
+  width: ${props => (props.phoneresponsive ? "" : "30%")};
   justify-content: space-evenly;
 
   &button {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import * as Styles from "./PriceDetailStyles";
 import CryptoChart from "../../components/Chart/AreaChart";
 import GetAsideSection from "../../components/Chart/ChartAside/ChartAside";
@@ -13,11 +13,11 @@ const PriceDetail = ({ dimensions, location, match }) => {
     fetchMetaData();
   }, []);
 
-  const [allCoins, setAllCoins] = useState(location.state.coins);
+  const [allCoins] = useState(location.state.coins);
   const [price, setPrice] = useState({});
   const [metaData, setMetaData] = useState([]);
   const [simplifyMeta, setSimplifyMeta] = useState([]);
-  const [coins, setCoins] = useState(match.coins);
+
   const [buyButton, setBuyButton] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -89,10 +89,11 @@ const PriceDetail = ({ dimensions, location, match }) => {
                 />
                 {/* This iframe shows the news articles */}
                 <iframe
+                  title="crypto-news"
                   width="100%"
                   scrolling="yes"
                   allowtransparency="true"
-                  frameborder="0"
+                  frameBorder="0"
                   src={
                     "https://cryptopanic.com/widgets/news/?bg_color=FFFFFF&amp;currencies=LTC&amp;font_family=sans&amp;header_bg_color=30343B&amp;header_text_color=FFFFFF&amp;link_color=0091C2&amp;news_feed=trending&amp;text_color=333333&amp;title=Latest%20News"
                   }

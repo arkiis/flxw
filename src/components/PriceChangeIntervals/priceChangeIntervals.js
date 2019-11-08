@@ -7,16 +7,15 @@ const PriceChangeIntervals = props => {
   //on the price page
   return (
     <Styles.SearchPriceChange>
-      {props.intervalsFetched.map(interval => {
+      {props.intervalsFetched.map((interval, index) => {
         return (
-          <>
-            <Styles.SearchPriceChangeItems
-              onClick={() => props.updateData(interval)}
-              className={props.selection === interval ? "active" : ""}
-            >
-              {interval}
-            </Styles.SearchPriceChangeItems>
-          </>
+          <Styles.SearchPriceChangeItems
+            key={index}
+            onClick={() => props.updateData(interval)}
+            className={props.selection === interval ? "active" : ""}
+          >
+            {interval}
+          </Styles.SearchPriceChangeItems>
         );
       })}
     </Styles.SearchPriceChange>
