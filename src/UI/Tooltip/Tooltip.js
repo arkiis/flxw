@@ -1,12 +1,13 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
+import * as Styles from "./Tooltip.styles";
 
 const Tooltip = props => {
   console.log(props.label);
   return (
     <>
       <p data-tip={props.label} data-for="tool">
-        <img src={props.icon} />
+        <Styles.TooltipIcon src={props.icon} />
       </p>
 
       <ReactTooltip

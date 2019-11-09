@@ -85,6 +85,10 @@ export const ChartDetailItem = styled.div`
 export const DetailItemHeader = styled.h2`
   color: rgba(17, 51, 83, 0.6);
   font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
   margin-bottom: 12px;
 `;
 export const DetailItemBody = styled.p`

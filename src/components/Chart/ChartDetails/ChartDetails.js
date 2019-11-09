@@ -14,10 +14,27 @@ const ChartDetails = props => {
   };
 
   const details = [
-    { header: "Market cap", info: "a", detail: market_cap },
-    { header: "Volume(24 hours)", info: "b", detail: chartVolume },
-    { header: "Circulating supply", info: "c", detail: circulating_supply },
-    { header: "All-time high", info: "bruh", detail: high }
+    {
+      header: "Market cap",
+      info: "Total Circulating Supply * Price of each coin.",
+      detail: market_cap
+    },
+    {
+      header: "Volume(24 hours)",
+      info: `the amount of ${props.price.name} that has been traded in the last 24 hours.`,
+      detail: chartVolume
+    },
+    {
+      header: "Circulating supply",
+      info:
+        "number of coins that are publicly available and circulating in the market.",
+      detail: circulating_supply
+    },
+    {
+      header: "All-time high",
+      info: `highest price that ${props.price.name} has achieved on an exchange`,
+      detail: high
+    }
   ];
 
   const simplifyData = data => {
