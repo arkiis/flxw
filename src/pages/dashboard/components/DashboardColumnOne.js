@@ -31,7 +31,7 @@ const DashboardColumnOne = props => {
 
   const [favoriteCoin, setFavoriteCoin] = useState([]);
   const [percentage, setPercentage] = useState(0);
-
+  console.log(favoriteCoin);
   return (
     <Home.DashboardFollowing>
       <Home.FollowingSection>

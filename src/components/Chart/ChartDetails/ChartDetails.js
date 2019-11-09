@@ -1,5 +1,7 @@
 import React from "react";
 import * as Styles from "../../../pages/PriceDetail/PriceDetailStyles";
+import InfoIcon from "../../../assets/images/info-icon.svg";
+import Tooltip from "../../../UI/Tooltip/Tooltip";
 
 const ChartDetails = props => {
   const { high, circulating_supply, market_cap, id } = props.price;
@@ -12,10 +14,10 @@ const ChartDetails = props => {
   };
 
   const details = [
-    { header: "Market cap", detail: market_cap },
-    { header: "Volume(24 hours)", detail: chartVolume },
-    { header: "Circulating supply", detail: circulating_supply },
-    { header: "All-time high", detail: high }
+    { header: "Market cap", info: "a", detail: market_cap },
+    { header: "Volume(24 hours)", info: "b", detail: chartVolume },
+    { header: "Circulating supply", info: "c", detail: circulating_supply },
+    { header: "All-time high", info: "bruh", detail: high }
   ];
 
   const simplifyData = data => {
@@ -32,7 +34,9 @@ const ChartDetails = props => {
       {details.map((detail, index) => {
         return (
           <Styles.ChartDetailItem key={index}>
-            <Styles.DetailItemHeader>{detail.header}</Styles.DetailItemHeader>
+            <Styles.DetailItemHeader>
+              <Tooltip icon={InfoIcon} label={detail.info} /> {detail.header}
+            </Styles.DetailItemHeader>
             <Styles.DetailItemBody>
               {detail.detail === market_cap ||
               detail.detail === circulating_supply
