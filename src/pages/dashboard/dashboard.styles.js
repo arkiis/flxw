@@ -161,7 +161,7 @@ export const DashboardPortfolioItems = styled.div`
 
 export const DashboardLineWrapper = styled.div`
   flex-grow: 1;
-  height: 20px;
+  /* height: 20px; */
   padding: 0 20px 0 0;
   width: 100px !important;
   display: flex;
