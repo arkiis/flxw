@@ -36,7 +36,9 @@ const FollowIcon = ({ price }) => {
     };
     //adding the data above to firebase's real time database
 
-    db.collection("coins").add(data);
+    db.collection("coins")
+      .doc(price.id)
+      .set(data);
 
     // setFollowing("apple");
     setTitle("Following");
