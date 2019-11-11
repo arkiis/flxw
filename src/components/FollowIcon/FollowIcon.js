@@ -38,6 +38,7 @@ const FollowIcon = ({ price }) => {
 
     db.collection("coins")
       .doc(price.id)
+
       .set(data);
 
     // setFollowing("apple");

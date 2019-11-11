@@ -77,6 +77,9 @@ const AsideBuySection = props => {
 
           {/*  this holds buy and pay with components.  */}
           <AsideBuyFooter
+            tabs={tabs}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
             price={props.price}
             buyColor={buyColor}
             nocursor={nocursor}

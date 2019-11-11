@@ -96,58 +96,67 @@ class AreaChart extends React.Component {
 
     return (
       <div id="chart">
-        <div className="toolbar">
-          <span
-            onClick={() => this.updateData("one_month")}
-            id="one_month"
-            className={
-              this.state.chartDataSelection === "one_month"
-                ? "active"
-                : "not-active"
-            }
-          >
-            1M
-          </span>
-          <span
-            onClick={() => this.updateData("six_months")}
-            id="six_months"
-            className={
-              this.state.chartDataSelection === "six_months"
-                ? "active"
-                : "not-active"
-            }
-          >
-            6M
-          </span>
-          <span
-            onClick={() => this.updateData("one_year")}
-            id="one_year"
-            className={
-              this.state.chartDataSelection === "one_year"
-                ? "active"
-                : "not-active"
-            }
-          >
-            1Y
-          </span>
-          <span
-            onClick={() => this.updateData("ytd")}
-            id="ytd"
-            className={
-              this.state.chartDataSelection === "ytd" ? "active" : "not-active"
-            }
-          >
-            YTD
-          </span>
-          <span
-            onClick={() => this.updateData("all")}
-            id="all"
-            className={
-              this.state.chartDataSelection === "all" ? "active" : "not-active"
-            }
-          >
-            ALL
-          </span>
+        <div className="toolbar chartToolBar">
+          <div>
+            <span
+              onClick={() => this.updateData("one_month")}
+              id="one_month"
+              className={
+                this.state.chartDataSelection === "one_month"
+                  ? "active"
+                  : "not-active"
+              }
+            >
+              1M
+            </span>
+            <span
+              onClick={() => this.updateData("six_months")}
+              id="six_months"
+              className={
+                this.state.chartDataSelection === "six_months"
+                  ? "active"
+                  : "not-active"
+              }
+            >
+              6M
+            </span>
+            <span
+              onClick={() => this.updateData("one_year")}
+              id="one_year"
+              className={
+                this.state.chartDataSelection === "one_year"
+                  ? "active"
+                  : "not-active"
+              }
+            >
+              1Y
+            </span>
+            <span
+              onClick={() => this.updateData("ytd")}
+              id="ytd"
+              className={
+                this.state.chartDataSelection === "ytd"
+                  ? "active"
+                  : "not-active"
+              }
+            >
+              YTD
+            </span>
+            <span
+              onClick={() => this.updateData("all")}
+              id="all"
+              className={
+                this.state.chartDataSelection === "all"
+                  ? "active"
+                  : "not-active"
+              }
+            >
+              ALL
+            </span>
+          </div>
+          <p className="areaChartPrice">
+            ${this.props.simplifyPrice(this.props.price.price)}
+          </p>
         </div>
 
         {/* the area chart */}

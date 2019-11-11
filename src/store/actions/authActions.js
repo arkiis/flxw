@@ -60,6 +60,22 @@ export const clean = () => ({
   type: actions.CLEAN_UP
 });
 
+//Sell tab active action creator
+export const sellTab = () => {
+  return {
+    type: actions.SELL_TAB_ACTIVE
+  };
+};
+
+export const setSellTab = sellTab => {
+  return dispatch => {
+    dispatch({
+      type: "SET_SELL_TAB",
+      sellTab
+    });
+  };
+};
+
 // verify email actionTypes
 export const verifyEmail = () => async (
   dispatch,

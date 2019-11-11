@@ -10,6 +10,20 @@
   cursor: pointer;
 }
 
+.areaChartPrice {
+  font-size: 35px;
+  color: #4a4a4a;
+  padding: 10px;
+  margin-left: 12px;
+}
+
+.chartToolBar {
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
 .active {
   padding: 5px;
   margin: 0 5px;

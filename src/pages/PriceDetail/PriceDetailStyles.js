@@ -324,6 +324,7 @@ export const ResourceLink = styled.a`
 export const ResourceIcon = styled.img`
   width: ${({ icon }) => (icon ? "10px" : "18px")};
   color: gray;
+  width: ${({ bigIcon }) => (bigIcon ? "25%" : "")};
   margin-right: 10px;
 `;
 

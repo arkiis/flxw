@@ -4,5 +4,7 @@ export {
   signIn,
   clean,
   recoverPassword,
-  verifyEmail
+  verifyEmail,
+  sellTab,
+  setSellTab
 } from "./authActions";

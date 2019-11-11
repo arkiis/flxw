@@ -1,20 +1,24 @@
 import React from "react";
 import * as Styles from "../../../../../pages/PriceDetail/PriceDetailStyles";
 import Arrow from "../../../../../assets/images/chevron-right-solid.svg";
-import Paypal from "../../../../../assets/images/paypal-seeklogo.com.svg";
+import "./AsideBuyFooter.css";
 
-const AsideSelectionTwo = () => {
+const AsideSelectionTwo = props => {
   //this component will show which payment system the user
   //will use to purchase X coin.
+  const classStyle = `${props.iconStyle}`;
 
   return (
     <Styles.AsideBuySelectionItems>
-      <Styles.AsideBuySelectionOne>Pay With</Styles.AsideBuySelectionOne>
+      <Styles.AsideBuySelectionOne>{props.label}</Styles.AsideBuySelectionOne>
       <Styles.AsideBuySelectionTwo>
         <Styles.AsideSelectionTwoWrapper>
-          <Styles.ResourceIcon src={Paypal}></Styles.ResourceIcon>
+          <Styles.ResourceIcon
+            className={classStyle}
+            src={props.icon}
+          ></Styles.ResourceIcon>
 
-          <p>Paypal</p>
+          <p>{props.name}</p>
         </Styles.AsideSelectionTwoWrapper>
         <Styles.ResourceIcon icon src={Arrow}></Styles.ResourceIcon>
       </Styles.AsideBuySelectionTwo>

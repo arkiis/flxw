@@ -77,7 +77,7 @@ const PriceDetail = ({ dimensions, location, match }) => {
               <Styles.ChartSection>
                 <Styles.ChartAndDetailsWrapper>
                   {/*  Area Chart component    */}
-                  <CryptoChart />
+                  <CryptoChart price={price} simplifyPrice={simplifyPrice} />
                   {/*  Chart details component    */}
                   <ChartDetails price={price} />
                 </Styles.ChartAndDetailsWrapper>
