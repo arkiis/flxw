@@ -7,9 +7,21 @@ const AsideSelectionTwo = props => {
   //this component will show which payment system the user
   //will use to purchase X coin.
   const classStyle = `${props.iconStyle}`;
-
+  console.log(props.isToggle);
   return (
-    <Styles.AsideBuySelectionItems>
+    <Styles.AsideBuySelectionItems
+      //if isToggle does not equal anything,
+      //the payment modal will not open
+      onClick={() => {
+        switch (props.isToggle) {
+          case "":
+            return null;
+            break;
+          default:
+            props.setToggle(!props.isToggle);
+        }
+      }}
+    >
       <Styles.AsideBuySelectionOne>{props.label}</Styles.AsideBuySelectionOne>
       <Styles.AsideBuySelectionTwo>
         <Styles.AsideSelectionTwoWrapper>
@@ -24,6 +36,11 @@ const AsideSelectionTwo = props => {
       </Styles.AsideBuySelectionTwo>
     </Styles.AsideBuySelectionItems>
   );
+};
+
+AsideSelectionTwo.defaultProps = {
+  isToggle: "",
+  setToggle: ""
 };
 
 export default AsideSelectionTwo;

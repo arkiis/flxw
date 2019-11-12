@@ -6,6 +6,7 @@ import GetHeadingChartSection from "../../components/Chart/ChartHeader/ChartHead
 import ChartDetails from "../../components/Chart/ChartDetails/ChartDetails";
 import MobileFixedButton from "./MobileFixedButton";
 import PriceDescription from "./PriceDescription";
+import PaymentModal from "../../components/PaymentModule/PaymentModal";
 
 const PriceDetail = ({ dimensions, location, match }) => {
   useEffect(() => {
@@ -17,6 +18,7 @@ const PriceDetail = ({ dimensions, location, match }) => {
   const [price, setPrice] = useState({});
   const [metaData, setMetaData] = useState([]);
   const [simplifyMeta, setSimplifyMeta] = useState([]);
+  const [isToggle, setToggle] = useState(false);
 
   const [buyButton, setBuyButton] = useState(false);
   useEffect(() => {
@@ -64,6 +66,12 @@ const PriceDetail = ({ dimensions, location, match }) => {
 
   return (
     <div>
+      {/* Payment module opens when user selects payment */}
+      <PaymentModal
+        allCoins={allCoins}
+        isToggle={isToggle}
+        setToggle={setToggle}
+      />
       <Styles.PriceMainWrapper>
         <Styles.PriceWrapper>
           <Styles.thirdPriceWrapper>
@@ -101,6 +109,8 @@ const PriceDetail = ({ dimensions, location, match }) => {
                 ></iframe>
               </Styles.ChartSection>
               <GetAsideSection
+                isToggle={isToggle}
+                setToggle={setToggle}
                 mobileToggle={mobileToggle}
                 price={price}
                 allCoins={allCoins}

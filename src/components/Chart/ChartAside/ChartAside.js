@@ -9,6 +9,8 @@ const GetAsideSection = props => {
       {/* Aside section */}
       {props.mobileToggle(
         <AsideBuySection
+          isToggle={props.isToggle}
+          setToggle={props.setToggle}
           price={props.price}
           mobileToggle={props.mobileToggle}
         />,
