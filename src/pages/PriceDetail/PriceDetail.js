@@ -63,15 +63,25 @@ const PriceDetail = ({ dimensions, location, match }) => {
     const sus = Math.floor(data * 100) / 100;
     return sus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
+  const toggleState = e => {
+    setToggle(!isToggle);
+  };
 
   return (
     <div>
       {/* Payment module opens when user selects payment */}
-      <PaymentModal
-        allCoins={allCoins}
-        isToggle={isToggle}
-        setToggle={setToggle}
-      />
+      {isToggle && (
+        <PaymentModal
+          allCoins={allCoins}
+          id="modal"
+          onClose={toggleState}
+          isToggle={isToggle}
+          setToggle={setToggle}
+        >
+          <p>wow</p>
+        </PaymentModal>
+      )}
+
       <Styles.PriceMainWrapper>
         <Styles.PriceWrapper>
           <Styles.thirdPriceWrapper>

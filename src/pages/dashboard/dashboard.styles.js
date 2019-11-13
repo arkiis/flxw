@@ -61,7 +61,7 @@ export const FollowingSection = styled.div`
 
 export const DeleteFollowing = styled.div`
   opacity: 0.3;
-  position: absolute;
+  position: ${noPos => (noPos ? "none" : "absolute")};
   top: 0;
   right: 0;
   width: 30px;
