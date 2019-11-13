@@ -61,9 +61,10 @@ export const FollowingSection = styled.div`
 
 export const DeleteFollowing = styled.div`
   opacity: 0.3;
-  position: ${noPos => (noPos ? "none" : "absolute")};
+  position: ${relativ => (relativ ? "relative" : "absolute")};
   top: 0;
   right: 0;
+  cursor: pointer;
   width: 30px;
   height: 30px;
   transition: 0.4s all ease-in;

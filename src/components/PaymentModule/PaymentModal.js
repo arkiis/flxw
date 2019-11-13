@@ -70,11 +70,18 @@ class PaymentModal extends Component {
         <Styles.Modal>
           <Styles.HeadingContainer>
             <h1>Choose Payment Method</h1>
-            <DeleteFollowing noPos onClick={this.handleClick} />
+            <DeleteFollowing relativ onClick={this.handleClick} />
           </Styles.HeadingContainer>
-          {this.props.allCoins.map(coin => {
-            return <p>{coin.name}</p>;
-          })}
+          <Styles.ModalItemsContainer>
+            {this.props.allCoins.map(coin => {
+              return (
+                <Styles.ModalItems>
+                  <Styles.ModalImage src={coin.logo_url} />
+                  <span>{coin.name}</span>
+                </Styles.ModalItems>
+              );
+            })}
+          </Styles.ModalItemsContainer>
         </Styles.Modal>
         <div
           className={`background`}

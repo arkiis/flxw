@@ -3,17 +3,57 @@ import styled from "styled-components";
 export const Modal = styled.div`
   z-index: 1050;
   display: flex;
+  border-radius: 6px;
   flex-direction: column;
   width: 100%;
+  overflow: hidden;
   background-color: white;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: rgba(218, 225, 233, 0.557) 0px 8px 16px;
 `;
 
 export const HeadingContainer = styled.div`
   display: flex;
   flex-direction: row;
-
+  padding: 20px;
+  margin-bottom: 22px;
   justify-content: space-between;
+
+  h1 {
+    font-size: 19px !important;
+  }
+`;
+export const ModalImage = styled.img`
+  width: 62px;
+  margin-bottom: 14px;
+`;
+
+export const ModalItemsContainer = styled.div`
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: 120px 120px 120px;
+  grid-gap: 10px;
+  color: #1c1621;
+  margin: 0 auto;
+`;
+
+export const ModalItems = styled.div`
+  border-top: 3px solid #6433ff40;
+  position: relative;
+  background-color: white;
+  box-shadow: rgba(218, 225, 233, 0.557) 0px 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  span {
+    font-size: 16px;
+    font-weight: lighter;
+    font-weight: 500;
+  }
 `;
 
 export const ModalContainer = styled.div`
