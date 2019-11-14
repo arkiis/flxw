@@ -75,7 +75,13 @@ class PaymentModal extends Component {
           <Styles.ModalItemsContainer>
             {this.props.allCoins.map(coin => {
               return (
-                <Styles.ModalItems>
+                <Styles.ModalItems
+                  onClick={() => {
+                    this.props.setIcon(coin.logo_url);
+                    this.setState({ fadeType: "out" });
+                    this.props.setPaymentName(coin.name);
+                  }}
+                >
                   <Styles.ModalImage src={coin.logo_url} />
                   <span>{coin.name}</span>
                 </Styles.ModalItems>

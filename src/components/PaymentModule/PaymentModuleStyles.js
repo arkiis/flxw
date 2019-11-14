@@ -48,11 +48,16 @@ export const ModalItems = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  opacity: 0.8;
+  transition: all ease 0.2s;
 
   span {
     font-size: 16px;
     font-weight: lighter;
     font-weight: 500;
+  }
+  &:hover {
+    opacity: 1;
   }
 `;
 

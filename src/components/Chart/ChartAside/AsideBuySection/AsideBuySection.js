@@ -77,6 +77,8 @@ const AsideBuySection = props => {
 
           {/*  this holds buy and pay with components.  */}
           <AsideBuyFooter
+            paymentName={props.paymentName}
+            icon={props.icon}
             isToggle={props.isToggle}
             setToggle={props.setToggle}
             tabs={tabs}

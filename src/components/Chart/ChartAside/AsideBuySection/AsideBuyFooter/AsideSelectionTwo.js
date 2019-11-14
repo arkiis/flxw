@@ -7,7 +7,7 @@ const AsideSelectionTwo = props => {
   //this component will show which payment system the user
   //will use to purchase X coin.
   const classStyle = `${props.iconStyle}`;
-  console.log(props.isToggle);
+
   return (
     <Styles.AsideBuySelectionItems
       //if isToggle does not equal anything,

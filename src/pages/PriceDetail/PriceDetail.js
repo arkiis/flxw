@@ -7,9 +7,11 @@ import ChartDetails from "../../components/Chart/ChartDetails/ChartDetails";
 import MobileFixedButton from "./MobileFixedButton";
 import PriceDescription from "./PriceDescription";
 import PaymentModal from "../../components/PaymentModule/PaymentModal";
+import Stripe from "./../../assets/images/Stripelogo-slate.svg";
 
 const PriceDetail = ({ dimensions, location, match }) => {
   useEffect(() => {
+    fetchNews();
     fetchItem();
     fetchMetaData();
   }, []);
@@ -19,6 +21,9 @@ const PriceDetail = ({ dimensions, location, match }) => {
   const [metaData, setMetaData] = useState([]);
   const [simplifyMeta, setSimplifyMeta] = useState([]);
   const [isToggle, setToggle] = useState(false);
+  const [news, setNews] = useState([]);
+  const [icon, setIcon] = useState(Stripe);
+  const [paymentName, setPaymentName] = useState("Stripe");
 
   const [buyButton, setBuyButton] = useState(false);
   useEffect(() => {
@@ -39,8 +44,15 @@ const PriceDetail = ({ dimensions, location, match }) => {
     return toggle;
   };
 
-  //Fetching 2 different endpoints.
-  //Fetching coin data and coin info
+  // Fetching 3 different endpoints.
+  // Fetching coin data, coin news and coin info
+  const fetchNews = async () => {
+    const fetchNews = await fetch(
+      `https://cors-anywhere.herokuapp.com/https://cryptopanic.com/api/v1/posts/?auth_token=a2d04d7d2be17785239c37a3b62ed5784c796f07&currencies=${match.params.id}&kind=news&public=true`
+    );
+    const news = await fetchNews.json();
+    setNews(news);
+  };
 
   const fetchItem = async () => {
     const fetchItem = await fetch(
@@ -58,7 +70,7 @@ const PriceDetail = ({ dimensions, location, match }) => {
     setSimplifyMeta(`${simplify}`);
     setMetaData(meta[0]);
   };
-
+  console.log(news);
   const simplifyPrice = data => {
     const sus = Math.floor(data * 100) / 100;
     return sus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -73,13 +85,13 @@ const PriceDetail = ({ dimensions, location, match }) => {
       {isToggle && (
         <PaymentModal
           allCoins={allCoins}
+          setPaymentName={setPaymentName}
+          setIcon={setIcon}
           id="modal"
           onClose={toggleState}
           isToggle={isToggle}
           setToggle={setToggle}
-        >
-          <p>wow</p>
-        </PaymentModal>
+        ></PaymentModal>
       )}
 
       <Styles.PriceMainWrapper>
@@ -112,13 +124,13 @@ const PriceDetail = ({ dimensions, location, match }) => {
                   scrolling="yes"
                   allowtransparency="true"
                   frameBorder="0"
-                  src={
-                    "https://cryptopanic.com/widgets/news/?bg_color=FFFFFF&amp;currencies=LTC&amp;font_family=sans&amp;header_bg_color=30343B&amp;header_text_color=FFFFFF&amp;link_color=0091C2&amp;news_feed=trending&amp;text_color=333333&amp;title=Latest%20News"
-                  }
+                  src={`https://cryptopanic.com/widgets/news/?bg_color=FFFFFF&amp;currencies=${match.params.id}&amp;font_family=sans&amp;header_bg_color=30343B&amp;header_text_color=FFFFFF&amp;link_color=0091C2&amp;news_feed=trending&amp;text_color=333333&amp;title=Latest%20News`}
                   height="350px"
                 ></iframe>
               </Styles.ChartSection>
               <GetAsideSection
+                paymentName={paymentName}
+                icon={icon}
                 isToggle={isToggle}
                 setToggle={setToggle}
                 mobileToggle={mobileToggle}

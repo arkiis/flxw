@@ -12,6 +12,8 @@ const GetAsideSection = props => {
           isToggle={props.isToggle}
           setToggle={props.setToggle}
           price={props.price}
+          paymentName={props.paymentName}
+          icon={props.icon}
           mobileToggle={props.mobileToggle}
         />,
         ""

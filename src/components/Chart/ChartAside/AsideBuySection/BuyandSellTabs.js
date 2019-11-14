@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { sellTab } from "../../../../store/actions/index";
 
 const BuyandSellTabs = props => {
-  console.log(props);
   return (
     <Styles.AsideBuyLabel>
       {props.tabs.map((tab, index) => {
