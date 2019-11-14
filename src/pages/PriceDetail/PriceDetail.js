@@ -8,6 +8,8 @@ import MobileFixedButton from "./MobileFixedButton";
 import PriceDescription from "./PriceDescription";
 import PaymentModal from "../../components/PaymentModule/PaymentModal";
 import Stripe from "./../../assets/images/Stripelogo-slate.svg";
+import PriceNews from "./PriceNews";
+import { formatDistanceToNow } from "date-fns";
 
 const PriceDetail = ({ dimensions, location, match }) => {
   useEffect(() => {
@@ -70,13 +72,18 @@ const PriceDetail = ({ dimensions, location, match }) => {
     setSimplifyMeta(`${simplify}`);
     setMetaData(meta[0]);
   };
-  console.log(news);
+
   const simplifyPrice = data => {
     const sus = Math.floor(data * 100) / 100;
     return sus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
   const toggleState = e => {
     setToggle(!isToggle);
+  };
+
+  const fixDate = dat => {
+    var result = formatDistanceToNow(new Date(dat), { addSuffix: true });
+    return result;
   };
 
   return (
@@ -117,16 +124,8 @@ const PriceDetail = ({ dimensions, location, match }) => {
                   simplifyMeta={simplifyMeta}
                   metaData={metaData}
                 />
-                {/* This iframe shows the news articles */}
-                <iframe
-                  title="crypto-news"
-                  width="100%"
-                  scrolling="yes"
-                  allowtransparency="true"
-                  frameBorder="0"
-                  src={`https://cryptopanic.com/widgets/news/?bg_color=FFFFFF&amp;currencies=${match.params.id}&amp;font_family=sans&amp;header_bg_color=30343B&amp;header_text_color=FFFFFF&amp;link_color=0091C2&amp;news_feed=trending&amp;text_color=333333&amp;title=Latest%20News`}
-                  height="350px"
-                ></iframe>
+                {/* PriceNews component shows the news articles */}
+                <PriceNews news={news} fixDate={fixDate} />
               </Styles.ChartSection>
               <GetAsideSection
                 paymentName={paymentName}

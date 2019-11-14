@@ -245,7 +245,8 @@ export const AsideAssetsSection = styled.div`
 `;
 
 export const AsideAssetsHeader = styled.h2`
-  margin-bottom: 26px;
+  margin-bottom: ${({ noMarg }) => (noMarg ? "" : "24px")};
+  padding: ${({ pad }) => (pad ? "24px" : "")};
   line-height: 1;
   font-size: 24px;
   color: ${({ gray }) => (gray ? "#4a4a4a" : "#1c1621")};
@@ -301,7 +302,7 @@ export const InfoSection = styled.div`
   box-shadow: rgba(17, 51, 83, 0.02) 0px 4px 12px 0px;
 `;
 export const InfoBody = styled.p`
-  margin-top: 12px;
+  margin-top: ${({ smallMargin }) => (smallMargin ? "3px" : "12px")};
   font-size: 15px;
   line-height: 1.5;
   font-weight: 400;
@@ -401,4 +402,28 @@ export const HeadingChartSectionTwo = styled.div`
 
 export const ExpandInfo = styled.div`
   line-height: 1.9;
+`;
+
+export const NewsContainer = styled.div`
+  border: 1px solid rgb(236, 239, 241);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: rgba(17, 51, 83, 0.02) 0px 4px 12px 0px;
+  padding: 14px;
+  margin-bottom: 16px;
+`;
+export const SourceNewsHeader = styled.span`
+  font-weight: lighter;
+  font-size: 14px;
+`;
+
+export const PriceNewsHeader = styled.h2`
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 500;
+  margin-top: 9px;
+  font-size: 18px;
+
+  &:hover {
+    color: #6433ff;
+  }
 `;
