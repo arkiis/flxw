@@ -91,6 +91,9 @@ class AreaChart extends React.Component {
   }
 
   render() {
+    const priceChangePercent =
+      this.props.price["1d"] && this.props.price["1d"].price_change_pct;
+    const simplifiedPercent = (priceChangePercent * 100).toFixed(2);
     let cool = { ...CHART_DATA };
     //These are the differnet time intervals for the area chart
 
@@ -161,15 +164,12 @@ class AreaChart extends React.Component {
             <p
               className="areaChartPercent"
               style={
-                this.props.price["1d"] &&
-                this.props.price["1d"].price_change_pct.charAt(0) === "-"
+                simplifiedPercent.charAt(0) === "-"
                   ? { color: "#ff2734" }
                   : { color: "#23cc9a" }
               }
             >
-              {this.props.price["1d"] &&
-                this.props.price["1d"].price_change_pct}
-              %
+              {simplifiedPercent}%
             </p>
           </div>
         </div>
