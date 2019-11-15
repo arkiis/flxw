@@ -10,6 +10,7 @@ class AreaChart extends React.Component {
     super(props);
 
     this.state = {
+      coins: [],
       chartData: CHART_DATA,
       chartDataSelection: CHART_DATA.selection,
       chartDataOptions: CHART_DATA.selection.options
@@ -91,6 +92,7 @@ class AreaChart extends React.Component {
   }
 
   render() {
+    console.log(this.coins);
     const priceChangePercent =
       this.props.price["1d"] && this.props.price["1d"].price_change_pct;
     const simplifiedPercent = (priceChangePercent * 100).toFixed(2);

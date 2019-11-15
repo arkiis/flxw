@@ -407,6 +407,8 @@ export const ExpandInfo = styled.div`
 export const NewsContainer = styled.div`
   border: 1px solid rgb(236, 239, 241);
   border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
   overflow: hidden;
   box-shadow: rgba(17, 51, 83, 0.02) 0px 4px 12px 0px;
   padding: 14px;
@@ -426,4 +428,12 @@ export const PriceNewsHeader = styled.h2`
   &:hover {
     color: #6433ff;
   }
+`;
+export const NewsImg = styled.img`
+  height: 105px;
+  width: 105px;
+  margin-left: 40px;
+  background-size: cover;
+
+  border-radius: 6px;
 `;

@@ -11,10 +11,10 @@ const PriceNews = props => {
         <Styles.AsideAssetsHeader pad noMarg gray>
           Lastest News
         </Styles.AsideAssetsHeader>
-        {results.map(result => {
+        {results.map((result, index) => {
           return (
-            <Styles.NewsContainer>
-              <a href={result.url}>
+            <Styles.NewsContainer key={index}>
+              <a href={result.url} style={{ maxWidth: "600px" }}>
                 <Styles.SourceNewsHeader>
                   {result.source.title}
                 </Styles.SourceNewsHeader>
@@ -23,6 +23,11 @@ const PriceNews = props => {
                   {props.fixDate(result.created_at)}
                 </Styles.InfoBody>
               </a>
+              <Styles.NewsImg
+                src={
+                  "https://dynamic-assets.coinbase.com/ab1e12937bc930bbb51363499ed8d1d4e47c89255cca28671231120e17b6475c95f5f8ae4ce0a9aea7479772fe6f02ba1c0b9f7b5f1f6da2725542ee4753d720/news_article_images/28c41d0a24939126319eee1788a19714197812cfb3edff24439a8c1c25ad64c2.jpg"
+                }
+              />
             </Styles.NewsContainer>
           );
         })}
