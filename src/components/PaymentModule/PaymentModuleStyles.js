@@ -37,10 +37,10 @@ export const ModalItemsContainer = styled.div`
 `;
 
 export const ModalItems = styled.div`
-  border-top: 3px solid #6433ff40;
+  border-top: 3px solid #6433ff;
   position: relative;
   background-color: white;
-  box-shadow: rgba(218, 225, 233, 0.557) 0px 8px 16px;
+  box-shadow: rgba(218, 225, 233, 1) 0px 8px 16px;
   border-radius: 8px;
   cursor: pointer;
   height: 150px;

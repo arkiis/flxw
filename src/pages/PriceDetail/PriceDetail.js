@@ -32,6 +32,13 @@ const PriceDetail = ({ dimensions, location, match }) => {
     window.addEventListener("scroll", handleScroll);
   }, []);
 
+  console.log(allCoins);
+  const stripeInfo = {
+    logo_url: Stripe,
+    name: "stripe"
+  };
+  const newCoins = [...allCoins];
+  newCoins.push(stripeInfo);
   function handleScroll() {
     if (window.scrollY < 20) {
       setBuyButton(false);
@@ -39,7 +46,7 @@ const PriceDetail = ({ dimensions, location, match }) => {
       setBuyButton(true);
     }
   }
-
+  console.log(newCoins);
   //MOBILE TOGGLE
   const mobileToggle = (desktop, mobile) => {
     const toggle = dimensions > 1070 ? desktop : mobile;
@@ -91,7 +98,8 @@ const PriceDetail = ({ dimensions, location, match }) => {
       {/* Payment module opens when user selects payment */}
       {isToggle && (
         <PaymentModal
-          allCoins={allCoins}
+          price={price}
+          allCoins={newCoins}
           setPaymentName={setPaymentName}
           setIcon={setIcon}
           id="modal"

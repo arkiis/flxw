@@ -73,20 +73,22 @@ class PaymentModal extends Component {
             <DeleteFollowing relativ onClick={this.handleClick} />
           </Styles.HeadingContainer>
           <Styles.ModalItemsContainer>
-            {this.props.allCoins.map(coin => {
-              return (
-                <Styles.ModalItems
-                  onClick={() => {
-                    this.props.setIcon(coin.logo_url);
-                    this.setState({ fadeType: "out" });
-                    this.props.setPaymentName(coin.name);
-                  }}
-                >
-                  <Styles.ModalImage src={coin.logo_url} />
-                  <span>{coin.name}</span>
-                </Styles.ModalItems>
-              );
-            })}
+            {this.props.allCoins
+              .filter(coin => coin.name !== this.props.price.name)
+              .map(coin => {
+                return (
+                  <Styles.ModalItems
+                    onClick={() => {
+                      this.props.setIcon(coin.logo_url);
+                      this.setState({ fadeType: "out" });
+                      this.props.setPaymentName(coin.name);
+                    }}
+                  >
+                    <Styles.ModalImage src={coin.logo_url} />
+                    <span>{coin.name}</span>
+                  </Styles.ModalItems>
+                );
+              })}
           </Styles.ModalItemsContainer>
         </Styles.Modal>
         <div
