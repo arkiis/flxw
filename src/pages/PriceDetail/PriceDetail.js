@@ -92,7 +92,7 @@ const PriceDetail = ({ dimensions, location, match }) => {
     var result = formatDistanceToNow(new Date(dat), { addSuffix: true });
     return result;
   };
-
+  console.log(price);
   return (
     <div>
       {/* Payment module opens when user selects payment */}
@@ -122,6 +122,7 @@ const PriceDetail = ({ dimensions, location, match }) => {
               <Styles.ChartSection>
                 <Styles.ChartAndDetailsWrapper>
                   {/*  Area Chart component    */}
+
                   <CryptoChart price={price} simplifyPrice={simplifyPrice} />
                   {/*  Chart details component    */}
                   <ChartDetails price={price} />

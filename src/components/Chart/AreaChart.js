@@ -154,9 +154,24 @@ class AreaChart extends React.Component {
               ALL
             </span>
           </div>
-          <p className="areaChartPrice">
-            ${this.props.simplifyPrice(this.props.price.price)}
-          </p>
+          <div className="areaChartHeader">
+            <p className="areaChartPrice">
+              ${this.props.simplifyPrice(this.props.price.price)}
+            </p>
+            <p
+              className="areaChartPercent"
+              style={
+                this.props.price["1d"] &&
+                this.props.price["1d"].price_change_pct.charAt(0) === "-"
+                  ? { color: "#ff2734" }
+                  : { color: "#23cc9a" }
+              }
+            >
+              {this.props.price["1d"] &&
+                this.props.price["1d"].price_change_pct}
+              %
+            </p>
+          </div>
         </div>
 
         {/* the area chart */}
