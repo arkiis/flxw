@@ -26,19 +26,20 @@ const PriceDetail = ({ dimensions, location, match }) => {
   const [news, setNews] = useState([]);
   const [icon, setIcon] = useState(Stripe);
   const [paymentName, setPaymentName] = useState("Stripe");
-
   const [buyButton, setBuyButton] = useState(false);
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  }, []);
+  const newCoins = [...allCoins];
 
-  console.log(allCoins);
+  //Object to be added to the payment modal
   const stripeInfo = {
     logo_url: Stripe,
     name: "stripe"
   };
-  const newCoins = [...allCoins];
+
   newCoins.push(stripeInfo);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
+
   function handleScroll() {
     if (window.scrollY < 20) {
       setBuyButton(false);
@@ -46,7 +47,7 @@ const PriceDetail = ({ dimensions, location, match }) => {
       setBuyButton(true);
     }
   }
-  console.log(newCoins);
+
   //MOBILE TOGGLE
   const mobileToggle = (desktop, mobile) => {
     const toggle = dimensions > 1070 ? desktop : mobile;
@@ -79,6 +80,8 @@ const PriceDetail = ({ dimensions, location, match }) => {
     setSimplifyMeta(`${simplify}`);
     setMetaData(meta[0]);
   };
+
+  //end of fetching----------------
 
   const simplifyPrice = data => {
     const sus = Math.floor(data * 100) / 100;

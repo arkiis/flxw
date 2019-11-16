@@ -19,7 +19,7 @@ const FollowIcon = ({ price }) => {
       setFollowing(JSON.parse(data));
     }
   }, []);
-
+  console.log(following);
   //storing the following state value in local storage
   useEffect(() => {
     localStorage.setItem("following", JSON.stringify(following));
@@ -35,11 +35,18 @@ const FollowIcon = ({ price }) => {
       userId: firebase.auth().currentUser.uid
     };
     //adding the data above to firebase's real time database
+    {
+      following === false
+        ? db
+            .collection("coins")
+            .doc(price.id)
 
-    db.collection("coins")
-      .doc(price.id)
-
-      .set(data);
+            .set(data)
+        : db
+            .collection("coins")
+            .doc(price.id)
+            .delete();
+    }
 
     // setFollowing("apple");
     setTitle("Following");
