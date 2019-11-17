@@ -3,7 +3,7 @@ import Table from "../../components/Table/Table";
 import Heading from "../../UI/Headings/Heading";
 
 import HomepageStatisticBanner from "../../UI/Banner/HomepageStatisticBanner";
-
+import ModalUI from "../../components/ModalUI/ModalUI";
 import GetStartedBanner from "../../UI/Banner/GetStartedBanner";
 import Footer from "../../UI/Footer/Footer";
 import * as Styles from "./homepage.styles";
@@ -13,6 +13,7 @@ import GettingStartedSection from "./HomeGettingStartedSection/GettingStartedSec
 import IconAccount from "../../assets/images/icon_account-01.svg";
 import IconBank from "../../assets/images/icon_bank-01.svg";
 import IconMoney from "../../assets/images/icon_money-01.svg";
+import NewsletterContent from "../../components/ModalUI/NewsletterContent/NewsletterContent";
 
 //data for the statistic banner
 const bannerData = [
@@ -46,39 +47,50 @@ const icons = [
   }
 ];
 
-class Homepage extends Component {
-  render() {
-    return (
-      <Styles.HomeMainWrapper>
-        <Styles.HomepageWrapper>
-          {/*Hero section of homepage */}
-          <HomeHeroSection Heading={Heading} />
-          <Table />
+const Homepage = ({ isToggle, setToggle, onClose }) => {
+  console.log(onClose);
+  return (
+    <Styles.HomeMainWrapper>
+      <Styles.HomepageWrapper>
+        {/*Hero section of homepage */}
+        <HomeHeroSection Heading={Heading} />
+        <Table />
 
-          {/*Feature section of homepage*/}
-          <HomeFeatureSection Heading={Heading} icons={icons} />
+        {!isToggle && (
+          <ModalUI
+            heading="Join The Club"
+            id="modal"
+            isToggle={isToggle}
+            setToggle={setToggle}
+            onClose={onClose}
+          >
+            <NewsletterContent />
+          </ModalUI>
+        )}
 
-          {/*Statistics banner of homepage*/}
-          <Styles.BlueBackground>
-            <HomepageStatisticBanner
-              bannerData={bannerData}
-              children
-            ></HomepageStatisticBanner>
-          </Styles.BlueBackground>
+        {/*Feature section of homepage*/}
+        <HomeFeatureSection Heading={Heading} icons={icons} />
 
-          {/*Getting started section and banner of homepage*/}
-          <GettingStartedSection
-            Heading={Heading}
-            homepageStepsSection={homepageStepsSection}
-          />
-          <GetStartedBanner></GetStartedBanner>
+        {/*Statistics banner of homepage*/}
+        <Styles.BlueBackground>
+          <HomepageStatisticBanner
+            bannerData={bannerData}
+            children
+          ></HomepageStatisticBanner>
+        </Styles.BlueBackground>
 
-          {/*footer*/}
-          <Footer />
-        </Styles.HomepageWrapper>
-      </Styles.HomeMainWrapper>
-    );
-  }
-}
+        {/*Getting started section and banner of homepage*/}
+        <GettingStartedSection
+          Heading={Heading}
+          homepageStepsSection={homepageStepsSection}
+        />
+        <GetStartedBanner></GetStartedBanner>
+
+        {/*footer*/}
+        <Footer />
+      </Styles.HomepageWrapper>
+    </Styles.HomeMainWrapper>
+  );
+};
 
 export default Homepage;

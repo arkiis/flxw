@@ -6,12 +6,20 @@ import GetHeadingChartSection from "../../components/Chart/ChartHeader/ChartHead
 import ChartDetails from "../../components/Chart/ChartDetails/ChartDetails";
 import MobileFixedButton from "./MobileFixedButton";
 import PriceDescription from "./PriceDescription";
-import PaymentModal from "../../components/PaymentModule/PaymentModal";
+import ModalUI from "../../components/ModalUI/ModalUI";
 import Stripe from "./../../assets/images/Stripelogo-slate.svg";
 import PriceNews from "./PriceNews";
 import { formatDistanceToNow } from "date-fns";
+import PaymentModalContent from "../../components/ModalUI/PaymentModalContent";
 
-const PriceDetail = ({ dimensions, location, match }) => {
+const PriceDetail = ({
+  dimensions,
+  location,
+  match,
+  isToggle,
+  setToggle,
+  onClose
+}) => {
   useEffect(() => {
     fetchNews();
     fetchItem();
@@ -22,7 +30,7 @@ const PriceDetail = ({ dimensions, location, match }) => {
   const [price, setPrice] = useState({});
   const [metaData, setMetaData] = useState([]);
   const [simplifyMeta, setSimplifyMeta] = useState([]);
-  const [isToggle, setToggle] = useState(false);
+
   const [news, setNews] = useState([]);
   const [icon, setIcon] = useState(Stripe);
   const [paymentName, setPaymentName] = useState("Stripe");
@@ -87,9 +95,6 @@ const PriceDetail = ({ dimensions, location, match }) => {
     const sus = Math.floor(data * 100) / 100;
     return sus.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
-  const toggleState = e => {
-    setToggle(!isToggle);
-  };
 
   const fixDate = dat => {
     var result = formatDistanceToNow(new Date(dat), { addSuffix: true });
@@ -100,16 +105,20 @@ const PriceDetail = ({ dimensions, location, match }) => {
     <div>
       {/* Payment module opens when user selects payment */}
       {isToggle && (
-        <PaymentModal
-          price={price}
-          allCoins={newCoins}
-          setPaymentName={setPaymentName}
-          setIcon={setIcon}
+        <ModalUI
+          heading={"Choose Payment Method"}
           id="modal"
-          onClose={toggleState}
+          onClose={onClose}
           isToggle={isToggle}
           setToggle={setToggle}
-        ></PaymentModal>
+        >
+          <PaymentModalContent
+            allCoins={newCoins}
+            setPaymentName={setPaymentName}
+            setIcon={setIcon}
+            price={price}
+          />
+        </ModalUI>
       )}
 
       <Styles.PriceMainWrapper>

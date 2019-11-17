@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import { DeleteFollowing } from "../../pages/dashboard/dashboard.styles";
 import ReactDOM from "react-dom";
 
-//where our portal lies
+//where the React portal lies
 const modalRoot = document.getElementById("modal-root");
 
-class PaymentModal extends Component {
+class ModalUI extends Component {
   static defaultProps = {
     id: "",
     modalClass: "",
@@ -30,7 +30,7 @@ class PaymentModal extends Component {
 
   componentDidMount() {
     window.addEventListener("keydown", this.onEscKeyDown, false);
-    setTimeout(() => this.setState({ fadeType: "in" }), 0);
+    setTimeout(() => this.setState({ fadeType: "in" }), 2000);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -59,6 +59,7 @@ class PaymentModal extends Component {
     this.setState({ fadeType: "out" });
   };
   render() {
+    console.log(this.state.fadeType);
     return ReactDOM.createPortal(
       <Styles.ModalContainer
         id={this.props.id}
@@ -69,27 +70,10 @@ class PaymentModal extends Component {
       >
         <Styles.Modal>
           <Styles.HeadingContainer>
-            <h1>Choose Payment Method</h1>
+            <h1>{this.props.heading}</h1>
             <DeleteFollowing relativ onClick={this.handleClick} />
           </Styles.HeadingContainer>
-          <Styles.ModalItemsContainer>
-            {this.props.allCoins
-              .filter(coin => coin.name !== this.props.price.name)
-              .map(coin => {
-                return (
-                  <Styles.ModalItems
-                    onClick={() => {
-                      this.props.setIcon(coin.logo_url);
-                      this.setState({ fadeType: "out" });
-                      this.props.setPaymentName(coin.name);
-                    }}
-                  >
-                    <Styles.ModalImage src={coin.logo_url} />
-                    <span>{coin.name}</span>
-                  </Styles.ModalItems>
-                );
-              })}
-          </Styles.ModalItemsContainer>
+          {this.props.children}
         </Styles.Modal>
         <div
           className={`background`}
@@ -103,8 +87,8 @@ class PaymentModal extends Component {
   }
 }
 
-PaymentModal.defaultProps = {
+ModalUI.defaultProps = {
   fadeType: "out"
 };
 
-export default PaymentModal;
+export default ModalUI;

@@ -15,6 +15,7 @@ const DashboardColumnOne = props => {
   useEffect(() => {
     db.collection("coins")
       .where("userId", "==", firebase.auth().currentUser.uid)
+
       .onSnapshot(snapShot => {
         var result = [];
 

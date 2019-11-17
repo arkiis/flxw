@@ -6,10 +6,12 @@
     "animate.css": "^3.7.2",
     "apexcharts": "^3.8.6",
     "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
     "chart.js": "^2.8.0",
     "cryptocurrency-icons": "^0.16.1",
     "date-and-time": "^0.10.0",
     "date-fns": "^2.6.0",
+    "express": "^4.17.1",
     "firebase": "^6.5.0",
     "formik": "^1.5.8",
     "framer-motion": "^1.6.15",
@@ -31,6 +33,7 @@
     "redux-firestore": "^0.8.0",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
+    "request": "^2.88.0",
     "styled-components": "^4.3.2",
     "yup": "^0.27.0"
   },
@@ -38,7 +41,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "node app",
+    "dev": "nodemon app"
   },
   "proxy": "http://localhost:3001/",
   "eslintConfig": {
@@ -57,6 +62,7 @@
     ]
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.11.1"
+    "@fortawesome/fontawesome-free": "^5.11.1",
+    "nodemon": "^1.19.4"
   }
 }
