@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Table from "../../components/Table/Table";
 import Heading from "../../UI/Headings/Heading";
-
+import Piggy from "../../assets/images/piggy-bank-01.svg";
 import HomepageStatisticBanner from "../../UI/Banner/HomepageStatisticBanner";
 import ModalUI from "../../components/ModalUI/ModalUI";
 import GetStartedBanner from "../../UI/Banner/GetStartedBanner";
@@ -59,10 +59,13 @@ const Homepage = ({ isToggle, setToggle, onClose }) => {
         {!isToggle && (
           <ModalUI
             heading="Join The Club"
+            time={2000}
+            subHeading="Find out about new coins that hit the market! Don't worry, we don't spam"
             id="modal"
             isToggle={isToggle}
             setToggle={setToggle}
             onClose={onClose}
+            image={Piggy}
           >
             <NewsletterContent />
           </ModalUI>

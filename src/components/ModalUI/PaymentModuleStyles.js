@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Modal = styled.div`
   z-index: 1050;
   display: flex;
+  position: fixed;
   border-radius: 6px;
   flex-direction: column;
-  width: 100%;
+  padding: 20px;
   overflow: hidden;
   background-color: white;
   box-shadow: rgba(218, 225, 233, 0.557) 0px 8px 16px;
@@ -13,7 +14,7 @@ export const Modal = styled.div`
 
 export const HeadingContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 20px;
   margin-bottom: 22px;
   justify-content: space-between;

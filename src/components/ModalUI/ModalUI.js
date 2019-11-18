@@ -30,7 +30,7 @@ class ModalUI extends Component {
 
   componentDidMount() {
     window.addEventListener("keydown", this.onEscKeyDown, false);
-    setTimeout(() => this.setState({ fadeType: "in" }), 2000);
+    setTimeout(() => this.setState({ fadeType: "in" }), `${this.props.time}`);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -69,9 +69,11 @@ class ModalUI extends Component {
         onTransitionEnd={this.transitionEnd}
       >
         <Styles.Modal>
+          <DeleteFollowing flxRight relativ onClick={this.handleClick} />
+          <img style={{ width: "100%" }} src={this.props.image} />
           <Styles.HeadingContainer>
             <h1>{this.props.heading}</h1>
-            <DeleteFollowing relativ onClick={this.handleClick} />
+            <p>{this.props.subHeading}</p>
           </Styles.HeadingContainer>
           {this.props.children}
         </Styles.Modal>
