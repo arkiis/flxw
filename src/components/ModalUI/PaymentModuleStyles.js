@@ -11,6 +11,10 @@ export const Modal = styled.div`
   background-color: white;
   box-shadow: rgba(218, 225, 233, 0.557) 0px 8px 16px;
 `;
+export const ModalH1 = styled.h2`
+  text-align: center;
+  font-size: 35px;
+`;
 
 export const HeadingContainer = styled.div`
   display: flex;

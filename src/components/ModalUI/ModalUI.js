@@ -72,7 +72,7 @@ class ModalUI extends Component {
           <DeleteFollowing flxRight relativ onClick={this.handleClick} />
           <img style={{ width: "100%" }} src={this.props.image} />
           <Styles.HeadingContainer>
-            <h1>{this.props.heading}</h1>
+            <Styles.ModalH1>{this.props.heading}</Styles.ModalH1>
             <p>{this.props.subHeading}</p>
           </Styles.HeadingContainer>
           {this.props.children}

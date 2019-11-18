@@ -12,10 +12,24 @@ const NewletterForm = styled.form`
   }
 `;
 
+const NewsletterInput = styled.input`
+  border: "none";
+  border-bottom: "1px solid black";
+
+  &:active {
+    background-color: white;
+    border: none;
+  }
+  &:focus {
+    background-color: white;
+    border: none;
+  }
+`;
+
 const NewsletterContent = props => {
   return (
-    <NewletterForm action="/signup" method="POST">
-      <input
+    <NewletterForm>
+      <NewsletterInput
         style={{
           border: "none",
           borderBottom: "1px solid black"
@@ -24,7 +38,7 @@ const NewsletterContent = props => {
         placeholder="Enter email"
         name="email"
       />
-      <Button>Join</Button>
+      <Button disabled>Join</Button>
     </NewletterForm>
   );
 };

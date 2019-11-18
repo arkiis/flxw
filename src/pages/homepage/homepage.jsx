@@ -60,7 +60,7 @@ const Homepage = ({ isToggle, setToggle, onClose }) => {
           <ModalUI
             heading="Join The Club"
             time={2000}
-            subHeading="Find out about new coins that hit the market! Don't worry, we don't spam"
+            subHeading="Be the first to know about new coins that hit the market! Don't worry, we don't spam"
             id="modal"
             isToggle={isToggle}
             setToggle={setToggle}
