@@ -5,7 +5,7 @@ import "./Chart.css";
 
 //this chart can be found on the PriceDetails component
 
-class AreaChart extends React.Component {
+class AreaChart extends React.PureComponent {
   constructor(props) {
     super(props);
 

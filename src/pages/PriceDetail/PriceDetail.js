@@ -55,7 +55,7 @@ const PriceDetail = ({
       setBuyButton(true);
     }
   }
-
+  console.log(buyButton);
   //MOBILE TOGGLE
   const mobileToggle = (desktop, mobile) => {
     const toggle = dimensions > 1070 ? desktop : mobile;

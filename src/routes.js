@@ -10,6 +10,7 @@ import Logout from "././components/auth/Logout/Logout";
 import RecoverPassword from "./components/auth/RecoverPassword/RecoverPassword";
 import AccountSettings from "./components/auth/AccountSettings/AccountSettings";
 import Loader from "./UI/loader/loader";
+import ErrorBoundary from "././components/ErrorBoundary/ErrorBoundary";
 
 const Dashboard = React.lazy(() => import("./pages/dashboard/dashboard"));
 const Chatroom = React.lazy(() => import("./pages/chatroom/Chatroom"));
@@ -88,7 +89,11 @@ const Routes = ({ loggedIn, emailVerified, dimensions }) => {
     );
   }
 
-  return <div>{routes}</div>;
+  return (
+    <div>
+      <ErrorBoundary>{routes}</ErrorBoundary>
+    </div>
+  );
 };
 
 const mapStateToProps = ({ firebase }) => ({

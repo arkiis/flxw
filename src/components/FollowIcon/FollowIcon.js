@@ -19,7 +19,7 @@ const FollowIcon = ({ price }) => {
       setFollowing(JSON.parse(data));
     }
   }, []);
-  console.log(following);
+
   //storing the following state value in local storage
   useEffect(() => {
     localStorage.setItem("following", JSON.stringify(following));

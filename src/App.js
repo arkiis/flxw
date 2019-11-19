@@ -57,23 +57,21 @@ function App({ loggedIn }) {
 
   return (
     <div>
-      <ErrorBoundary>
-        <SideNavigation
-          loggedIn={loggedIn}
-          navLinks={navLinks}
-          setIsOpened={setIsOpened}
-          isOpened={isOpened}
-        />
-        <Navigation
-          loggedIn={loggedIn}
-          navLinks={navLinks}
-          setIsOpened={setIsOpened}
-          isOpened={isOpened}
-        />
-        <ReactNotifications />
+      <SideNavigation
+        loggedIn={loggedIn}
+        navLinks={navLinks}
+        setIsOpened={setIsOpened}
+        isOpened={isOpened}
+      />
+      <Navigation
+        loggedIn={loggedIn}
+        navLinks={navLinks}
+        setIsOpened={setIsOpened}
+        isOpened={isOpened}
+      />
+      <ReactNotifications />
 
-        <Routes dimensions={dimensions} />
-      </ErrorBoundary>
+      <Routes dimensions={dimensions} />
     </div>
   );
 }
