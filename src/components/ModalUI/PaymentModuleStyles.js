@@ -5,6 +5,8 @@ export const Modal = styled.div`
   display: flex;
   position: fixed;
   border-radius: 6px;
+  align-items: center;
+
   flex-direction: column;
   padding: 20px;
   overflow: hidden;
@@ -13,6 +15,7 @@ export const Modal = styled.div`
 `;
 export const ModalH1 = styled.h2`
   text-align: center;
+  text-transform: uppercase;
   font-size: 35px;
 `;
 

@@ -9,6 +9,7 @@ import PriceDetail from "./pages/PriceDetail/PriceDetail";
 import Logout from "././components/auth/Logout/Logout";
 import RecoverPassword from "./components/auth/RecoverPassword/RecoverPassword";
 import AccountSettings from "./components/auth/AccountSettings/AccountSettings";
+import Loader from "./UI/loader/loader";
 
 const Dashboard = React.lazy(() => import("./pages/dashboard/dashboard"));
 const Chatroom = React.lazy(() => import("./pages/chatroom/Chatroom"));
@@ -33,7 +34,7 @@ const Routes = ({ loggedIn, emailVerified, dimensions }) => {
     );
   } else if (loggedIn && emailVerified) {
     routes = (
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Switch>
           <Route exact path="/account-settings" component={AccountSettings} />
           <Route exact path="/dashboard" component={Dashboard} />

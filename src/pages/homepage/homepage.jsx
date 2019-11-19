@@ -48,7 +48,6 @@ const icons = [
 ];
 
 const Homepage = ({ isToggle, setToggle, onClose }) => {
-  console.log(onClose);
   return (
     <Styles.HomeMainWrapper>
       <Styles.HomepageWrapper>

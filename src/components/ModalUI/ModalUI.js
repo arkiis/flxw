@@ -3,6 +3,7 @@ import * as Styles from "./PaymentModuleStyles";
 import PropTypes from "prop-types";
 import { DeleteFollowing } from "../../pages/dashboard/dashboard.styles";
 import ReactDOM from "react-dom";
+import { InfoBody } from "../../pages/PriceDetail/PriceDetailStyles";
 
 //where the React portal lies
 const modalRoot = document.getElementById("modal-root");
@@ -70,10 +71,10 @@ class ModalUI extends Component {
       >
         <Styles.Modal>
           <DeleteFollowing flxRight relativ onClick={this.handleClick} />
-          <img style={{ width: "100%" }} src={this.props.image} />
+          <img style={{ width: "50%" }} src={this.props.image} />
           <Styles.HeadingContainer>
             <Styles.ModalH1>{this.props.heading}</Styles.ModalH1>
-            <p>{this.props.subHeading}</p>
+            <InfoBody>{this.props.subHeading}</InfoBody>
           </Styles.HeadingContainer>
           {this.props.children}
         </Styles.Modal>

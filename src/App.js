@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import Navigation from "./components/header/Navigation";
 import SideNavigation from "./components/header/SideNavigation";
 import Routes from "./routes";
+
 import ReactNotifications from "react-notifications-component";
 import { connect } from "react-redux";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 //this function is to make sure when the
 //width is changed, theres a timeout
@@ -55,21 +57,23 @@ function App({ loggedIn }) {
 
   return (
     <div>
-      <SideNavigation
-        loggedIn={loggedIn}
-        navLinks={navLinks}
-        setIsOpened={setIsOpened}
-        isOpened={isOpened}
-      />
-      <Navigation
-        loggedIn={loggedIn}
-        navLinks={navLinks}
-        setIsOpened={setIsOpened}
-        isOpened={isOpened}
-      />
-      <ReactNotifications />
+      <ErrorBoundary>
+        <SideNavigation
+          loggedIn={loggedIn}
+          navLinks={navLinks}
+          setIsOpened={setIsOpened}
+          isOpened={isOpened}
+        />
+        <Navigation
+          loggedIn={loggedIn}
+          navLinks={navLinks}
+          setIsOpened={setIsOpened}
+          isOpened={isOpened}
+        />
+        <ReactNotifications />
 
-      <Routes dimensions={dimensions} />
+        <Routes dimensions={dimensions} />
+      </ErrorBoundary>
     </div>
   );
 }
