@@ -5,7 +5,6 @@ import Routes from "./routes";
 
 import ReactNotifications from "react-notifications-component";
 import { connect } from "react-redux";
-import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 //this function is to make sure when the
 //width is changed, theres a timeout

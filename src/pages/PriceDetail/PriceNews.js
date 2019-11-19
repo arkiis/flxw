@@ -38,4 +38,4 @@ const PriceNews = props => {
   }
 };
 
-export default PriceNews;
+export default React.memo(PriceNews);

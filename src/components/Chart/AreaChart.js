@@ -1,11 +1,11 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import ReactApexChart from "react-apexcharts";
 import CHART_DATA from "./AreaChartData";
 import "./Chart.css";
 
 //this chart can be found on the PriceDetails component
 
-class AreaChart extends React.PureComponent {
+class AreaChart extends PureComponent {
   constructor(props) {
     super(props);
 
