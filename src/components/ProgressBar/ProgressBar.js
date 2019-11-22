@@ -3,6 +3,7 @@ import * as Styles from "./ProgressBar.styles";
 import PropTypes from "prop-types";
 
 const ProgressBar = props => {
+  console.log(props);
   return (
     //These are the progress bars for the dashboard page
     //under Today's market activity
@@ -26,5 +27,6 @@ const ProgressBar = props => {
 export default ProgressBar;
 
 ProgressBar.prototype = {
-  percentage: PropTypes.number
+  percentage: PropTypes.number,
+  loadProgress: PropTypes.func.isRequired
 };

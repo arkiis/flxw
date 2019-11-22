@@ -27,7 +27,7 @@ const DashboardColumnOne = props => {
   }, []);
 
   const loadProgress = perc => {
-    setPercentage(perc);
+    return setPercentage(perc);
   };
 
   const [favoriteCoin, setFavoriteCoin] = useState([]);
