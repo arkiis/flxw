@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Profiler } from "react";
 import * as Styles from "./PriceDetailStyles";
 import CryptoChart from "../../components/Chart/AreaChart";
 import GetAsideSection from "../../components/Chart/ChartAside/ChartAside";
@@ -146,7 +146,14 @@ const PriceDetail = ({
                   metaData={metaData}
                 />
                 {/* PriceNews component shows the news articles */}
-                <PriceNews news={news} fixDate={fixDate} />
+                <Profiler
+                  id="News"
+                  onRender={(id, phase, actualDuration) => {
+                    console.log(id, phase, actualDuration);
+                  }}
+                >
+                  <PriceNews news={news} fixDate={fixDate} />
+                </Profiler>
               </Styles.ChartSection>
               <GetAsideSection
                 paymentName={paymentName}

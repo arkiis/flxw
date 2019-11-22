@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import "./dropdown.css";
@@ -60,7 +60,7 @@ const DDUnordered = styled.ul`
 // shows the dropdown onclicked
 // dropdown can link to settings page or logout page
 
-export default class HeaderDropDown extends Component {
+export default class HeaderDropDown extends PureComponent {
   DContainer = React.createRef();
   state = {
     open: false,

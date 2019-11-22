@@ -43,4 +43,4 @@ AsideSelectionTwo.defaultProps = {
   setToggle: ""
 };
 
-export default AsideSelectionTwo;
+export default React.memo(AsideSelectionTwo);
