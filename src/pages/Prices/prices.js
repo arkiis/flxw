@@ -5,21 +5,37 @@ import * as Styles from "./prices.styles";
 // Container Component
 
 const Prices = props => {
-  const [coins, setCoins] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [coins, setCoins] = useState([]);
+  const [coins, setCoins] = useState({
+    items: [],
+    isLoading: false,
+    error: null
+  });
+
   var intervalsFetched = ["1h", "1d", "7d", "30d", "365d"];
 
+  console.log("coins", coins);
   useEffect(() => {
     const fetchItems = async () => {
-      setIsLoading(true);
+      setCoins({
+        ...coins,
+        isLoading: true
+      });
+      try {
+        const data = await fetch(
+          `https://api.nomics.com/v1/currencies/ticker?key=ba5753b91002279e7338b58479c03ea5&ids=BTC,ETH,XRP,USDT,BCH,LTC,EOS&interval=${intervalsFetched}`
+        );
 
-      const data = await fetch(
-        `https://api.nomics.com/v1/currencies/ticker?key=ba5753b91002279e7338b58479c03ea5&ids=BTC,ETH,XRP,USDT,BCH,LTC,EOS&interval=${intervalsFetched}`
-      );
-      const coins = await data.json();
+        const fetchedCoins = await data.json();
 
-      setCoins(coins);
-      setIsLoading(false);
+        setCoins({
+          ...coins,
+          isLoading: false,
+          items: fetchedCoins
+        });
+      } catch (error) {
+        return "Something went wrong";
+      }
     };
     fetchItems();
   }, []);
@@ -30,8 +46,8 @@ const Prices = props => {
         {/* PriceList holds searchbar and PriceTable components */}
         <PriceList
           intervalsFetched={intervalsFetched}
-          coins={coins}
-          isLoading={isLoading}
+          coins={coins.items}
+          isLoading={coins.isLoading}
           dimensions={props.dimensions.width}
         />
       </Styles.HomepageWrapper>

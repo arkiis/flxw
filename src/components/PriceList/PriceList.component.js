@@ -61,6 +61,7 @@ const PriceList = props => {
         <SearchBar
           intervalsFetched={props.intervalsFetched}
           search={search}
+          isLoading={props.isLoading}
           updateSearch={updateSearch}
           timeIntervals={timeIntervals}
           updateData={updateData}
@@ -71,6 +72,7 @@ const PriceList = props => {
           {/*Table header component*/}
           <tbody>
             <PriceHeader
+              isLoading={props.isLoading}
               CoinIcon={Styles.CoinIcon}
               MarketCapLow={MarketCapLow}
               setMarketCapLow={setMarketCapLow}

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Table from "../../components/Table/Table";
 import Heading from "../../UI/Headings/Heading";
 import Piggy from "../../assets/images/piggy-bank-01.svg";
@@ -47,7 +47,13 @@ const icons = [
   }
 ];
 
-const Homepage = ({ isToggle, setToggle, onClose }) => {
+const Homepage = () => {
+  const [showModal, toggleModal] = useState(false);
+  const [fadeType, toggleFadeType] = useState("in");
+
+  useEffect(() => {
+    setTimeout(() => toggleModal(true), 18000);
+  }, []);
   return (
     <Styles.HomeMainWrapper>
       <Styles.HomepageWrapper>
@@ -55,20 +61,19 @@ const Homepage = ({ isToggle, setToggle, onClose }) => {
         <HomeHeroSection Heading={Heading} />
         <Table />
 
-        {!isToggle && (
-          <ModalUI
-            heading="Join The Club"
-            time={2000}
-            subHeading="Be the first to know about new coins that hit the market! Don't worry, we don't spam"
-            id="modal"
-            isToggle={isToggle}
-            setToggle={setToggle}
-            onClose={onClose}
-            image={Piggy}
-          >
-            <NewsletterContent />
-          </ModalUI>
-        )}
+        <ModalUI
+          heading="Join The Club"
+          time={2000}
+          subHeading="Be the first to know about new coins that hit the market! Don't worry, we don't spam"
+          id="modal"
+          toggleFadeType={toggleFadeType}
+          fadeType={fadeType}
+          showModal={showModal}
+          onClose={toggleModal}
+          image={Piggy}
+        >
+          <NewsletterContent />
+        </ModalUI>
 
         {/*Feature section of homepage*/}
         <HomeFeatureSection Heading={Heading} icons={icons} />

@@ -351,11 +351,14 @@ export const StickyButton = styled.a`
   transition: all 0.7s ease;
   width: 90%;
   top: 0;
+  display: none;
   margin: 0 auto;
-
   margin-top: 14px;
   color: #fff;
   background-color: #6433ff;
+  @media only screen and (max-width: 50em) {
+    display: block;
+  }
 `;
 
 //Heading styles/////////////////////

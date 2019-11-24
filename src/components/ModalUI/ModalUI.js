@@ -31,7 +31,7 @@ class ModalUI extends Component {
 
   componentDidMount() {
     window.addEventListener("keydown", this.onEscKeyDown, false);
-    setTimeout(() => this.setState({ fadeType: "in" }), `${this.props.time}`);
+    // setTimeout(() => this.setState({ fadeType: "in",  }), `${this.props.time}`);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -43,13 +43,7 @@ class ModalUI extends Component {
   componentWillUnmount() {
     window.removeEventListener("keydown", this.onEscKeyDown, false);
   }
-  transitionEnd = e => {
-    if (e.propertyName !== "opacity" || this.state.fadeType === "in") return;
 
-    if (this.state.fadeType === "out") {
-      this.props.onClose();
-    }
-  };
   onEscKeyDown = e => {
     if (e.key !== "Escape") return;
     this.setState({ fadeType: "out" });
@@ -57,36 +51,40 @@ class ModalUI extends Component {
 
   handleClick = e => {
     e.preventDefault();
-    this.setState({ fadeType: "out" });
+    // this.props.toggleFadeType("out");
+
+    this.props.onClose(!this.props.showModal);
   };
   render() {
-    console.log(this.state.fadeType);
-    return ReactDOM.createPortal(
-      <Styles.ModalContainer
-        id={this.props.id}
-        className={`wrapper fade-${this.state.fadeType} ${this.props.modalClass}`}
-        role="dialog"
-        fadeType={this.fadeType}
-        onTransitionEnd={this.transitionEnd}
-      >
-        <Styles.Modal>
-          <DeleteFollowing flxRight relativ onClick={this.handleClick} />
-          <img style={{ width: "50%" }} src={this.props.image} />
-          <Styles.HeadingContainer>
-            <Styles.ModalH1>{this.props.heading}</Styles.ModalH1>
-            <InfoBody>{this.props.subHeading}</InfoBody>
-          </Styles.HeadingContainer>
-          {this.props.children}
-        </Styles.Modal>
-        <div
-          className={`background`}
-          onMouseDown={this.handleClick}
-          ref={this.background}
-        />
-      </Styles.ModalContainer>,
+    console.log(this.props.showModal);
 
-      modalRoot
-    );
+    return !this.props.showModal
+      ? null
+      : ReactDOM.createPortal(
+          <Styles.ModalContainer
+            id={this.props.id}
+            className={`wrapper fade-${this.props.fadeType} ${this.props.modalClass}`}
+            role="dialog"
+            fadeType={this.fadeType}
+          >
+            <Styles.Modal>
+              <DeleteFollowing flxRight relativ onClick={this.handleClick} />
+              <img style={{ width: "50%" }} src={this.props.image} />
+              <Styles.HeadingContainer>
+                <Styles.ModalH1>{this.props.heading}</Styles.ModalH1>
+                <InfoBody>{this.props.subHeading}</InfoBody>
+              </Styles.HeadingContainer>
+              {this.props.children}
+            </Styles.Modal>
+            <div
+              className={`background`}
+              onMouseDown={this.handleClick}
+              ref={this.background}
+            />
+          </Styles.ModalContainer>,
+
+          modalRoot
+        );
   }
 }
 

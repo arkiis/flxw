@@ -11,6 +11,7 @@ import RecoverPassword from "./components/auth/RecoverPassword/RecoverPassword";
 import AccountSettings from "./components/auth/AccountSettings/AccountSettings";
 import Loader from "./UI/loader/loader";
 import ErrorBoundary from "././components/ErrorBoundary/ErrorBoundary";
+import { LoaderWrapper } from "../src/UI/loader/loader";
 
 const Dashboard = React.lazy(() => import("./pages/dashboard/dashboard"));
 const Chatroom = React.lazy(() => import("./pages/chatroom/Chatroom"));
@@ -35,7 +36,13 @@ const Routes = ({ loggedIn, emailVerified, dimensions }) => {
     );
   } else if (loggedIn && emailVerified) {
     routes = (
-      <Suspense fallback={<Loader />}>
+      <Suspense
+        fallback={
+          <LoaderWrapper>
+            <Loader />
+          </LoaderWrapper>
+        }
+      >
         <Switch>
           <Route exact path="/account-settings" component={AccountSettings} />
           <Route exact path="/dashboard" component={Dashboard} />

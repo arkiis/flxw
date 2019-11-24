@@ -16,22 +16,26 @@ const SearchBar = props => {
       <Styles.SearchBarContainer>
         <Styles.SearchInputContainer>
           {/* icon on the search bar */}
-          <img
-            src={SearchIcon}
-            width="20"
-            height="20"
-            style={{ marginRight: "16px" }}
-            alt="Magnifying glass"
-          />
-          {/* this is where the user searches for the coin */}
-          <Styles.SearchBarInput
-            type="text"
-            value={props.search}
-            onChange={props.updateSearch}
-            placeholder="Search coins..."
-          />
+
+          <>
+            <img
+              src={SearchIcon}
+              width="20"
+              height="20"
+              style={{ marginRight: "16px" }}
+              alt="Magnifying glass"
+            />
+            {/* this is where the user searches for the coin */}
+            <Styles.SearchBarInput
+              type="text"
+              value={props.search}
+              onChange={props.updateSearch}
+              placeholder="Search coins..."
+            />
+          </>
         </Styles.SearchInputContainer>
         {/* this is where the user can change the price-change prct */}
+
         <PriceChangeIntervals
           intervalsFetched={props.intervalsFetched}
           color={color}

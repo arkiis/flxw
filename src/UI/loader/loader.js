@@ -1,8 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-
+export const LoaderWrapper = styled.div`
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 const StyledLoader = styled.div`
   display: inline-block;
+
   position: relative;
   width: 64px;
   height: 64px;
