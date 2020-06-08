@@ -4,12 +4,12 @@ import * as Styles from "./prices.styles";
 
 // Container Component
 
-const Prices = props => {
+const Prices = (props) => {
   // const [coins, setCoins] = useState([]);
   const [coins, setCoins] = useState({
     items: [],
     isLoading: false,
-    error: null
+    error: null,
   });
 
   var intervalsFetched = ["1h", "1d", "7d", "30d", "365d"];
@@ -19,11 +19,11 @@ const Prices = props => {
     const fetchItems = async () => {
       setCoins({
         ...coins,
-        isLoading: true
+        isLoading: true,
       });
       try {
         const data = await fetch(
-          `https://api.nomics.com/v1/currencies/ticker?key=ba5753b91002279e7338b58479c03ea5&ids=BTC,ETH,XRP,USDT,BCH,LTC,EOS&interval=${intervalsFetched}`
+          `https://cors-anywhere.herokuapp.com/https://api.nomics.com/v1/currencies/ticker?key=ba5753b91002279e7338b58479c03ea5&ids=BTC,ETH,XRP,USDT,BCH,LTC,EOS&interval=${intervalsFetched}`
         );
 
         const fetchedCoins = await data.json();
@@ -31,7 +31,7 @@ const Prices = props => {
         setCoins({
           ...coins,
           isLoading: false,
-          items: fetchedCoins
+          items: fetchedCoins,
         });
       } catch (error) {
         return "Something went wrong";

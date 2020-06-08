@@ -67,7 +67,7 @@
     "@fortawesome/fontawesome-free": "^5.11.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
-    "jest": "^24.9.0",
+    "jest-enzyme": "^7.1.2",
     "nodemon": "^1.19.4"
   }
 }
