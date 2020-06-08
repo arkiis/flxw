@@ -24,7 +24,7 @@ const ButtonWrapper = styled.div`
   * {
     flex: 40%;
   }
-  @media ${props => props.theme.mediaQueries.small} {
+  @media ${(props) => props.theme.mediaQueries.small} {
     flex-direction: column;
     flex-flow: column-reverse;
     text-align: center;
@@ -45,9 +45,15 @@ const Wave = styled.img`
   top: -10px;
   position: absolute;
   display: flex;
-  @media ${props => props.theme.mediaQueries.medium} {
+  @media ${(props) => props.theme.mediaQueries.medium} {
     display: none;
   }
+`;
+const TestingInfo = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 
 const LoginSchema = Yup.object().shape({
@@ -55,7 +61,7 @@ const LoginSchema = Yup.object().shape({
     .min(8, "too short")
     .email("Invalid email.")
     .required("The email is required"),
-  password: Yup.string().required("The password is required")
+  password: Yup.string().required("The password is required"),
 });
 
 const Login = ({ login, loading, error, cleanUp }) => {
@@ -65,11 +71,13 @@ const Login = ({ login, loading, error, cleanUp }) => {
     };
   }, [cleanUp]);
 
+  const str = "helping";
+
   return (
     <Formik
       initialValues={{
         email: "",
-        password: ""
+        password: "",
       }}
       validationSchema={LoginSchema}
       onSubmit={async (values, { setSubmitting }) => {
@@ -90,14 +98,14 @@ const Login = ({ login, loading, error, cleanUp }) => {
                 name="email"
                 placeholder="Email"
                 component={Input}
-              />
+              ></Field>
 
               <Field
                 type="password"
                 name="password"
                 placeholder="Password"
                 component={Input}
-              />
+              ></Field>
               <ButtonWrapper>
                 <Link to="/recover">
                   <PasswordLink>Forgot your password?😱</PasswordLink>
@@ -110,6 +118,20 @@ const Login = ({ login, loading, error, cleanUp }) => {
                   Sign In
                 </Button>
               </ButtonWrapper>
+              <TestingInfo>
+                <div>
+                  <label>
+                    <strong>testing email</strong>
+                  </label>
+                  <p>william.fleckenstein@gmail.com</p>
+                </div>
+                <div>
+                  <label>
+                    <strong>testing password</strong>
+                  </label>
+                  <p> 12345678</p>
+                </div>
+              </TestingInfo>
               {/* if login creditials are not correct, this message will appear */}
               <MessageWrapper>
                 <Message error show={error}>
@@ -126,15 +148,12 @@ const Login = ({ login, loading, error, cleanUp }) => {
 
 const mapStateToProps = ({ auth }) => ({
   loading: auth.loading,
-  error: auth.error
+  error: auth.error,
 });
 
 const mapDispatchToProps = {
   login: actions.signIn,
-  cleanUp: actions.clean
+  cleanUp: actions.clean,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
