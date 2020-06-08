@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Homepage from "./pages/homepage/homepage";
 import Login from "./components/auth/login";
@@ -9,13 +9,22 @@ import PriceDetail from "./pages/PriceDetail/PriceDetail";
 import Logout from "././components/auth/Logout/Logout";
 import RecoverPassword from "./components/auth/RecoverPassword/RecoverPassword";
 import AccountSettings from "./components/auth/AccountSettings/AccountSettings";
+import Loader from "./UI/loader/loader";
+import ErrorBoundary from "././components/ErrorBoundary/ErrorBoundary";
+import { LoaderWrapper } from "../src/UI/loader/loader";
 
 const Dashboard = React.lazy(() => import("./pages/dashboard/dashboard"));
 const Chatroom = React.lazy(() => import("./pages/chatroom/Chatroom"));
 const Prices = React.lazy(() => import("./pages/Prices/prices"));
 
 const Routes = ({ loggedIn, emailVerified, dimensions }) => {
+  const [isToggle, setToggle] = useState(false);
   let routes;
+
+  //funciton for closing the modals
+  const toggleState = () => {
+    setToggle(!isToggle);
+  };
 
   if (loggedIn && !emailVerified) {
     routes = (
@@ -27,7 +36,13 @@ const Routes = ({ loggedIn, emailVerified, dimensions }) => {
     );
   } else if (loggedIn && emailVerified) {
     routes = (
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <LoaderWrapper>
+            <Loader />
+          </LoaderWrapper>
+        }
+      >
         <Switch>
           <Route exact path="/account-settings" component={AccountSettings} />
           <Route exact path="/dashboard" component={Dashboard} />
@@ -45,7 +60,13 @@ const Routes = ({ loggedIn, emailVerified, dimensions }) => {
             path="/prices/:id"
             exact
             render={props => (
-              <PriceDetail {...props} dimensions={dimensions.width} />
+              <PriceDetail
+                {...props}
+                dimensions={dimensions.width}
+                onClose={toggleState}
+                isToggle={isToggle}
+                setToggle={setToggle}
+              />
             )}
           />
           <Route exact path="/logout" component={Logout} />
@@ -56,7 +77,17 @@ const Routes = ({ loggedIn, emailVerified, dimensions }) => {
   } else {
     routes = (
       <Switch>
-        <Route exact path="/" component={Homepage} />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <Homepage
+              onClose={toggleState}
+              isToggle={isToggle}
+              setToggle={setToggle}
+            />
+          )}
+        />
         <Route exact path="/login" component={Login} />
         <Route exact path="/logUp" component={SignUp} />
         <Route exact path="/recover" component={RecoverPassword} />
@@ -65,7 +96,11 @@ const Routes = ({ loggedIn, emailVerified, dimensions }) => {
     );
   }
 
-  return <div>{routes}</div>;
+  return (
+    <div>
+      <ErrorBoundary>{routes}</ErrorBoundary>
+    </div>
+  );
 };
 
 const mapStateToProps = ({ firebase }) => ({

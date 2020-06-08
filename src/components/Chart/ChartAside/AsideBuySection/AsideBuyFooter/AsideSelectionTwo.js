@@ -6,19 +6,20 @@ import "./AsideBuyFooter.css";
 const AsideSelectionTwo = props => {
   //this component will show which payment system the user
   //will use to purchase X coin.
+  console.log("props", props);
   const classStyle = `${props.iconStyle}`;
-  console.log(props.isToggle);
+
   return (
     <Styles.AsideBuySelectionItems
       //if isToggle does not equal anything,
       //the payment modal will not open
       onClick={() => {
-        switch (props.isToggle) {
+        switch (props.showModal) {
           case "":
             return null;
             break;
           default:
-            props.setToggle(!props.isToggle);
+            props.onClose(!props.showModal);
         }
       }}
     >
@@ -43,4 +44,4 @@ AsideSelectionTwo.defaultProps = {
   setToggle: ""
 };
 
-export default AsideSelectionTwo;
+export default React.memo(AsideSelectionTwo);

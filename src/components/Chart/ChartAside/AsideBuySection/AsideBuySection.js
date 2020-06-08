@@ -12,6 +12,7 @@ const AsideBuySection = props => {
   const [nocursor, setNoCursor] = useState("not-allowed");
   const [value, setValue] = useState("");
 
+  console.log("props000000", props);
   // this arrow function is setting the value attr on the input
   // to only accept numbers
 
@@ -77,8 +78,10 @@ const AsideBuySection = props => {
 
           {/*  this holds buy and pay with components.  */}
           <AsideBuyFooter
-            isToggle={props.isToggle}
-            setToggle={props.setToggle}
+            paymentName={props.paymentName}
+            icon={props.icon}
+            showModal={props.showModal}
+            onClose={props.onClose}
             tabs={tabs}
             activeTab={activeTab}
             setActiveTab={setActiveTab}

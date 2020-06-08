@@ -62,6 +62,7 @@ export const FollowingSection = styled.div`
 export const DeleteFollowing = styled.div`
   opacity: 0.3;
   position: ${relativ => (relativ ? "relative" : "absolute")};
+  align-self: ${flxRight => (flxRight ? "flex-end" : "")};
   top: 0;
   right: 0;
   cursor: pointer;

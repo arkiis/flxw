@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Styles from "../../../../../pages/PriceDetail/PriceDetailStyles";
 
 import { connect } from "react-redux";
 import AsideSelectionTwo from "./AsideSelectionTwo";
-import Stripe from "../../../../../assets/images/Stripe logo - slate.svg";
 
 const AsideBuyFooter = props => {
-  console.log(props.isToggle);
-  console.log(props.setToggle);
+  console.log(props.icon);
+
   return (
     <Styles.AsideBuyFooter>
       <Styles.AsideBuySelection>
@@ -21,16 +20,16 @@ const AsideBuyFooter = props => {
               icon={props.price.logo_url}
               name={props.price.name}
               label="Buy"
-              isToggle={""}
-              setToggle={""}
+              showModal={""}
+              onClose={""}
             ></AsideSelectionTwo>
             <AsideSelectionTwo
-              iconStyle={"mediumIcon"}
-              icon={Stripe}
-              name="Stripe"
+              iconStyle="smallIcon"
+              icon={props.icon}
+              name={props.paymentName}
               label="Pay with"
-              isToggle={props.isToggle}
-              setToggle={props.setToggle}
+              showModal={props.showModal}
+              onClose={props.onClose}
             ></AsideSelectionTwo>
             {/* Buy button */}
             <Styles.CustomButton
@@ -47,16 +46,16 @@ const AsideBuyFooter = props => {
               icon={props.price.logo_url}
               name={props.price.name}
               label="Sell"
-              isToggle={""}
-              setToggle={""}
+              showModal={""}
+              onClose={""}
             ></AsideSelectionTwo>
             <AsideSelectionTwo
-              iconStyle={"mediumIcon"}
-              icon={Stripe}
-              name="Stripe"
+              iconStyle="smallIcon"
+              icon={props.icon}
+              name={props.paymentName}
               label="Send to"
-              isToggle={props.isToggle}
-              setToggle={props.setToggle}
+              showModal={props.showModal}
+              onClose={props.onClose}
             ></AsideSelectionTwo>
             {/* Buy button */}
             <Styles.CustomButton
@@ -80,7 +79,4 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AsideBuyFooter);
+export default connect(mapStateToProps, mapDispatchToProps)(AsideBuyFooter);

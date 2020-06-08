@@ -1,15 +1,16 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import ReactApexChart from "react-apexcharts";
 import CHART_DATA from "./AreaChartData";
 import "./Chart.css";
 
 //this chart can be found on the PriceDetails component
 
-class AreaChart extends React.Component {
+class AreaChart extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
+      coins: [],
       chartData: CHART_DATA,
       chartDataSelection: CHART_DATA.selection,
       chartDataOptions: CHART_DATA.selection.options
@@ -91,6 +92,10 @@ class AreaChart extends React.Component {
   }
 
   render() {
+    console.log(this.coins);
+    const priceChangePercent =
+      this.props.price["1d"] && this.props.price["1d"].price_change_pct;
+    const simplifiedPercent = (priceChangePercent * 100).toFixed(2);
     let cool = { ...CHART_DATA };
     //These are the differnet time intervals for the area chart
 
@@ -154,9 +159,21 @@ class AreaChart extends React.Component {
               ALL
             </span>
           </div>
-          <p className="areaChartPrice">
-            ${this.props.simplifyPrice(this.props.price.price)}
-          </p>
+          <div className="areaChartHeader">
+            <p className="areaChartPrice">
+              ${this.props.simplifyPrice(this.props.price.price)}
+            </p>
+            <p
+              className="areaChartPercent"
+              style={
+                simplifiedPercent.charAt(0) === "-"
+                  ? { color: "#ff2734" }
+                  : { color: "#23cc9a" }
+              }
+            >
+              {simplifiedPercent}%
+            </p>
+          </div>
         </div>
 
         {/* the area chart */}

@@ -34,12 +34,20 @@ const FollowIcon = ({ price }) => {
       price: price.price,
       userId: firebase.auth().currentUser.uid
     };
+
     //adding the data above to firebase's real time database
+    {
+      following === false
+        ? db
+            .collection("coins")
+            .doc(price.id)
 
-    db.collection("coins")
-      .doc(price.id)
-
-      .set(data);
+            .set(data)
+        : db
+            .collection("coins")
+            .doc(price.id)
+            .delete();
+    }
 
     // setFollowing("apple");
     setTitle("Following");
@@ -74,7 +82,7 @@ const FollowIcon = ({ price }) => {
   return (
     //this whole container is the follow button
 
-    <Stlyes.Container onClick={() => handleClick()}>
+    <Stlyes.Container id="follow" onClick={() => handleClick()}>
       <Stlyes.FollowIconContent
         onClick={() => {
           store.addNotification({
