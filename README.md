@@ -1,5 +1,3 @@
 *******VIST SITE: https://www.flxw.io/
 
-![flxw-7](https://user-images.githubusercontent.com/48226153/85149049-76c70300-b216-11ea-9d8c-10099bb4c2f8.png)
-
-![flxw-6](https://user-images.githubusercontent.com/48226153/85149200-a1b15700-b216-11ea-8bea-60083a2f8769.png)
+![flxw-7-better](https://user-images.githubusercontent.com/48226153/85150913-c1497f00-b218-11ea-9f0b-22dacaebaafd.png)
