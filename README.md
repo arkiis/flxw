@@ -1,4 +1,4 @@
 *******VIST SITE: https://www.flxw.io/
 
 
-![GitHub Logo](https://ibb.co/4FF1kB3)
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
