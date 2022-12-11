@@ -11,7 +11,7 @@
     "cryptocurrency-icons": "^0.16.1",
     "date-and-time": "^0.10.0",
     "date-fns": "^2.6.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "firebase": "^6.5.0",
     "formik": "^1.5.8",
     "framer-motion": "^1.6.15",
